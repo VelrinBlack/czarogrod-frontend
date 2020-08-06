@@ -8,6 +8,11 @@ import ReactMarkdown from 'react-markdown'
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Comments from '../components/Blog/Comments';
+
+import ReactDOMServer from 'react-dom/server'
+
+import ReactHtmlParser from 'react-html-parser';
 
 
 const StyledContainer = styled.div`
@@ -21,26 +26,36 @@ const Post = (props) => {
         axios.get(`https://radiant-atoll-46287.herokuapp.com/posts/${props.match.params.id}`).then(res => setArticle(res.data))
     }, []);
 
-    const loadImage = () => {
+    const loadConent = () => {
         try {
-            return <img src={`https://radiant-atoll-46287.herokuapp.com${article.image.formats.medium.url}`} />
+
+            var rx = /!\[.*?\]\((.*?)\)/g;
+            var urls = [], m;
+            while(m = rx.exec(article.Content)) {
+                urls.push(m[1]);
+            }
+
+            urls.forEach((url, index) => {
+                article.Content = article.Content.replace(/!\[.*?\]\((.*?)\)/, `<img src=https://radiant-atoll-46287.herokuapp.com${url} />`)
+            });
+
+            return <ReactMarkdown source={ReactDOMServer.renderToStaticMarkup(ReactHtmlParser(article.Content))} escapeHtml={false}/>
         } catch (error) {
-            return 'Tu jest pusto!'
+            return 'Ładowanie zawartości...'
         }
     }
 
     return (
         <>
-            {/* <Header /> */}
+            <Header />
             <StyledContainer>
                 <Link to="/blog" className="go-back">
                     <span>Powrót</span>
                 </Link>
 
-                {loadImage()}
+                {loadConent()}
                 
-                <ReactMarkdown source={article.Content} />
-                
+                <Comments/>
             </StyledContainer>
             <Footer />
         </>
