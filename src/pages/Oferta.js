@@ -61,7 +61,7 @@ const Slides = styled.div`
         color: #fff;
         overflow: hidden;
 
-        h1 {
+        h2 {
             width: 100%;
             display: block;
 
@@ -72,6 +72,10 @@ const Slides = styled.div`
             font-size: 50px;
             font-weight: 700;
             letter-spacing: 2px;
+
+            @media (max-width: 1440px) { font-size: 40px; }
+            @media (max-width: 1024px) { font-size: 30px; }
+            @media (max-width: 768px) { font-size: 25px; }
         }
     }
 
@@ -131,12 +135,10 @@ const Oferta = () => {
 
             <Slides>
                 <Link to="/pytania" className="slide1 slide">
-                    <h1>
-                        Masz wątpliwości? Zobacz o co pytają klienci
-                    </h1>
+                    <h2>Masz wątpliwości? Zobacz o co pytają klienci</h2>
                 </Link>
                 <Link to="/portfolio" className="slide2 slide">
-                        <h1>Sprawdź moje ostatnie projekty</h1>
+                    <h2>Sprawdź moje ostatnie projekty</h2>
                 </Link>
             </Slides>
 
