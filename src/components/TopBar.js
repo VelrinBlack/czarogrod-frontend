@@ -175,6 +175,53 @@ const StyledTopBar = styled.div`
             }
         }
     }
+
+    @media (max-width: 499px) {
+        height: 68px;
+
+        .container {
+            height: 100%;
+            width: 100%;
+
+            .contact {
+                width: 50%;
+                height: 40px;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .social-media {
+                width: 20%;
+                margin-left: 60px;
+            }
+        }
+    }
+    @media (max-width: 359px) {
+        height: 68px;
+
+        .container {
+            height: 100%;
+            width: 100%;
+
+
+
+            .contact {
+
+                .contact-phone,
+                .contact-mail {
+                    margin-left: 40px;
+                    width: 200px;
+                }
+
+             
+            }
+            .social-media {
+                margin-left: 20%;
+            }
+        }
+    }
 `;
 
 const TopBar = () => {

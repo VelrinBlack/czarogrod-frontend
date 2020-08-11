@@ -1,85 +1,69 @@
+// react
 import React, { useEffect, useState } from 'react';
-
 import { Link } from 'react-router-dom';
 
+// external packages
 import styled from 'styled-components';
 import axios from 'axios';
 
-import Post from '../Blog/Post';
+// components
+import Post from '../Blog/Post'
+
 
 const StyledContainer = styled.div`
-    width: 100%;
+    position: relative;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 60%;
+    margin: 300px auto;
 
-    padding: 300px 0;
+    @media (max-width: 1920px){ width: 70%; }
+    @media (max-width: 1024px){ width: 80%; }
+    @media (max-width: 786px){ width: 90%; }
 
     .heading {
-        margin-bottom: 200px;
+        margin-bottom: 150px;
         font-size: 60px;
+        text-align: center;
+
+        @media (max-width: 1024px){ margin-bottom: 100px; font-size: 50px;}
+        @media (max-width: 786px) { font-size: 40px; }
     }
 
-    .posts {
-        width: 40%;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+    .see-more {
+        position: relative;
+        left: 50%;
 
-    .button-container {
-        width: 100%;
-        margin-top: 100px;
+        width: 200px;
+        height: 50px;
 
-        display: flex;
-        justify-content: center;
+        display: block;
 
-        .see-more-btn {
-            width: 200px;
-            height: 50px;
+        padding: 10px 20px;
+        margin-top: 50px;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 700;
+        color: #399ca1;
+        text-decoration: none;
+        letter-spacing: 1.5px;
 
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 700;
-            color: #399ca1;
-            letter-spacing: 1.5px;
-            color: #399ca1;
+        background-color: #fff;
+        border: 3px solid #399ca1;
+        border-radius: 4px;
 
-            background: #fff;
-            border: #399ca1 solid 3px;
-            border-radius: 4px;
-            box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.2);
+        transform: translateX(-50%);
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 0;
 
-            cursor: pointer;
-            overflow: hidden;
-            z-index: 0;
+        &:hover {
+            box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.2);
+        }
 
-            &:hover {
-                    box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.2);
-                }
-
-                &:focus {
-                    outline: none;
-                    animation: rm-btn-shadow .4s;
-                }
-            }
-
-            @keyframes rm-btn-shadow {
-                0% {
-                    box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.2);
-                } 50% {
-                    box-shadow: 0 0 0 0 rgba(0,0,0, .2);
-                } 100% {
-            box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.2);
-                }
-            }
+        &:focus {
+            outline: none;
         }
     }
 `;
@@ -88,28 +72,30 @@ const NajnowszeWpisy = () => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        axios.get('https://radiant-atoll-46287.herokuapp.com/posts').then(res => setArticles(res.data))
+        axios.get('https://czarogrod-server.herokuapp.com/posts?_limit=2').then(res => setArticles(res.data))
     }, []);
 
     return (
         <StyledContainer>
-            <h1 className="heading">Najnowsze wpisy</h1>
-            <div className="posts">
+            <h1 className='heading'>Najnowsze wpisy</h1>
+            <div className='posts'>
                 {
+                    // check if there are no posts
                     articles.length === 0 ? (
-                        <h5>Nie ma jeszcze żadnyh postów</h5>
+                        <h5>Tu jest pusto!</h5>
                     ) : null
                 }
 
-                {articles.map((post) => {
-                    
-                })}
+                {
+                    articles.map((post) => (
+                        <Post image={post.image.formats.large.url} title={post.title} content={post.content} key={post.id} id={post.id}/>)
+                    )
+                }
             </div>
-            <div className="button-container">
-                <Link to="/blog" className="see-more-btn">
-                    Zobacz więcej
-                </Link>
-            </div>
+            
+            <Link to='/blog' className='see-more'>
+                Zobacz więcej
+            </Link>
         </StyledContainer>
     );
 };

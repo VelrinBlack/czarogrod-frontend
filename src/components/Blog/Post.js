@@ -1,46 +1,78 @@
+// react
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+// external packages
+import styled from 'styled-components';
 
 
 const StyledPost = styled.div`
-        position: relative;
-        left: 100px;
+    .link-wrapper {
+        color: #000;
+        text-decoration: none;
 
-    .image {
-        width: 100%;
+        .image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+
+            @media (max-width: 1024px) { height: 300px; }
+        }
+        
+        .title {
+            font-size: 25px;
+
+            @media (max-width: 1920px) { font-size: 20px; }
+        }
+
+        .text {
+            font-size: 20px;
+
+            @media (max-width: 1920px) { font-size: 17px; }
+        }
     }
-
-    @media (max-width: 1024px) {
-        width: 600px;
-    }
-
+    
 `;
 
-const Post = (props) => 
-{
-    function cutString(s, n){
-        var cut= s.indexOf(' ', n);
-        if(cut === -1) return s;
-        return s.substring(0, cut)
+const Post = (props) => {
+
+    // load text preview (first 210 characters)
+    const loadText = () => {
+
+        const cutString = (string, number) => {
+            const cut = string.indexOf(' ', number);
+            if (cut === -1) return string;
+            return string.substring(0, cut)
+        }
+
+        try {
+            return cutString(
+                // only letters, numbers and !?,.
+                props.content.replace(/\r?\n|\r/g, ' ').match(/[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ0-9 !?,.]/g).join(''),
+                210
+            )
+        } catch (error) {
+            return 'Ładowanie...'
+        }
     }
 
     return (
         <StyledPost>
-            <img src={props.image} alt='image' className='image' />
-
-            <Link to={'/blog/' + props.id} className="link">
-                <h3 className="title">{props.title}</h3>
-            </Link>
-
-
-            <p>{cutString(props.content.match(/[a-zA-Z0-9 !?,.]/g).join(''), 210)}...</p>
-
-            <Link to={'/blog/' + props.id} className="link read-more">
-                Czytaj dalej
+            <Link to={'/blog/' + props.id} className='link-wrapper'>
+                <img src={props.image} alt='Zdjęcie artykułu' className='image' />
+                <h3 className='title'>{props.title}</h3>
+                <p className='text'>{loadText()}</p>
             </Link>
         </StyledPost>
     );
+};
+
+Post.propTypes = {
+    image: PropTypes.string,
+    title: PropTypes.string,
+    content: PropTypes.string,
+    id: PropTypes.number
 };
 
 export default Post;

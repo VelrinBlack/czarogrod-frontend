@@ -1,12 +1,16 @@
+// react
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// owl carousel
+// external packages
+import styled from 'styled-components';
 import OwlCarousel from 'react-owl-carousel';
+
+// styles
 import 'owl.carousel/dist/assets/owl.carousel.min.css';
 import 'owl.carousel/dist/assets/owl.theme.default.min.css';
 
-// carousel images, svgs
+// images
 import img1 from '../../images/1.jpg';
 import img2 from '../../images/2.jpg';
 import img3 from '../../images/3.jpg';
@@ -14,28 +18,33 @@ import img4 from '../../images/4.jpg';
 import arrow_left from '../../images/arrow-left.svg';
 import arrow_right from '../../images/arrow-right.svg';
 
-import styled from 'styled-components';
 
 const StyledCarousel = styled.div`
         margin-top: 150px;
 
+        .owl-theme, .owl-carousel {
+
             .slide {
-                height: 700px;
                 width: 100%;
+                height: 700px;
 
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
 
+                margin-top: 100px;
+
                 background-size: cover;
                 background-position: center;
                 
-                margin-top: 100px;
-
                 color: #fff;
-
                 overflow: hidden;
+
+                @media (max-width: 1024px) {
+                    margin-top: 190px;
+                    height: 500px;
+                }
             }
 
             .slide1 {
@@ -51,7 +60,7 @@ const StyledCarousel = styled.div`
                 background-image: url(${img4});
             }
 
-            h1 {
+            .title {
                 width: 100vw;
 
                 display: block;
@@ -64,6 +73,13 @@ const StyledCarousel = styled.div`
                 font-weight: 700;
                 letter-spacing: 2px;
 
+                @media (max-width: 1024px) {
+                    font-size: 30px;
+                }
+
+                @media (max-width: 786px) {
+                    font-size: 25px;
+                }
             }
 
             .btn {
@@ -76,21 +92,26 @@ const StyledCarousel = styled.div`
                 justify-content: center;
                 align-items: center;
 
-                text-decoration: none;
+                background-color: #399CA1;
+
+                color: #fff;
                 font-size: 16px;
                 font-weight: 700;
+                text-decoration: none;
                 letter-spacing: 1.5px;
-                color: #fff;
 
-                background: #399CA1;
                 border: none;
                 border-radius: 4px;
                 box-shadow: 0 5px 10px 5px rgba(0,0,0, .2);
 
-
                 cursor: pointer;
                 overflow: hidden;
                 z-index: 0;
+                
+                @media (max-width: 1024px) {
+                    width: 140px;
+                    height: 45px;
+                }
 
                 &::before {
                     content: '';
@@ -99,34 +120,26 @@ const StyledCarousel = styled.div`
                     top: 0;
                     left: 0;
 
-                    width: 0;
+                    width: 100%;
                     height: 100%;
 
                     background-color: #fff;
 
-                    transition: width .3s;
+                    transform: translateX(-100%);
+                    transition: transform .3s;
                     z-index: -1;
                 }
-                &:hover::before {
-                    width: 100%;
-                }
+                
                 &:hover {
                     color: #399CA1;
+
+                    &::before {
+                        transform: translateX(0);
+                    }
                 }
 
                 &:focus {
                     outline: none;
-                    animation: rm-btn-shadow .4s;
-                }
-            }
-
-            @keyframes rm-btn-shadow {
-                0% {
-                    box-shadow: 0 5px 10px 5px rgba(0,0,0, .2);  
-                } 50% {
-                    box-shadow: 0 0 0 0 rgba(0,0,0, .2);
-                } 100% {
-                    box-shadow: 0 5px 10px 5px rgba(0,0,0, .2);
                 }
             }
 
@@ -136,35 +149,39 @@ const StyledCarousel = styled.div`
 
                 width: 100%;
 
+                @media (max-width: 1024px) {
+                    display: none;
+                }
+
                 .owl-dot {
                     width: 25px;
                     height: 25px;
 
                     outline: none;
-                    
+
+                    &:hover span {
+                        opacity: 1;
+                        background-color: #fff !important;
+                    }
+
+                    &.active span {
+                        background-color: #fff !important;
+                        opacity: 1;
+                    }
+
                     &:focus {
                         outline: none;
                     }
 
-                    &:hover {
-                        span {
-                            opacity: 1;
-                            background-color: #fff !important;
-                        }
+                    span {
+                        width: 15px;
+                        height: 15px;
+
+                        background-color: #fff;
+                        opacity: 0.5;
+
+                        transition: 0.3s all;
                     }
-                }
-                .owl-dot span {
-                    width: 15px;
-                    height: 15px;
-
-                    background-color: #fff;
-                    opacity: 0.5;
-
-                    transition: 0.3s all;
-                }
-                .active span {
-                    background: #fff !important;
-                    opacity: 1;
                 }
             }
 
@@ -179,17 +196,21 @@ const StyledCarousel = styled.div`
                 
                 .owl-prev,
                 .owl-next {
-                    height: 50px;
                     width: 50px;
+                    height: 50px;
+
+                    @media (max-width: 1024px) {
+                        display: none;
+                    }
 
                     &:hover {
                         background-color: transparent;
                     }
+
                     &:focus {
                         outline: none;
                     }
                 }
-
                 .owl-prev span {
                     content: url(${arrow_left});
                 }
@@ -198,36 +219,11 @@ const StyledCarousel = styled.div`
                 }
             }
         }
-
-        @media (max-width: 1024px) {
-            margin-top: 190px;
-
-            
-            .slide {
-                height: 500px;
-            }
-
-            h1 {
-                font-size: 30px;   
-            }
-
-            .btn {
-                font-size: 13px;
-            }
-
-            .owl-dots {
-                display: none;
-            }
-
-            .owl-nav {
-                display: none;
-            }
-        }
     `;
 
 const Slider = () => {
     const settings = {
-        className: 'owl-theme',
+        className: 'owl-theme owl carousel',
         items: 1,
         autoplay: true,
         loop: true,
@@ -236,34 +232,39 @@ const Slider = () => {
 
     return (
         <StyledCarousel>
-            <OwlCarousel {...settings} className="owl-carousel owl-theme">
-                <div className="slide1 slide">
-                    <h1>Zobacz jak pracujemy</h1>
+            <OwlCarousel {...settings}>
 
-                    <Link className="btn1 btn" to="/oferta">
+                <div className='slide slide1'>
+                    <h1 className='title'>Zobacz jak pracujemy</h1>
+
+                    <Link to='/oferta' className='btn btn1'>
                         OFERTA
                     </Link>
                 </div>
-                <div className="slide2 slide">
-                    <h1>Każde miejsce można zaczarować</h1>
-                    <Link className="btn2 btn" to="/portfolio">
+
+                <div className='slide slide2'>
+                    <h1 className='title'>Każde miejsce można zaczarować</h1>
+
+                    <Link to='/portfolio' className='btn btn2'>
                         PORTFOLIO
                     </Link>
                 </div>
-                <div className="slide3 slide">
-                    <h1>
-                        Masz wątpliwości? <br /> Zobacz o co pytają klienci
-                    </h1>
-                    <Link className="btn3 btn" to="/pytania">
+
+                <div className='slide slide3'>
+                    <h1 className='title'> Masz wątpliwości? <br /> Zobacz o co pytają klienci</h1>
+
+                    <Link to='/pytania' className='btn btn3'>
                         PYTANIA
                     </Link>
                 </div>
-                <div className="slide4 slide">
-                    <h1>Zadzwoń lub napisz – służę pomocą</h1>
-                    <Link className="btn4 btn" to="/kontakt">
+
+                <div className='slide slide4'>
+                    <h1 className='title'>Zadzwoń lub napisz – służę pomocą</h1>
+                    <Link to='/kontakt' className='btn btn4'>
                         KONTAKT
                     </Link>
                 </div>
+                
             </OwlCarousel>
         </StyledCarousel>
     );

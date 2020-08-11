@@ -4,6 +4,8 @@ import styled from 'styled-components';
 const StyledCard = styled.div`
     img {
         width: 100%;
+        height: 400px;
+        object-fit: cover;
     }
     p {
         font-size: 16px;

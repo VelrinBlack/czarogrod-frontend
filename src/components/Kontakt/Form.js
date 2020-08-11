@@ -1,161 +1,199 @@
+// react
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'
+
+// external packages
 import styled from 'styled-components';
 import axios from 'axios';
 
+// images
 import img from '../../images/kontakt-img.jpg';
 
 const StyledContainer = styled.div`
     width: 100%;
+    height: 1400px;
+
+    display: flex;
+    justify-content: space-around;
 
     margin-top: 250px;
 
-    .main {
-        width: 100%;
-        height: 1400px;
-
-        display: flex;
-        justify-content: space-around;
+    img {
+        width: 35%;
+        height: 1000px;
 
         margin-top: 100px;
-        padding-top: 70px;
 
-        .img {
-            width: 30%;
-            height: 900px;
+        object-fit: cover;
+        object-position: center;
 
-            margin-top: 100px;
+        @media (max-width: 1280px) {
+            display: none;
+        }
+    }
 
-            background-image: url(${img});
-            background-size: 100%;
-            background-repeat: no-repeat;
+    form {
+        width: 50%;
+        height: 900px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @media (max-width: 1280px) { width: 80%; }
+        @media (max-width: 1024px) { margin-top: 100px; }
+        @media (max-width: 500px) { height: 1000px; }
+        
+
+        h1 {
+            width: 100%;
+            margin-bottom: 50px;
+
+            font-size: 50px;
+            text-align: center;
         }
 
-        form {
-            width: 50%;
-            height: 900px;
+        p {
+            position: relative;
+            width: 100%;
 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            @media (max-width: 500px) { margin: 30px 0 30px 0; }
 
-            .success {
-                width: 100%;
-
+            label {
                 display: block;
-
-                margin-top: 30px;
-                padding: 20px 0;
-
-                border: 3px solid #98dad9;
+                margin-bottom: 20px;
 
                 text-align: center;
             }
 
-            h1 {
-                width: 100%;
-
-                margin: 0 0 50px 0;
-
-                font-size: 50px;
-                text-align: center;
-            }
-
-            p {
-                position: relative;
+            input,
+            textarea {
+                box-sizing: border-box;
 
                 width: 100%;
 
-                .errorTxt {
-                    font-size: 14px;
-                    color: red;
+                margin: 0;
+                padding: 0 20px;
+
+                background-color: #fff;
+                border-radius: 3px;
+                border: 2px solid #f2f2f2;
+
+                font-size: 19px;
+
+                @media (max-width: 500px) {
+                    font-size: 13px;
+                    padding: 0 10px;
+
+                    &::placeholder {
+                        color: transparent;
+                    }
                 }
+            }
 
-                label {
-                    width: 100%;
-                    display: block;
-                    margin-bottom: 20px;
+            input {
+                height: 70px;
 
+                @media (max-width: 500px) { height: 60px; }
+            }
+            
+            textarea {
+                box-sizing: border-box;
+
+                height: 200px;
+                padding-top: 10px;
+
+                @media (max-width: 500px) { height: 150px; }
+            }
+
+            .errorTxt {
+                position: absolute;
+                top: 95%;
+
+                font-size: 14px;
+                color: red;
+
+                @media (max-width: 500px) {
+                    top: 75%;
                     text-align: center;
                 }
+            }
 
-                .rodo {
-                    font-size: 14px;
+            .rodo {
+                margin-top: 50px;
+                font-size: 14px;
 
-                    .rodo-checkbox {
-                        width: 14px;
-                        height: 14px;
-
-                        margin-right: 20px;
-
-                        &:hover {
-                            cursor: pointer;
-                        }
+                @media (max-width: 500px) {
+                    height: 350px;
+                    span {
+                        font-size: 11px;
                     }
                 }
 
-                input,
-                textarea {
-                    box-sizing: border-box;
+                .rodo-checkbox {
+                    width: 14px;
+                    height: 14px;
 
-                    width: 100%;
-
-                    margin: 0;
-                    padding-left: 20px;
-
-                    background-color: #fff;
-                    border-radius: 3px;
-                    border: 2px solid #f2f2f2;
-
-                    font-size: 19px;
+                    margin-right: 20px;
                 }
-                input {
-                    height: 70px;
-                }
-                textarea {
-                    box-sizing: border-box;
-
-                    height: 200px;
-
-                    padding: 20px 0 0 20px;
-
-                    font-family: 'Poppins', sans-serif;
-                }
-            }
-            .submit {
-                position: relative;
-
-                width: 100%;
-                height: 60px;
-
-                margin-top: 60px;
-                padding: 0;
-
-                background-color: #399ca1;
-                border: none;
-                border-radius: 4px;
-                box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-
-                font-size: 16px;
-                font-weight: 700;
-                letter-spacing: 1.5px;
-                color: #fff;
-
-                cursor: pointer;
-                transition: all 0.2s;
-                z-index: 0;
 
                 &:hover {
-                    transform: scale(0.97);
+                    cursor: pointer;
                 }
+            }
 
-                &:focus {
-                    outline: none;
-                }
+        }
+
+        .submit {
+            position: relative;
+
+            width: 100%;
+            height: 60px;
+
+            margin-top: 60px;
+            padding: 0;
+
+            background-color: #399ca1;
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #fff;
+
+            cursor: pointer;
+            transition: all 0.2s;
+
+            @media (max-width: 500px) {
+                margin-top: 0;
+            }
+
+            &:hover {
+                transform: scale(0.97);
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .polityka {
+            text-decoration: none;
+            color: #399ca1;
+
+            @media (max-width: 500px) {
+                font-size: 12px;
+            }
+
+            &:hover {
+                text-decoration:underline;
             }
         }
     }
 
-    @media (max-width: 1536px) {
+    /* @media (max-width: 1536px) {
         .main {
             .img {
                 height: 700px;
@@ -268,9 +306,9 @@ const StyledContainer = styled.div`
                 }
             }
         }
-    }
+    } */
 
-    @media (max-width: 962px) {
+    /* @media (max-width: 962px) {
         width: 100%;
 
         padding-top: 100px;
@@ -314,7 +352,7 @@ const StyledContainer = styled.div`
                 }
             }
         }
-    }
+    } */
 `;
 
 const Form = () => {
@@ -322,12 +360,14 @@ const Form = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [rodo, setRodo] = useState('');
-    const [send, setSend] = useState(false);
 
     const [nameError, setNameError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [messageError, setMessageError] = useState('');
     const [rodoError, setRodoError] = useState('');
+
+    const [send, setSend] = useState(false);
+
 
     const handleChangeName = (e) => {
         setName(e.target.value);
@@ -338,6 +378,7 @@ const Form = () => {
             setNameError('');
         }
     };
+
     const handleChangeEmail = (e) => {
         setEmail(e.target.value);
 
@@ -352,6 +393,7 @@ const Form = () => {
             setEmailError('');
         }
     };
+
     const handleChangeMessage = (e) => {
         setMessage(e.target.value);
 
@@ -361,12 +403,12 @@ const Form = () => {
             setMessageError('');
         }
     };
+
     const handleClickRodo = (e) => {
         setRodo(e.target.checked);
 
         if (!e.target.checked) {
-            setRodoError('Zaakceptuj proszę naszą politykę prywatności');
-            console.log(e.target.checked);
+            setRodoError('Zaakceptuj proszę naszą politykę prywatności'); 
         } else {
             setRodoError('');
         }
@@ -407,9 +449,7 @@ const Form = () => {
                         setMessage('');
                         setSend('success');
                     } else {
-                        setSend(
-                            'Coś poszło nie tak. Sprawdź uzupełnioną treść i spróbuj jescze raz.'
-                        );
+                        setSend('error');
                     }
                 });
 
@@ -422,10 +462,12 @@ const Form = () => {
     return (
         <>
             <StyledContainer>
-                <div className="main">
-                    <div className="img"></div>
+
+                    <img src={img} alt='plants'/>
+
                     <form onSubmit={(e) => handleSubmit(e)}>
                         <h1>Kontakt</h1>
+
                         <p>
                             <label>Imię i nazwisko</label>
                             <input
@@ -436,6 +478,7 @@ const Form = () => {
                             />
                             <p className="errorTxt">{nameError}</p>
                         </p>
+
                         <p>
                             <label>Adres email (wymagane)</label>
                             <input
@@ -445,6 +488,7 @@ const Form = () => {
                             />
                             <p className="errorTxt">{emailError}</p>
                         </p>
+
                         <p>
                             <label>Wiadomość (wymagane)</label>
                             <textarea
@@ -454,6 +498,7 @@ const Form = () => {
                             />
                             <p className="errorTxt">{messageError}</p>
                         </p>
+
                         <p>
                             <label className="rodo">
                                 <input
@@ -464,28 +509,15 @@ const Form = () => {
                                     className="rodo-checkbox"
                                 />
                                 <span>
-                                    <span
-                                        style={{
-                                            fontWeight: '700',
-                                        }}
-                                    >
-                                        (wymagane)
-                                    </span>{' '}
-                                    Wyrażam zgodę na przetwarzanie moich
-                                    danychosobowych zgodnie z ustawą o ochronie
-                                    danych osobowych w związku z wysłaniem
-                                    zapytania przez formularz kontaktowy.
-                                    Podanie danych jest niezbędne do
-                                    przetworzenia zapytania. Zostałem
-                                    poinformowany o prawie dostępu do swoich
-                                    danych, możliwości ich edytowania oraz
-                                    żądania zaprzestania ich przetwarzania.
-                                    Administratorem danych osobowych jest
-                                    właściciel serwisu CzarOgród.pl.
+                                    (wymagane) Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z ustawą o ochronie danych osobowych w związku z wysłaniem zapytania przez formularz kontaktowy. Podanie danych jest niezbędne do przetworzenia zapytania. Zostałem poinformowany o prawie dostępu do swoich danych, możliwości ich edytowania oraz żądania zaprzestania ich przetwarzania. Administratorem danych osobowych jest właściciel serwisu CzarOgród.pl.
                                 </span>
+                                <br/>
+                                <br/>
+                                <span >Zapoznaj się z naszą </span><Link className='polityka' to="/polityka_prywatności">Polityką prywatności</Link>
                             </label>
                             <p className="errorTxt">{rodoError}</p>
                         </p>
+
                         <p>
                             <input
                                 type="submit"
@@ -493,6 +525,7 @@ const Form = () => {
                                 value="Wyślij"
                             />
                         </p>
+
                         <div className={send}>
                             {!send
                                 ? ''
@@ -502,8 +535,9 @@ const Form = () => {
                                 ? 'Twoja wiadomość została wysłana pomyślnie'
                                 : ''}
                         </div>
+
                     </form>
-                </div>
+
             </StyledContainer>
         </>
     );

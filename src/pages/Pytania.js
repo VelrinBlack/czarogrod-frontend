@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -66,11 +66,20 @@ const ContactSlide = styled.div`
 `;
 
 const Pytania = () => {
+
+    useEffect(() => {
+        window.scroll({
+            top: 0,
+            left: 0,
+        });
+    }, [])
+
     return (
         <>
             <Header />
             <StyledContainer>
                 <h1>Pytania</h1>
+                <Question question="W jakiej części Polski działa Czarogród.pl?" anwser="Mieszkam w Alwerni, niewielkiej miejscowości w połowie drogi między Krakowem, a Katowicami, dlatego główny obszar działania to województwa małopolskie i śląskie, jednak w przypadku mniejszych projektów z innych części Polski, z chęcią podejmę się współpracy z Tobą w sposób zdalny." leaf={true} />
                 <Question
                     question="Ile trwa przygotowanie projektu?"
                     anwser="Czas przygotowania projektu zależy od wielu czynników, wpływa na to wielkość ogrodu,
@@ -81,18 +90,14 @@ poziom skomplikowania projektu, ilość zmian w trakcie procesu. Z reguły jest 
                 <Question
                     question="Co muszę wiedzieć przed podjęciem współpracy?"
                     anwser={[
-                        'Przed przystąpieniem do projektowania, musimy wspólnie ustalić jakie są podstawowe potrzeby wszystkich użytkowników ogrodu oraz co w ogrodzie nam się podoba. Na te pytania poszukamy odpowiedzi podczas ',
-                        <br />,
-                        'pierwszego spotkania.',
+                        'Przed przystąpieniem do projektowania, musimy wspólnie ustalić jakie są podstawowe potrzeby wszystkich użytkowników ogrodu oraz co w ogrodzie nam się podoba. Na te pytania poszukamy odpowiedzi podczas pierwszego spotkania.',
                     ]}
                     leaf={true}
                 />
                 <Question
                     question="Co zawiera projekt?"
                     anwser={[
-                        'Każdy projekt składa się z kilku części, jest to plansza pokazująca kolorystykę i nastrój w projektowanym ogrodzie ',
-                        <br />,
-                        '(tzw moodboard), plan koncepcyjny zagospodarowania ogrodu, szczegółowy plan techniczny, spis wszystkich roślin, plan oświetlenia oraz wizualizacje. Projekt może też zawierać propozycję altany, pergoli, podjazdu lub ogrodzenia.',
+                        'Każdy projekt składa się z kilku części, jest to plansza pokazująca kolorystykę i nastrój w projektowanym ogrodzie (tzw moodboard), plan koncepcyjny zagospodarowania ogrodu, szczegółowy plan techniczny, spis wszystkich roślin, plan oświetlenia oraz wizualizacje. Projekt może też zawierać propozycję altany, pergoli, podjazdu lub ogrodzenia.',
                     ]}
                     leaf={true}
                 />

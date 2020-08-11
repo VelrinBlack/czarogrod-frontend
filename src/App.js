@@ -11,6 +11,7 @@ import Pytania from './pages/Pytania';
 import Blog from './pages/Blog';
 import Post from './pages/Post';
 import Kontakt from './pages/Kontakt';
+import PolitykaPrywatności from './pages/PolitykaPrywatności'
 
 const App = () => {
     return (
@@ -25,6 +26,7 @@ const App = () => {
                 <Route path="/blog/:id" component={Post} />
                 <Route path="/blog" component={Blog} />
                 <Route path="/kontakt" component={Kontakt} />
+                <Route path="/polityka_prywatności" component={PolitykaPrywatności} />
             </Switch>
         </Router>
     );

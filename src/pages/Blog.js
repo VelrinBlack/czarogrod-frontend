@@ -1,91 +1,117 @@
+// react
 import React, { useState, useEffect } from 'react';
-
 import { Link } from 'react-router-dom';
+
+// external packages
 import styled from 'styled-components';
 import axios from 'axios';
 
+// components
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Post from '../components/Blog/Post';
-// import Comments from '../components/Blog/Comments';
 
-import img from '../images/4.jpg';
+// images
+import portfolio_slide_background from '../images/4.jpg';
 
 
 const StyledContainer = styled.div`
-    width: 60%;
-    margin: 350px auto;
-`;
 
-const ContactSlide = styled.div`
-    width: 100%;
-    margin-bottom: 300px;
+    .posts-container {
+        width: 60%;
+        margin: 350px auto;
 
-    .slide {
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        background-image: url(${img});
-        background-size: cover;
-        background-position: center;
-
-        margin-top: 100px;
-        color: #fff;
-        overflow: hidden;
+        @media (max-width: 1920px) { width: 70%; }
+        @media (max-width: 1024px) { width: 80%; }
+        @media (max-width: 786px) { width: 90%; }
     }
 
-    h1 {
-        width: 100vw;
+    .portfolio-link-slide {
+        position: relative;
+
+        width: 100%;
+        height: 200px;
 
         display: block;
+        margin-top: 100px;
 
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.2);
+        background: url(${portfolio_slide_background}) rgba(0, 0, 0, 0.2) center;
+        background-size: cover;
+        background-blend-mode: color-dodge;
 
-        text-align: center;
-        font-size: 50px;
-        font-weight: 700;
-        letter-spacing: 2px;
+        text-decoration: none;
+
+        @media (max-width: 1024px) { height: 150px; }
+
+        h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            width: 100%;
+            margin: 0;
+            padding: 0 30px;
+
+            display: block;
+
+            text-align: center;
+
+            font-size: 50px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 2px;
+
+            transform: translate(-50%, -50%);
+
+            @media (max-width: 1024px) { font-size: 30px; }
+        }
     }
+
 `;
 
 const Blog = () => {
+    // articles array state
     const [articles, setArticles] = useState([]);
 
+    // on window load
     useEffect(() => {
-        axios.get('https://radiant-atoll-46287.herokuapp.com/posts').then(res => setArticles(res.data))
+
+        // set window position to 0
+        window.scroll({
+            top: 0
+        });
+
+        // set articles to posts from strapi
+        axios.get('https://czarogrod-server.herokuapp.com/posts').then(res => setArticles(res.data))
+
     }, []);
 
     return (
         <>
             <Header />
 
-            <StyledContainer>
-                {
-                    articles.map(article => {
-                        const image = `https://radiant-atoll-46287.herokuapp.com${article.image.formats.large.url}`
-                        const title = article.title
-                        const content = article.Content
 
-                        return <Post image={image} title={title} content={content} id={article.id} key={article.id}/>
-                    })
-                }
+            <StyledContainer>
+                <div className='posts-container'>
+                    {
+                        articles.map(article => {
+
+                            const image = article.image.formats.large.url
+                            const title = article.title
+                            const content = article.content
+
+                            return <Post image={image} title={title} content={content} id={article.id} key={article.id}/>
+
+                        })
+                    }
+                </div>
+
+            <Link to='/portfolio' className='portfolio-link-slide' >
+                <h1>Potrzebujesz pomocy? Zadzwoń lub napisz</h1>
+            </Link>
+
             </StyledContainer>
 
-            {/* <Comments /> */}
-
-
-            <Link to="/portfolio" style={{ textDecoration: 'none' }}>
-                <ContactSlide>
-                    <div className="slide2 slide">
-                        <h1>Potrzebujesz pomocy? Zadzwoń lub napisz</h1>
-                    </div>
-                </ContactSlide>
-            </Link>
 
             <Footer />
         </>

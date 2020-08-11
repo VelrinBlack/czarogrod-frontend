@@ -8,7 +8,7 @@ import logo from '../../images/logo.png';
 
 const MobileNavigation = styled.nav`
     position: absolute;
-    top: 0px;
+    top: 20px;
     left: 0;
 
     width: 100%;
@@ -24,6 +24,7 @@ const MobileNavigation = styled.nav`
 
         transform: translateX(-50%);
     }
+
     .hamburger-btn {
         position: absolute;
         left: 50%;
@@ -46,9 +47,13 @@ const MobileNavigation = styled.nav`
 
         &.hamburger-btn-active {
             position: fixed;
-            top: 15px;
+            top: 50px;
             left: 30px;
 
+            @media (max-width: 768px) {
+                top: 80px;
+            }
+            
             div {
                 span {
                     background-color: transparent;
@@ -112,7 +117,7 @@ const MobileNavigation = styled.nav`
 
     ul {
         position: fixed;
-        top: 0;
+        top: 36px;
         left: 0;
         transform: translateY(-115%);
 
@@ -156,6 +161,7 @@ const MobileNavigation = styled.nav`
 `;
 
 const StyledNavbar = styled.nav`
+
     position: fixed;
     top: 0;
 
@@ -208,44 +214,6 @@ const StyledNavbar = styled.nav`
         }
     }
 `;
-const StyledLink = styled.p`
-            position: relative;
-
-            font-size: 16px;
-            color: #000;
-            letter-spacing: 2px;
-            text-align: center;
-            text-decoration: none;
-
-            transition: all 0.3s;
-            cursor: pointer;
-
-            @media (max-width: 1280px) {
-                font-size: 14px;
-            }
-
-            &::before {
-                content: '';
-
-                position: absolute;
-                top: 100%;
-
-                width: 0;
-                height: 2px;
-
-                margin-left: calc(50% - 1px);
-
-                background-color: #98dad9;
-
-                transition: all 0.3s;
-            }
-
-            &:hover::before {
-                width: 100%;
-                margin-left: 0;
-            }
-        }
-    `;
 
 const Navbar = () => {
     const [active, setActive] = useState(0);
@@ -259,18 +227,6 @@ const Navbar = () => {
         setSize();
         window.addEventListener('resize', setSize);
     });
-
-    const scroll = () => {
-        if (window.location.pathname !== '/') {
-            window.location.pathname = '/omnie';
-        } else if (window.location.pathname === '/') {
-            window.scroll({
-                top: 1000,
-                left: 0,
-                behavior: 'smooth',
-            });
-        }
-    };
 
     if (width <= 1024) {
         return (
@@ -303,8 +259,8 @@ const Navbar = () => {
                     <Tab path="/oferta" name="OFERTA" />
                     <Tab path="/portfolio" name="PORTFOLIO" />
                     <Tab path="/pytania" name="PYTANIA" />
-                    <Tab path="/blog" name="BLOG" />O MNIE
-                    <StyledLink onClick={scroll}></StyledLink>
+                    <Tab path="/blog" name="BLOG" />
+                    <Tab path="/omnie" name="O MNIE" />
                     <Tab path="/kontakt" name="KONTAKT" />
                 </ul>
             </MobileNavigation>
@@ -323,7 +279,7 @@ const Navbar = () => {
                     <Tab path="/portfolio" name="PORTFOLIO" />
                     <Tab path="/pytania" name="PYTANIA" />
                     <Tab path="/blog" name="BLOG" />
-                    <StyledLink onClick={scroll}>O MNIE</StyledLink>
+                    <Tab path="/omnie" name="O MNIE" />
                     <Tab path="/kontakt" name="KONTAKT" />
                 </ul>
             </div>
