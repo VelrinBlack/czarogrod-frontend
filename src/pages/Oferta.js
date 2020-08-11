@@ -1,21 +1,30 @@
+// react
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+// external packages
+import styled from 'styled-components';
+
+// components
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+// images
 import img1 from '../images/3.jpg';
 import img2 from '../images/2.jpg';
 
 const StyledContainer = styled.div`
     width: 70%;
-
     margin: 300px auto;
 
     @media (max-width: 1024px) {
         width: 90%;
         margin-top: 400px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 50px;
     }
 
     h2 {
@@ -30,6 +39,7 @@ const StyledContainer = styled.div`
             font-size: 20px;
         }
     }
+
 `;
 
 const Slides = styled.div`
@@ -39,46 +49,48 @@ const Slides = styled.div`
         width: 100%;
 
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
 
-        background-size: cover;
-        background-position: center;
-
         margin-top: 100px;
+
+        background-position: center;
+        background-size: cover;
+
+        text-decoration: none;
         color: #fff;
         overflow: hidden;
+
+        h1 {
+            width: 100%;
+            display: block;
+
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+
+            text-align: center;
+            font-size: 50px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
     }
 
     .slide1 {
-    margin-top: 100px;
+        margin-top: 100px;
         background-image: url(${img1});
     }
     .slide2 {
         background-image: url(${img2});
     }
-
-    h1 {
-        width: 100vw;
-        display: block;
-
-        padding: 20px;
-        background: rgba(0, 0, 0, 0.2);
-
-        text-align: center;
-        font-size: 50px;
-        font-weight: 700;
-        letter-spacing: 2px;
-    }
 `;
+
 
 const Oferta = () => {
 
     useEffect(() => {
+        // scroll to the top
         window.scroll({
-            top: 0,
-            left: 0,
+            top: 0
         });
     }, [])
 
@@ -86,6 +98,7 @@ const Oferta = () => {
         <>
             <Header />
             <StyledContainer>
+                <h1>Oferta</h1>
                 <h2>Jak przebiega proces projektowania?</h2>
                 <ul>
                     <li>Pierwsze spotkanie to zazwyczaj wizyta w miejscu planowanego ogrodu oraz rozmowa o Waszych marzeniach.</li>
@@ -117,17 +130,13 @@ const Oferta = () => {
             </StyledContainer>
 
             <Slides>
-                <Link to="/pytania" style={{ textDecoration: 'none' }}>
-                    <div className="slide1 slide">
-                        <h1>
-                            Masz wątpliwości? Zobacz o co pytają klienci
-                        </h1>
-                    </div>
+                <Link to="/pytania" className="slide1 slide">
+                    <h1>
+                        Masz wątpliwości? Zobacz o co pytają klienci
+                    </h1>
                 </Link>
-                <Link to="/portfolio" style={{ textDecoration: 'none' }}>
-                    <div className="slide2 slide">
+                <Link to="/portfolio" className="slide2 slide">
                         <h1>Sprawdź moje ostatnie projekty</h1>
-                    </div>
                 </Link>
             </Slides>
 

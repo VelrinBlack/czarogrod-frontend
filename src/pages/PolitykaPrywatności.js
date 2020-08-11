@@ -1,13 +1,33 @@
+// react
 import React from 'react';
+
+// external packages
 import styled from 'styled-components';
 
-
+// components
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
+
+
 const StyledContent = styled.div`
     width: 70vw;
-    margin: 350px 15vw;
+    margin: 350px auto;
+    font-size: 16px;
+
+    @media (max-width: 1440px) {
+        width: 90vw;
+        
+        * {
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        * {
+            font-size: 10px;
+        }
+    }
 `
 
 const PolitykaPrywatności = () => {
@@ -19,7 +39,7 @@ const PolitykaPrywatności = () => {
 
             <ol type="I">
                 <li>
-                    <b className='title'>POSTANOWIENIA OGÓLNE</b>
+                    <b>POSTANOWIENIA OGÓLNE</b>
                     
                     <ol>
                         <li>Administratorem danych osobowych zbieranych za pośrednictwem strony internetowej <b>www.czarogrod.pl</b> jest <b>Agnieszka Lizończyk</b> będąca osobą fizyczną, zamieszkałą ul. Prusa 25a, 32-566 Alwernia, adres poczty elektronicznej (e-mail): kontakt@czarogrod.pl, zwana dalej “Administratorem”. </li>
@@ -27,7 +47,7 @@ const PolitykaPrywatności = () => {
                     </ol>
                 </li>
                 <li>
-                    <b className='title'>RODZAJ PRZETWARZANYCH DANYCH OSOBOWYCH, CEL I ZAKRES ZBIERANIA DANYCH</b>
+                    <b>RODZAJ PRZETWARZANYCH DANYCH OSOBOWYCH, CEL I ZAKRES ZBIERANIA DANYCH</b>
                     <ol>
                         <li>
                             <b >CEL PRZETWARZANIA I PODSTAWA PRAWNA. </b>
@@ -66,14 +86,14 @@ const PolitykaPrywatności = () => {
                     </ol>
                 </li>
                 <li>
-                    <b className='title'>UDOSTĘPNIENIE DANYCH OSOBOWYCH</b>
+                    <b>UDOSTĘPNIENIE DANYCH OSOBOWYCH</b>
                     <ol>
                         <li>Dane osobowe użytkowników przekazywane są dostawcom usług, z których korzysta Administrator przy prowadzeniu strony internetowej. Dostawcy usług, którym przekazywane są dane osobowe, w zależności od uzgodnień umownych i okoliczności, albo podlegają poleceniom Administratora co do celów i sposobów przetwarzania tych danych (podmioty przetwarzające) albo samodzielnie określają cele i sposoby ich przetwarzania (administratorzy).</li>
                         <li>Dane osobowe użytkowników są przechowywane wyłącznie na terenie Europejskiego Obszaru Gospodarczego (EOG).</li>
                     </ol>
                 </li>
                 <li>
-                    <b className='title'>PRAWO KONTROLI, DOSTĘPU DO TREŚCI WŁASNYCH DANYCH ORAZ ICH POPRAWIANIA</b>
+                    <b>PRAWO KONTROLI, DOSTĘPU DO TREŚCI WŁASNYCH DANYCH ORAZ ICH POPRAWIANIA</b>
                     <ol>
                         <li>Osoba, której dane dotyczą, ma prawo dostępu do treści swoich danych osobowych oraz prawo ich sprostowania, usunięcia, ograniczenia przetwarzania, prawo do przenoszenia danych, prawo wniesienia sprzeciwu, prawo do cofnięcia zgody w dowolnym momencie bez wpływu na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej cofnięciem.</li>
                         <li>
@@ -94,7 +114,7 @@ const PolitykaPrywatności = () => {
                     </ol>
                 </li>
                 <li>
-                    <b className='title'>PLIKI “COOKIES”</b>
+                    <b>PLIKI “COOKIES”</b>
                     <ol>
                         <li>Strona Administratora używa plików „cookies”.</li>
                         <li>Instalacja plików „cookies” jest konieczna do prawidłowego świadczenia usług na stronie internetowej. W plikach „cookies” znajdują się informacje niezbędne do prawidłowego funkcjonowania strony, a także dają one także możliwość opracowywania ogólnych statystyk odwiedzin strony internetowej.</li>
@@ -110,7 +130,7 @@ const PolitykaPrywatności = () => {
                     </ol>
                 </li>
                 <li>
-                    <b className='title'>POSTANOWIENIA KOŃCOWE</b>
+                    <b>POSTANOWIENIA KOŃCOWE</b>
                     <ol>
                         <li>Administrator stosuje środki techniczne i organizacyjne zapewniające ochronę przetwarzanych danych osobowych odpowiednią do zagrożeń oraz kategorii danych objętych ochroną, a w szczególności zabezpiecza dane przed ich udostępnieniem osobom nieupoważnionym, zabraniem przez osobę nieuprawnioną, przetwarzaniem z naruszeniem obowiązujących przepisów oraz zmianą, utratą, uszkodzeniem lub zniszczeniem.</li>
                         <li>Administrator udostępnia odpowiednie środki techniczne zapobiegające pozyskiwaniu i modyfikowaniu przez osoby nieuprawnione, danych osobowych przesyłanych drogą elektroniczną.</li>

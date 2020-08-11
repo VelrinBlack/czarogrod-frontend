@@ -57,7 +57,7 @@ const StyledContainer = styled.div`
             position: relative;
             width: 100%;
 
-            @media (max-width: 500px) { margin: 30px 0 30px 0; }
+            @media (max-width: 500px) { margin: 30px 0; }
 
             label {
                 display: block;
@@ -192,167 +192,6 @@ const StyledContainer = styled.div`
             }
         }
     }
-
-    /* @media (max-width: 1536px) {
-        .main {
-            .img {
-                height: 700px;
-            }
-            form {
-                height: 700px;
-
-                p {
-                    label {
-                        font-size: 15px;
-                    }
-                    .errorTxt {
-                        font-size: 13px;
-                    }
-                    .rodo {
-                        font-size: 13px;
-                    }
-                    input,
-                    textarea {
-                        font-size: 15px;
-                    }
-                    input {
-                        height: 60px;
-                    }
-                    textarea {
-                        height: 150px;
-
-                        padding: 15px 0 0 15px;
-                    }
-                }
-                .submit {
-                    height: 50px;
-
-                    margin-top: 0px;
-                    padding: 0;
-
-                    font-size: 15px;
-                    letter-spacing: 1.3px;
-                }
-            }
-        }
-    }
-    @media (max-width: 1440px) {
-        .main {
-            .img {
-                height: 600px;
-            }
-            form {
-                height: 600px;
-
-                p {
-                    label {
-                        font-size: 13px;
-                    }
-                    .errorTxt {
-                        font-size: 11px;
-                    }
-                    .rodo {
-                        font-size: 11px;
-                    }
-                    input,
-                    textarea {
-                        font-size: 13px;
-                    }
-                    input {
-                        height: 50px;
-                    }
-                }
-                .submit {
-                    height: 40px;
-
-                    font-size: 13px;
-                }
-            }
-        }
-    }
-    @media (max-width: 1024px) {
-        .main {
-            .img {
-                width: 40%;
-            }
-            form {
-                width: 40%;
-
-                p {
-                    label {
-                        font-size: 11px;
-                    }
-                    .errorTxt {
-                        font-size: 9px;
-                    }
-                    .rodo {
-                        font-size: 9px;
-
-                        .rodo-checkbox {
-                            width: 10px;
-                            height: 10px;
-                        }
-                    }
-                    input,
-                    textarea {
-                        font-size: 11px;
-                    }
-                    input {
-                        height: 40px;
-                    }
-                    textarea {
-                        height: 120px;
-                    }
-                }
-            }
-        }
-    } */
-
-    /* @media (max-width: 962px) {
-        width: 100%;
-
-        padding-top: 100px;
-
-        .main {
-            flex-direction: column;
-            justify-content: start;
-            align-items: center;
-
-            .img {
-                display: none;
-            }
-            form {
-                width: 80%;
-
-                p {
-                    label {
-                        font-size: 13px;
-                    }
-                    .errorTxt {
-                        font-size: 11px;
-                    }
-                    .rodo {
-                        font-size: 8px;
-
-                        .rodo-checkbox {
-                            width: 12px;
-                            height: 12px;
-                        }
-                    }
-                    input,
-                    textarea {
-                        font-size: 13px;
-                    }
-                    input {
-                        height: 50px;
-                    }
-                    textarea {
-                        height: 130px;
-                    }
-                }
-            }
-        }
-    } */
 `;
 
 const Form = () => {
@@ -417,16 +256,20 @@ const Form = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // check if email field is empty
         if (!email) {
             setEmailError('Uzupełnij proszę to pole');
         }
+        // check if message field is empty
         if (!message) {
             setMessageError('Uzupełnij proszę to pole');
         }
+        // check if rodo checkbox is not checked
         if (!rodo) {
             setRodoError('Zaakceptuj proszę naszą politykę prywatności');
         }
 
+        // check if all fields ale completed and there are no errors
         if (
             email &&
             message &&
@@ -436,6 +279,7 @@ const Form = () => {
             !messageError &&
             !rodoError
         ) {
+            // send data to the server
             axios
                 .post('http://localhost:5000/api/sendmail', {
                     name,
@@ -443,17 +287,18 @@ const Form = () => {
                     message,
                 })
                 .then((res) => {
+                    // if success - clear all fields and display info about it
                     if (res.data.sent) {
                         setName('');
                         setEmail('');
                         setMessage('');
                         setSend('success');
-                    } else {
+                    } else { // else display info about error
                         setSend('error');
                     }
                 });
-
-            setSend('Wysyłanie...');
+            // set info about waiting for response from the server
+            setSend('pending');
         } else {
             setSend('');
         }
@@ -533,7 +378,10 @@ const Form = () => {
                                 ? 'Coś poszło nie tak. Sprawdź wszystkie pola i spróbuj jescze raz'
                                 : send === 'success'
                                 ? 'Twoja wiadomość została wysłana pomyślnie'
-                                : ''}
+                                : send === 'pending'
+                                ? 'Wysyłanie...'
+                                : ''
+                            }
                         </div>
 
                     </form>
