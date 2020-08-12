@@ -198,7 +198,7 @@ const Footer = () => {
         <StyledFooter>
             <div className="container">
                 <div className="logo-box box">
-                    <img src={logo} alt="footer-logo" className="logo" />
+                    <img src={logo} alt="logo" className="logo" />
                 </div>
                 <div className="menu box">
                     <a href="/home">HOME</a>

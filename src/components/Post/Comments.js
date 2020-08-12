@@ -1,9 +1,11 @@
+// react
 import React from 'react';
 
+// external packages
 import styled from 'styled-components';
 
-const StyledComments = styled.div`
 
+const StyledComments = styled.div`
     width: 50%;
     margin: 100px auto;
 
@@ -22,12 +24,6 @@ const StyledComments = styled.div`
     }
 `;
 
-const Comments = () => {
-    return (
-        <StyledComments>
-            <div id="disqus_thread"></div>
-        </StyledComments>
-    );
-};
+const Comments = () => <StyledComments id='disqus_thread' />;
 
 export default Comments

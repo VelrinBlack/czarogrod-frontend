@@ -1,10 +1,13 @@
+// react
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types'
 
+// external packages
 import styled from 'styled-components';
-
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown'
 
+// components
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Comments from '../components/Post/Comments';
@@ -13,17 +16,11 @@ const StyledContainer = styled.div`
     position: relative;
     margin-top: 150px;
 
-    @media (max-width: 1024px) {
-        margin-top: 330px;
-    }
-
-    .img {
-        text-align: center;
-    }
+    @media (max-width: 1024px) { margin-top: 330px; }
 
     img {
         width: 100%;
-        max-height: 700px;
+        height: 700px;
         object-fit: cover;
     }
 
@@ -32,8 +29,7 @@ const StyledContainer = styled.div`
         margin: 50px auto;
 
         font-size: 50px;
-
-
+        
         @media (max-width: 1920px){
             width: 60%;
             font-size: 40px;
@@ -75,28 +71,30 @@ const StyledContainer = styled.div`
 
         img {
             width: 100%;
-            margin: 30px 0;
+            margin: 40px 0;
         }
     }
 `;
 
-const Post = (props) => {
+
+const Post = props => {
+
     const [article, setArticle] = useState('Ładowanie...');
 
-    useEffect(() => {
-
+    useEffect((props) => {
+        // scroll to the top of the page
         window.scroll({
-            top: 0,
-            left: 0,
+            top: 0
         });
         
-        // eslint-disable-next-line
         axios.get(`https://czarogrod-server.herokuapp.com/posts/${props.match.params.id}`).then(res => setArticle(res.data))
+        
     }, []);
     
+
     const loadImage = () => {
         try {
-            return <img src={article.image.formats.large.url} />
+            return <img className='main-image' src={article.image.formats.large.url} alt='Article' />
         } catch (error) {
             return 'Ładowanie...'
         }
@@ -113,17 +111,18 @@ const Post = (props) => {
     const loadConent = () => {
         try {
 
-            var rx = /!\[.*?\]\((.*?)\)/g;
-            var urls = [], m;
-            while(m == rx.exec(article.content)) {
+            const rx = /!\[.*?\]\((.*?)\)/g;
+            let urls = [], m;
+            while(m === rx.exec(article.content)) {
                 urls.push(m[1]);
             }
 
-            urls.forEach((url, index) => {
+            urls.forEach(url => {
                 article.content = article.content.replace(/!\[.*?\]\((.*?)\)/, `<img class='img2' src=${url} />`)
             });
 
             return <ReactMarkdown source={article.content} escapeHtml={false}/>
+
         } catch (error) {
             return ''
         }
@@ -135,7 +134,7 @@ const Post = (props) => {
             <Header />
             <StyledContainer>
 
-                <p className='img'>{loadImage()}</p>
+                {loadImage()}
                 <h1 className='title'>{loadTitle()}</h1>
                 <p className='txt'>{loadConent()}</p>
                 
@@ -145,5 +144,9 @@ const Post = (props) => {
         </>
     );
 };
+
+Post.propTypes = {
+    match: PropTypes.object
+}
 
 export default Post;

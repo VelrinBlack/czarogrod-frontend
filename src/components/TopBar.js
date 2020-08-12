@@ -233,7 +233,7 @@ const TopBar = () => {
                         <a href="tel:++48784880484">
                             <img
                                 src={phone}
-                                alt="phone-svg"
+                                alt="telefon"
                                 className="phone-icon i"
                             />
                         </a>
@@ -245,7 +245,7 @@ const TopBar = () => {
                         <a href="mailto:kontakt@czarogród.pl">
                             <img
                                 src={mail}
-                                alt="mail-svg"
+                                alt="mail"
                                 className="mail-icon i"
                             />
                         </a>
