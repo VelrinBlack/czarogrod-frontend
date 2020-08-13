@@ -1,10 +1,15 @@
+// react
 import React from 'react';
+
+// external libraries
 import styled from 'styled-components';
 
+// images
 import phone from '../images/phone.svg';
 import mail from '../images/mail.svg';
 import facebook from '../images/facebook.svg';
 import instagram from '../images/instagram.svg';
+
 
 const StyledTopBar = styled.div`
     position: fixed;

@@ -187,6 +187,15 @@ const StyledNavbar = styled.nav`
     box-shadow: 0 0 10px 1px #f2f2f2;
 
     z-index: 2;
+    transition: all .3s;
+
+    &.minimalized {
+        height: 100px;
+
+        box-shadow: 0 0 10px 10px #f2f2f2;
+        transform: translateY(-40px);
+        z-index: 3;
+    }
 
     .container {
         width: 80%;
@@ -223,6 +232,7 @@ const StyledNavbar = styled.nav`
 const Navbar = props => {
     const [width, setWidth] = useState(window.innerWidth);
     const [hamburgerActive, setHamburgerActive] = useState(false);
+    const [minimalize, setMinimalize] = useState(false)
 
     const forceUpdate = useForceUpdate()
 
@@ -238,6 +248,14 @@ const Navbar = props => {
     const checkPosition = () => {
         // if user is on 'home' or 'omnie'
         if (window.location.href === 'http://localhost:3000/omnie' || window.location.href === 'http://localhost:3000/') {
+            forceUpdate()
+        }
+
+        if (window.pageYOffset > 300) {
+            setMinimalize(true)
+            forceUpdate()
+        } else {
+            setMinimalize(false)
             forceUpdate()
         }
     }
@@ -275,7 +293,7 @@ const Navbar = props => {
     }
 
     return (
-        <StyledNavbar>
+        <StyledNavbar className={minimalize ? 'minimalized' : ''}>
             <div className='container'>
                 <Link to='/' className='logo-link'>
                     <img src={logo} alt=':ogo' className='logo-img' />
