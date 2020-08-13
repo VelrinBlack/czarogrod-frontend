@@ -1,86 +1,138 @@
+// react
 import React from 'react';
+import { Link } from 'react-router-dom'
+
+// external libraries
 import styled from 'styled-components';
 
+// images
 import logo from '../images/logo.png';
-import facebook from '../images/facebook-black.svg';
-import instagram from '../images/instagram-black.svg';
+import facebook from '../images/facebook.svg';
+import instagram from '../images/instagram.svg';
 
 const StyledFooter = styled.div`
-    position: absolute;
+    position: relative;
 
     width: 100%;
     height: 500px;
 
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
 
-    margin-top: 100px;
-    padding: 50px 0;
+    padding-bottom: 20px;
 
     background-color: #f2f2f2;
 
+    @media (max-width: 1024px) { height: 1200px; }
+    @media (max-width: 768px) { height: 1000px; }
+
     .container {
-        width: 1200px;
-        height: 200px;
+        width: 80%;
 
         display: flex;
         justify-content: space-between;
 
-        a,
-        p {
-            margin: 0;
-            color: #000;
-            text-decoration: none;
-        }
+        margin: 0 auto;
 
-        .logo {
-            width: 200px;
+        @media (max-width: 1024px) {
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
         }
-
+        
         .box {
-            box-sizing: border-box;
+            width: 25%;
 
-            width: 300px;
-            height: 200px;
-        }
-        .contact-data,
-        .box {
-            a:hover {
-                transition: all 0.5s;
-                background: #98dad9;
-            }
-        }
-        .menu {
-            padding-top: 20px;
-        }
-        .contact-container {
-            padding-top: 20px;
+            @media (max-width: 1024px) { width: 60%; }
+            @media (max-width: 768px) { width: 90%; }
+            @media (max-width: 500px) { width: 100%; }
 
-            .contact-data {
-                padding-top: 40px;
+            &.logo-box {
+                width: 20%;
+                display: flex;
+                align-items: center;
 
-                a {
-                    margin-left: 10px;
+                @media (max-width: 1024px) { width: 50%; }
+                @media (max-width: 500px) { width: 60%; }
+
+                .logo {
+                    width: 100%;
+                    margin-bottom: 30px;
                 }
             }
-            .social-media {
-                width: 50px;
+            
+
+            &.menu-box {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .link {
+                    padding: 6px 0;
+
+                    color: #000;
+                    font-size: 18px;
+                    text-decoration: none;
+                }
+            }
+
+            &.contact-box {
 
                 display: flex;
-                justify-content: space-between;
+                flex-direction: column;
+                justify-content: center;
 
-                padding-top: 40px;
+                text-align: center;
 
-                .facebook-logo,
-                .instagram-logo {
-                    width: 15px;
-                    height: 15px;
+                .contact-data {
+                    margin-bottom: 50px;
+
+                    .phone-number {
+                        font-size: 14px;
+                        a {
+                            color: #000;
+                            font-size: 18px;
+                            text-decoration: none;
+                        }
+                    }
+
+                    .email-address {
+                        font-size: 14px;
+                        a {
+                            color: #000;
+                            font-size: 18px;
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                .social-media {
+                    height: 80px;
                     display: flex;
+                    justify-content: space-around;
 
-                    img {
-                        width: 100%;
-                        height: 100%;
+                    @media (max-width: 1920px) { height: 60px; }
+                    @media (max-width: 1440px) { height: 50px; }
+                    @media (max-width: 1024px) { height: 70px; }
+                    @media (max-width: 768px) { height: 60px; }
+
+                    .link {
+                        width: 40%;
+
+                        display: flex;
+                        justify-content: center;
+
+                        background-color: #399ca1;
+                        border-radius: 10px;
+
+                        .logo {
+                            width: 20%;
+
+                            @media (max-width: 1440px) { width: 25%; }
+                            @media (max-width: 768px) { width: 20%; }
+                            @media (max-width: 500px) { width: 30%; }
+                        }
                     }
                 }
             }
@@ -102,94 +154,8 @@ const StyledFooter = styled.div`
 
         background-color: #4f4f4f;
 
-        text-align: center;
         font-size: 12px;
         color: #fff;
-    }
-
-    @media (max-width: 1280px) {
-        font-size: 14px;
-
-        .container {
-            width: 90%;
-            height: 200px;
-
-            display: flex;
-            justify-content: space-between;
-        }
-    }
-
-    @media (max-width: 1024px) {
-        height: 800px;
-
-        font-size: 16px;
-
-        .container {
-            width: 90%;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            .logo-box {
-                margin: 450px 0 50px 0;
-            }
-
-            .logo {
-                width: 80%;
-            }
-
-            .box {
-                box-sizing: border-box;
-
-                width: 300px;
-                height: 200px;
-
-                margin-bottom: 50px;
-
-                text-align: center;
-            }
-            .menu {
-                padding-top: 20px;
-            }
-            .contact-container {
-                width: 100%;
-
-                padding-top: 20px;
-
-                .contact-data {
-                    padding-top: 40px;
-
-                    a {
-                        margin-left: 10px;
-                    }
-                }
-                .social-media {
-                    width: 100%;
-
-                    display: flex;
-                    justify-content: center;
-
-                    padding-top: 40px;
-
-                    .facebook-logo,
-                    .instagram-logo {
-                        width: 21px;
-                        height: 21px;
-
-                        display: flex;
-
-                        margin: 0 20px;
-
-                        img {
-                            width: 100%;
-                            height: 100%;
-                        }
-                    }
-                }
-            }
-        }
     }
 `;
 
@@ -200,22 +166,16 @@ const Footer = () => {
                 <div className="logo-box box">
                     <img src={logo} alt="logo" className="logo" />
                 </div>
-                <div className="menu box">
-                    <a href="/home">HOME</a>
-                    <br />
-                    <a href="/oferta">OFERTA</a>
-                    <br />
-                    <a href="/portfolio">PORTFOLIO</a>
-                    <br />
-                    <a href="/pytania">PYTANIA</a>
-                    <br />
-                    <a href="/blog">BLOG</a>
-                    <br />
-                    <a href="/omnie">O MNIE</a>
-                    <br />
-                    <a href="/kontakt">KONTAKT</a>
+                <div className="menu-box box">
+                    <Link to="/home" className='link'>HOME</Link>
+                    <Link to="/oferta" className='link'>OFERTA</Link>
+                    <Link to="/portfolio" className='link'>PORTFOLIO</Link>
+                    <Link to="/pytania" className='link'>PYTANIA</Link>
+                    <Link to="/blog" className='link'>BLOG</Link>
+                    <Link to="/omnie" className='link'>O MNIE</Link>
+                    <Link to="/kontakt" className='link'>KONTAKT</Link>
                 </div>
-                <div className="contact-container box">
+                <div className="contact-box box">
                     <p className="text">
                         Skontaktuj się ze mną używając poniższych danych lub
                         wypełnij formularz w zakładce KONTAKT, a ja odezwę się
@@ -223,14 +183,14 @@ const Footer = () => {
                     </p>
                     <div className="contact-data">
                         <p className="phone-number">
-                            tel:
+                            nr telefonu:
+                            <br/>
                             <a href="tel:++48784880484">+48 784 880 484</a>
                         </p>
-                        <p className="mail-address">
-                            e-mail:
-                            <a href="mailto:kontakt@czarogród.pl">
-                                kontakt@czarogród.pl
-                            </a>
+                        <p className="email-address">
+                            adres e-mail:
+                            <br/>
+                            <a href="mailto:kontakt@czarogród.pl">kontakt@czarogród.pl</a>
                         </p>
                     </div>
                     <div className="social-media">
@@ -238,17 +198,17 @@ const Footer = () => {
                             href="https://www.facebook.com/Czarogrodpl-108508777589942"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="facebook-logo"
+                            className="link"
                         >
-                            <img src={facebook} alt="facebook" />
+                            <img src={facebook} alt="facebook logo"  className='logo'/>
                         </a>
                         <a
                             href="https://www.instagram.com/czarogrod.pl/?hl=pl"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="instagram-logo"
+                            className="link"
                         >
-                            <img src={instagram} alt="instagram" />
+                            <img src={instagram} alt="instagram logo" className='logo'/>
                         </a>
                     </div>
                 </div>
