@@ -11,19 +11,19 @@ import Footer from '../components/Footer';
 import Card from '../components/Portfolio/Card';
 
 // images for slides
-import img3 from '../images/3.jpg';
-import img4 from '../images/4.jpg';
+import img3 from '../images/slider/3.jpg';
+import img4 from '../images/slider/4.jpg';
 
 // images for cards
-import img01 from '../images/pergola ogrodowa.jpg'
-import img02 from '../images/pergola przy skarpie.jpg'
-import img03 from '../images/pergola stol ogrodowy.jpg'
-import img04 from '../images/powojniki w altanie.jpg'
-import img05 from '../images/rabata bylinowa thuje.jpg'
-import img06 from '../images/rabata bylinowa.jpg'
-import img07 from '../images/skarpa nasadzenia.jpg'
-import img08 from '../images/stol w ogrodzie.jpg'
-import img09 from '../images/trawy proso rozgowate.jpg'
+import img01 from '../images/portfolio/pergola ogrodowa.jpg'
+import img02 from '../images/portfolio/pergola przy skarpie.jpg'
+import img03 from '../images/portfolio/pergola stol ogrodowy.jpg'
+import img04 from '../images/portfolio/powojniki w altanie.jpg'
+import img05 from '../images/portfolio/rabata bylinowa thuje.jpg'
+import img06 from '../images/portfolio/rabata bylinowa.jpg'
+import img07 from '../images/portfolio/skarpa nasadzenia.jpg'
+import img08 from '../images/portfolio/stol w ogrodzie.jpg'
+import img09 from '../images/portfolio/trawy proso rozgowate.jpg'
 
 const StyledContainer = styled.div`
     width: 80%;

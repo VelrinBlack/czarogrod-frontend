@@ -5,7 +5,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // images
-import leaf from '../../images/leaf.svg';
+import leaf from '../../images/other/leaf.svg';
 
 
 const StyledQuestion = styled.div`

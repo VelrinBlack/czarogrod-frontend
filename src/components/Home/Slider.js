@@ -11,12 +11,12 @@ import 'owl.carousel/dist/assets/owl.carousel.min.css';
 import 'owl.carousel/dist/assets/owl.theme.default.min.css';
 
 // images
-import img1 from '../../images/1.jpg';
-import img2 from '../../images/2.jpg';
-import img3 from '../../images/3.jpg';
-import img4 from '../../images/4.jpg';
-import arrow_left from '../../images/arrow-left.svg';
-import arrow_right from '../../images/arrow-right.svg';
+import img1 from '../../images/slider/1.jpg';
+import img2 from '../../images/slider/2.jpg';
+import img3 from '../../images/slider/3.jpg';
+import img4 from '../../images/slider/4.jpg';
+import arrow_left from '../../images/slider/arrow-left.svg';
+import arrow_right from '../../images/slider/arrow-right.svg';
 
 
 const StyledCarousel = styled.div`

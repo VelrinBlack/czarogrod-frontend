@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 
 // images
-import logo from '../images/logo.png';
-import facebook from '../images/facebook.svg';
-import instagram from '../images/instagram.svg';
+import logo from '../images/other/logo.png';
+import facebook from '../images/social_media/facebook.svg';
+import instagram from '../images/social_media/instagram.svg';
 
 const StyledFooter = styled.div`
     position: relative;

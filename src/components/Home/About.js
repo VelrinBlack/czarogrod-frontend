@@ -5,7 +5,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // images
-import portrait from '../../images/profile.jpg';
+import portrait from '../../images/other/profile.jpg';
 
 
 const StyledAbout = styled.div`

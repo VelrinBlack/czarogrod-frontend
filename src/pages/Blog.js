@@ -12,7 +12,7 @@ import Footer from '../components/Footer';
 import Post from '../components/Blog/Post';
 
 // images
-import portfolio_slide_background from '../images/4.jpg';
+import portfolio_slide_background from '../images/slider/4.jpg';
 
 
 const StyledContainer = styled.div`

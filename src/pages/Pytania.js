@@ -11,7 +11,7 @@ import Footer from '../components/Footer';
 import Question from '../components/Pytania/Question';
 
 // images
-import img from '../images/4.jpg';
+import img from '../images/slider/4.jpg';
 
 
 const StyledContainer = styled.div`

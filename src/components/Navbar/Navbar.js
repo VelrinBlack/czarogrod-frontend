@@ -10,7 +10,7 @@ import useForceUpdate from 'use-force-update';
 import Tab from './Tab';
 
 // images
-import logo from '../../images/logo.png';
+import logo from '../../images/other/logo.png';
 
 const MobileNavigation = styled.nav`
     position: absolute;

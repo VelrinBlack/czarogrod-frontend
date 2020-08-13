@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 // images
-import img from '../../images/kontakt-img.jpg';
+import img from '../../images/other/kontakt-img.jpg';
 
 const StyledContainer = styled.div`
     width: 100%;
