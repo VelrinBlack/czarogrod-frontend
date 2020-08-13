@@ -24,9 +24,9 @@ const StyledTopBar = styled.div`
 
     background-color: #399ca1;
 
-    font-size: 14px;
-
     z-index: 3;
+
+    @media (max-width: 768px) { height: 68px; }
 
     .container {
         width: 80%;
@@ -35,8 +35,14 @@ const StyledTopBar = styled.div`
         display: flex;
         justify-content: space-between;
 
-        .i {
-            width: 15px;
+        @media (max-width: 1280px) { width: 90%; }
+        @media (max-width: 768px) {
+            height: 100%;
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .contact {
@@ -45,15 +51,30 @@ const StyledTopBar = styled.div`
             display: flex;
             justify-content: space-between;
 
+            @media (max-width: 768px) {
+                width: 50%;
+                height: 100%;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
             .contact-phone,
             .contact-mail {
                 display: flex;
                 align-items: center;
 
+                @media (max-width: 768px) { height: 35%; }
+                @media (max-width: 500px) {
+                    margin-left: 40px;
+                    width: 200px;
+                }
+
                 .phone-number,
                 .mail-address {
                     margin-left: 10px;
-
                     color: #fff;
 
                     a {
@@ -61,8 +82,13 @@ const StyledTopBar = styled.div`
                         color: #fff;
                     }
                 }
+
+                .icon {
+                    width: 15px;
+                }
             }
         }
+
         .social-media {
             width: 50px;
 
@@ -70,160 +96,30 @@ const StyledTopBar = styled.div`
             justify-content: space-between;
             align-items: center;
 
+            @media (max-width: 768px) {
+                width: 50%;
+                justify-content: center;
+            }
+
+            @media (max-width: 500px) {
+                width: 20%;
+                margin-left: 50px;
+            }
+
             .facebook-logo,
             .instagram-logo {
                 width: 15px;
                 height: 15px;
+
                 display: flex;
                 align-items: center;
+
+                @media (max-width: 768px) { margin-left: 17px; }
 
                 img {
                     width: 100%;
                     height: 100%;
                 }
-            }
-        }
-    }
-
-    @media (max-width: 1499px) {
-        .container {
-            width: 80%;
-
-            .contact {
-                width: 400px;
-            }
-        }
-    }
-
-    @media (max-width: 999px) {
-        height: 36px;
-
-        font-size: 12px;
-
-        .container {
-            width: 90%;
-
-            .i {
-                width: 13px;
-            }
-
-            .social-media {
-                .facebook-logo,
-                .instagram-logo {
-                    width: 13px;
-                    height: 13px;
-                }
-            }
-        }
-    }
-
-    @media (max-width: 768px) {
-        height: 68px;
-
-        .container {
-            height: 100%;
-            width: 100%;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            .i {
-                width: 13px;
-            }
-
-            .contact {
-                width: 50%;
-                height: 40px;
-
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-
-                .contact-phone,
-                .contact-mail {
-                    height: 24px;
-
-                    display: flex;
-                    align-items: center;
-
-                    .phone-number,
-                    .mail-address {
-                        margin-left: 10px;
-
-                        color: #fff;
-
-                        a {
-                            text-decoration: none;
-                            color: #fff;
-                        }
-                    }
-                }
-            }
-            .social-media {
-                width: 50%;
-                justify-content: center;
-
-                .facebook-logo,
-                .instagram-logo {
-                    width: 19px;
-                    height: 19px;
-
-                    margin-left: 17px;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-            }
-        }
-    }
-
-    @media (max-width: 499px) {
-        height: 68px;
-
-        .container {
-            height: 100%;
-            width: 100%;
-
-            .contact {
-                width: 50%;
-                height: 40px;
-
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-            .social-media {
-                width: 20%;
-                margin-left: 60px;
-            }
-        }
-    }
-    @media (max-width: 359px) {
-        height: 68px;
-
-        .container {
-            height: 100%;
-            width: 100%;
-
-
-
-            .contact {
-
-                .contact-phone,
-                .contact-mail {
-                    margin-left: 40px;
-                    width: 200px;
-                }
-
-             
-            }
-            .social-media {
-                margin-left: 20%;
             }
         }
     }
@@ -233,25 +129,32 @@ const TopBar = () => {
     return (
         <StyledTopBar>
             <div className="container">
+
                 <div className="contact">
+
                     <div className="contact-phone">
+
                         <a href="tel:++48784880484">
                             <img
                                 src={phone}
                                 alt="telefon"
-                                className="phone-icon i"
+                                className="icon"
                             />
                         </a>
+
                         <p className="phone-number">
                             <a href="tel:++48784880484">+48 784 880 484</a>
                         </p>
+
                     </div>
+
                     <div className="contact-mail">
+
                         <a href="mailto:kontakt@czarogród.pl">
                             <img
                                 src={mail}
                                 alt="mail"
-                                className="mail-icon i"
+                                className="icon"
                             />
                         </a>
 
@@ -260,9 +163,13 @@ const TopBar = () => {
                                 kontakt@czarogród.pl
                             </a>
                         </p>
+
                     </div>
+
                 </div>
+
                 <div className="social-media">
+
                     <a
                         href="https://www.facebook.com/Czarogrodpl-108508777589942"
                         target="_blank"
@@ -271,6 +178,7 @@ const TopBar = () => {
                     >
                         <img src={facebook} alt="facebook" />
                     </a>
+
                     <a
                         href="https://www.instagram.com/czarogrod.pl/?hl=pl"
                         target="_blank"
@@ -279,6 +187,7 @@ const TopBar = () => {
                     >
                         <img src={instagram} alt="instagram" />
                     </a>
+                    
                 </div>
             </div>
         </StyledTopBar>
