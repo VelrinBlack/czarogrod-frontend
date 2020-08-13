@@ -12,7 +12,8 @@ const Home = () => {
     useEffect(() => {
         // scroll to the top of the page on load
         window.scroll({
-            top: 0
+            top: 0,
+            behavior: 'smooth'
         });
     }, [])
 

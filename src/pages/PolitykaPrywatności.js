@@ -1,5 +1,5 @@
 // react
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // external packages
 import styled from 'styled-components';
@@ -31,6 +31,15 @@ const StyledContent = styled.div`
 `
 
 const PolitykaPrywatności = () => {
+
+    useEffect(() => {
+        // scroll to the top
+        window.scroll({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, [])
+
     return ( 
         <>
             <Header/>

@@ -70,15 +70,13 @@ const StyledContainer = styled.div`
 `;
 
 const Blog = () => {
-    // articles array state
     const [articles, setArticles] = useState([]);
 
-    // on window load
     useEffect(() => {
-
-        // set window position to 0
+        // scroll to the top
         window.scroll({
-            top: 0
+            top: 0,
+            behavior: 'smooth'
         });
 
         // set articles to posts from strapi

@@ -81,15 +81,16 @@ const Post = props => {
 
     const [article, setArticle] = useState('Ładowanie...');
 
-    useEffect((props) => {
-        // scroll to the top of the page
+    useEffect(() => {
+        // scroll to the top
         window.scroll({
-            top: 0
+            top: 0,
+            behavior: 'smooth'
         });
         
         axios.get(`https://czarogrod-server.herokuapp.com/posts/${props.match.params.id}`).then(res => setArticle(res.data))
         
-    }, []);
+    }, [props.match.params.id]);
     
 
     const loadImage = () => {

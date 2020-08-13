@@ -94,7 +94,8 @@ const Oferta = () => {
     useEffect(() => {
         // scroll to the top
         window.scroll({
-            top: 0
+            top: 0,
+            behavior: 'smooth'
         });
     }, [])
 

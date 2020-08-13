@@ -1,29 +1,38 @@
+// react
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+// external libraries
+import styled from 'styled-components';
+import useForceUpdate from 'use-force-update';
+
+// components
 import Tab from './Tab';
 
+// images
 import logo from '../../images/logo.png';
 
 const MobileNavigation = styled.nav`
     position: absolute;
     top: 20px;
-    left: 0;
 
     width: 100%;
     height: 0;
 
     z-index: 2;
 
-    img {
-        height: 110px;
+    .logo-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         margin-top: 100px;
-        margin-left: 50%;
 
-        transform: translateX(-50%);
+        .logo-img {
+            height: 110px;
+        }
     }
+    
 
     .hamburger-btn {
         position: absolute;
@@ -37,22 +46,16 @@ const MobileNavigation = styled.nav`
         background-color: transparent;
         border: none;
 
-        z-index: 5;
+        z-index: 3;
         cursor: pointer;
         transition: all 0.3s;
-
-        &:focus {
-            outline: none;
-        }
 
         &.hamburger-btn-active {
             position: fixed;
             top: 50px;
             left: 30px;
 
-            @media (max-width: 768px) {
-                top: 80px;
-            }
+            @media (max-width: 768px) { top: 80px; }
             
             div {
                 span {
@@ -66,15 +69,21 @@ const MobileNavigation = styled.nav`
                 }
             }
         }
+
+        &:focus {
+            outline: none;
+        }
+
+        
         div {
             position: absolute;
             top: 50%;
             left: 50%;
+            transform: translate(-50%, -50%);
 
             width: 30px;
             height: 20px;
 
-            transform: translate(-50%, -50%);
 
             span {
                 position: absolute;
@@ -115,7 +124,7 @@ const MobileNavigation = styled.nav`
         }
     }
 
-    ul {
+    .navigation {
         position: fixed;
         top: 36px;
         left: 0;
@@ -140,17 +149,18 @@ const MobileNavigation = styled.nav`
 
         &.active {
             transform: translateY(0);
-
             padding-top: 50px;
+
+            transition: padding-top .3s;
+            
+            @media (max-width: 768px) { padding-top: 80px; }
         }
+
         li {
             width: 100%;
             height: 60px;
 
             text-align: center;
-
-            z-index: 2;
-            transition: all 0.3s 0.1s ease-in-out;
 
             a {
                 text-decoration: none;
@@ -161,7 +171,6 @@ const MobileNavigation = styled.nav`
 `;
 
 const StyledNavbar = styled.nav`
-
     position: fixed;
     top: 0;
 
@@ -186,101 +195,99 @@ const StyledNavbar = styled.nav`
         display: flex;
         justify-content: space-between;
 
-        a {
+        @media (max-width: 1280px) { width: 90%; }
+
+        .logo-link {
             height: 100%;
-            img {
+
+            .logo-img {
                 height: 100%;
             }
         }
 
-        @media (max-width: 1280px) {
-            width: 90%;
-        }
-
-        ul {
+        .navigation {
             width: 700px;
 
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            margin: 0;
-
             list-style: none;
 
-            @media (max-width: 1280px) {
-                width: 600px;
-            }
+            @media (max-width: 1280px) { width: 600px; }
         }
     }
 `;
 
-const Navbar = () => {
-    const [active, setActive] = useState(0);
-    const [width, setWidth] = useState(0);
 
-    const setSize = () => {
-        setWidth(window.innerWidth);
-    };
+const Navbar = props => {
+    const [width, setWidth] = useState(window.innerWidth);
+    const [hamburgerActive, setHamburgerActive] = useState(false);
+
+    const forceUpdate = useForceUpdate()
 
     useEffect(() => {
-        setSize();
-        window.addEventListener('resize', setSize);
+        // set 'width' variable on screen resize
+        window.addEventListener('resize', () => setWidth(window.innerWidth))
+        //
+        if (width > 1024) window.addEventListener('scroll', checkPosition)
+
+        return () => window.removeEventListener('scroll', checkPosition)
     });
+
+    const checkPosition = () => {
+        // if user is on 'home' or 'omnie'
+        if (window.location.href === 'http://localhost:3000/omnie' || window.location.href === 'http://localhost:3000/') {
+            forceUpdate()
+        }
+    }
+
 
     if (width <= 1024) {
         return (
             <MobileNavigation>
-                <Link to="/">
-                    <img src={logo} alt="logo" />
+                <Link to='/' className='logo-link'>
+                    <img src={logo} alt='logo' className='logo-img'/>
                 </Link>
 
                 <button
-                    onClick={() => {
-                        if (active) {
-                            setActive(false);
-                        } else {
-                            setActive(true);
-                        }
-                    }}
-                    className={
-                        active
-                            ? 'hamburger-btn hamburger-btn-active'
-                            : 'hamburger-btn'
-                    }
+                    onClick={hamburgerActive ? () => setHamburgerActive(false) : () => setHamburgerActive(true)}
+                    className={hamburgerActive ? 'hamburger-btn hamburger-btn-active' : 'hamburger-btn'}
                 >
                     <div>
                         <span></span>
                     </div>
                 </button>
 
-                <ul className={active ? 'active' : ''}>
-                    <Tab path="/" name="HOME" />
-                    <Tab path="/oferta" name="OFERTA" />
-                    <Tab path="/portfolio" name="PORTFOLIO" />
-                    <Tab path="/pytania" name="PYTANIA" />
-                    <Tab path="/blog" name="BLOG" />
-                    <Tab path="/omnie" name="O MNIE" />
-                    <Tab path="/kontakt" name="KONTAKT" />
-                </ul>
+                <nav onClick={() => setHamburgerActive(false)}>
+                    <ul className={hamburgerActive ? 'navigation active' : 'navigation'}>
+                        <Tab path='/' name='HOME' />
+                        <Tab path='/oferta' name='OFERTA' />
+                        <Tab path='/portfolio' name='PORTFOLIO' />
+                        <Tab path='/pytania' name='PYTANIA' />
+                        <Tab path='/blog' name='BLOG' />
+                        <Tab path='/omnie' name='O MNIE' />
+                        <Tab path='/kontakt' name='KONTAKT' />
+                    </ul>
+                </nav>
             </MobileNavigation>
         );
     }
 
     return (
         <StyledNavbar>
-            <div className="container">
-                <Link to="/">
-                    <img src={logo} alt="logo" />
+            <div className='container'>
+                <Link to='/' className='logo-link'>
+                    <img src={logo} alt=':ogo' className='logo-img' />
                 </Link>
-                <ul>
-                    <Tab path="/" name="HOME" />
-                    <Tab path="/oferta" name="OFERTA" />
-                    <Tab path="/portfolio" name="PORTFOLIO" />
-                    <Tab path="/pytania" name="PYTANIA" />
-                    <Tab path="/blog" name="BLOG" />
-                    <Tab path="/omnie" name="O MNIE" />
-                    <Tab path="/kontakt" name="KONTAKT" />
+                <ul className='navigation'>
+                    <Tab path='/' name='HOME' exact location={window.location.href}/>
+                    <Tab path='/oferta' name='OFERTA' location={window.location.href}/>
+                    <Tab path='/portfolio' name='PORTFOLIO' location={window.location.href}/>
+                    <Tab path='/pytania' name='PYTANIA' location={window.location.href}/>
+                    <Tab path='/blog' name='BLOG' location={window.location.href}/>
+                    <Tab path='/omnie' name='O MNIE' location={window.location.href}/>
+                    <Tab path='/kontakt' name='KONTAKT' location={window.location.href}/>
                 </ul>
             </div>
         </StyledNavbar>

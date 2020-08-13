@@ -77,9 +77,10 @@ const ContactSlide = styled.div`
 const Pytania = () => {
 
     useEffect(() => {
-        // scroll to the top of the page
+        // scroll to the top
         window.scroll({
-            top: 0
+            top: 0,
+            behavior: 'smooth'
         });
     }, [])
 

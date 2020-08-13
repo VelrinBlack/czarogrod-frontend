@@ -1,20 +1,31 @@
+// react
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
+// external libraries
+import styled from 'styled-components';
+
 
 const StyledTab = styled.li`
     .link {
         position: relative;
 
-        font-size: 16px;
         color: #000;
-        text-decoration: none;
+        font-size: 16px;
         letter-spacing: 2px;
+        text-decoration: none;
 
         transition: all 0.3s;
 
         @media (max-width: 1280px) {
             font-size: 14px;
+        }
+
+        &.active {
+            &::before{
+                width: 80%;
+                margin-left: 10%;
+            }
         }
 
         &::before {
@@ -38,12 +49,20 @@ const StyledTab = styled.li`
             margin-left: 0;
         }
     }
+
 `;
 
 const Tab = (props) => {
+
+    let classes = ['link'];
+
+    try {
+        if (props.location.replace('http://localhost:3000', '') === props.path) classes.push('active')
+    } catch (error) {}
+
     return (
         <StyledTab>
-            <Link className="link" to={props.path}>
+            <Link to={props.path} className={classes.join(' ')}>
                 {props.name}
             </Link>
         </StyledTab>
