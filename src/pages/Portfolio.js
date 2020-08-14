@@ -1,6 +1,5 @@
 // react
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 // external packages
 import styled from 'styled-components';
@@ -9,6 +8,7 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Card from '../components/Portfolio/Card';
+import SingleSlide from '../components/SingleSlide';
 
 // images for slides
 import img3 from '../images/slider/3.jpg';
@@ -58,52 +58,6 @@ const StyledContainer = styled.div`
             grid-column-gap: 0px;
             grid-row-gap: 40px;
         }
-    }
-`;
-
-const Slides = styled.div`
-    width: 100%;
-
-    .slide {
-        width: 100%;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        margin-top: 100px;
-
-        background-position: center;
-        background-size: cover;
-
-        text-decoration: none;
-        color: #fff;
-        overflow: hidden;
-
-        h2 {
-            width: 100%;
-            display: block;
-
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.2);
-
-            text-align: center;
-            font-size: 50px;
-            font-weight: 700;
-            letter-spacing: 2px;
-
-            @media (max-width: 1440px) { font-size: 40px; }
-            @media (max-width: 1024px) { font-size: 30px; }
-            @media (max-width: 768px) { font-size: 25px; }
-        }
-    }
-
-    .slide1 {
-        margin-top: 200px;
-        background-image: url(${img3});
-    }
-    .slide2 {
-        background-image: url(${img4});
     }
 `;
 
@@ -174,14 +128,18 @@ const Portfolio = () => {
                 </div>
             </StyledContainer>
 
-            <Slides>
-                <Link to="/pytania" className="slide slide1">
-                    <h2>Masz pytania? Tutaj znajdziesz odpowiedź</h2>
-                </Link>
-                <Link to="/portfolio" className="slide slide2">
-                    <h2>Zadzwoń lub napisz – służę pomocą</h2>
-                </Link>
-            </Slides>
+            <SingleSlide
+                text='Masz pytania? Tutaj znajdziesz odpowiedź'
+                location='/pytania'
+                image={img3}
+            />
+
+            <SingleSlide
+                text='Zadzwoń lub napisz – służę pomocą'
+                location='/kontakt'
+                image={img4}
+            />
+
             <Footer />
         </>
     );

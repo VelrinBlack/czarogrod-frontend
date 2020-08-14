@@ -197,18 +197,20 @@ const StyledContainer = styled.div`
 const Form = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
     const [message, setMessage] = useState('');
     const [rodo, setRodo] = useState('');
 
     const [nameError, setNameError] = useState('');
     const [emailError, setEmailError] = useState('');
+    const [phoneNumberError, setPhoneNumberError] = useState('')
     const [messageError, setMessageError] = useState('');
     const [rodoError, setRodoError] = useState('');
 
     const [send, setSend] = useState(false);
 
 
-    const handleChangeName = (e) => {
+    const handleChangeName = e => {
         setName(e.target.value);
 
         if (!e.target.value.match(/^[a-zA-Z]+$/) && e.target.value.length > 0) {
@@ -218,7 +220,7 @@ const Form = () => {
         }
     };
 
-    const handleChangeEmail = (e) => {
+    const handleChangeEmail = e => {
         setEmail(e.target.value);
 
         if (!e.target.value) {
@@ -233,7 +235,19 @@ const Form = () => {
         }
     };
 
-    const handleChangeMessage = (e) => {
+    const handleChangePhoneNumber = e => {
+        if (e.target.value.match(/[0-9]+/g) === null) {
+            setPhoneNumber('');
+        } else {
+            setPhoneNumber(e.target.value.match(/[0-9]+/g));
+        }
+
+        if (!e.target.value) {
+            setPhoneNumberError('Wypełnij proszę to pole');
+        }
+    }
+
+    const handleChangeMessage = e => {
         setMessage(e.target.value);
 
         if (!e.target.value) {
@@ -243,7 +257,7 @@ const Form = () => {
         }
     };
 
-    const handleClickRodo = (e) => {
+    const handleClickRodo = e => {
         setRodo(e.target.checked);
 
         if (!e.target.checked) {
@@ -253,8 +267,13 @@ const Form = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = e => {
         e.preventDefault();
+
+        // check if phone number contains 9 numbers
+        if (phoneNumber[0].length !== 9) {
+            setPhoneNumberError('Wpisz proszę poprawny numer telefonu');
+        }
 
         // check if email field is empty
         if (!email) {
@@ -276,6 +295,7 @@ const Form = () => {
             rodo &&
             !nameError &&
             !emailError &&
+            !phoneNumberError &&
             !messageError &&
             !rodoError
         ) {
@@ -332,6 +352,16 @@ const Form = () => {
                                 value={email}
                             />
                             <p className="errorTxt">{emailError}</p>
+                        </p>
+
+                        <p>
+                            <label>Numer telefonu (wymagane)</label>
+                            <input
+                                placeholder="Podaj numer telefonu"
+                                onChange={(e) => handleChangePhoneNumber(e)}
+                                value={phoneNumber}
+                            />
+                            <p className="errorTxt">{phoneNumberError}</p>
                         </p>
 
                         <p>

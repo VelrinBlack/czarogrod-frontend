@@ -1,6 +1,5 @@
 // react
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 // external packages
 import styled from 'styled-components';
@@ -9,6 +8,7 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Question from '../components/Pytania/Question';
+import SingleSlide from '../components/SingleSlide';
 
 // images
 import img from '../images/slider/4.jpg';
@@ -34,44 +34,6 @@ const StyledContainer = styled.div`
     @media (max-width: 1280px) { width: 70% }
     @media (max-width: 1024px) { width: 80% }
     @media (max-width: 768px) { width: 90% }
-`;
-
-const ContactSlide = styled.div`
-    width: 100%;
-
-    .more-questions {
-        width: 100%;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        margin-top: 100px;
-
-        background-image: url(${img});
-        background-size: cover;
-        background-position: center;
-
-        color: #fff;
-        text-decoration: none;
-
-        overflow: hidden;
-    }
-
-    h1 {
-        width: 100%;
-
-        display: block;
-
-        padding: 20px 0;
-        background-color: rgba(0, 0, 0, 0.2);
-
-        text-align: center;
-        font-size: 50px;
-        font-weight: 700;
-        letter-spacing: 2px;
-    }
 `;
 
 const Pytania = () => {
@@ -145,11 +107,11 @@ const Pytania = () => {
                 />
             </StyledContainer>
 
-            <ContactSlide>
-                <Link to='/kontakt' className='more-questions'>
-                    <h1>Masz więcej pytań? Zadzwoń lub napisz</h1>
-                </Link>
-            </ContactSlide>
+            <SingleSlide
+                text='Masz więcej pytań? Zadzwoń lub napisz'
+                location='/kontakt'
+                image={img}
+            />
 
             <Footer />
         </>

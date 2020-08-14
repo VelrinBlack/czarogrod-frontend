@@ -1,6 +1,5 @@
 // react
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 // external packages
 import styled from 'styled-components';
@@ -8,6 +7,7 @@ import styled from 'styled-components';
 // components
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import SingleSlide from '../components/SingleSlide';
 
 // images
 import img1 from '../images/slider/3.jpg';
@@ -40,52 +40,6 @@ const StyledContainer = styled.div`
         }
     }
 
-`;
-
-const Slides = styled.div`
-    width: 100%;
-
-    .slide {
-        width: 100%;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        margin-top: 100px;
-
-        background-position: center;
-        background-size: cover;
-
-        text-decoration: none;
-        color: #fff;
-        overflow: hidden;
-
-        h2 {
-            width: 100%;
-            display: block;
-
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.2);
-
-            text-align: center;
-            font-size: 50px;
-            font-weight: 700;
-            letter-spacing: 2px;
-
-            @media (max-width: 1440px) { font-size: 40px; }
-            @media (max-width: 1024px) { font-size: 30px; }
-            @media (max-width: 768px) { font-size: 25px; }
-        }
-    }
-
-    .slide1 {
-        margin-top: 100px;
-        background-image: url(${img1});
-    }
-    .slide2 {
-        background-image: url(${img2});
-    }
 `;
 
 
@@ -134,14 +88,17 @@ const Oferta = () => {
 
             </StyledContainer>
 
-            <Slides>
-                <Link to="/pytania" className="slide1 slide">
-                    <h2>Masz wątpliwości? Zobacz o co pytają klienci</h2>
-                </Link>
-                <Link to="/portfolio" className="slide2 slide">
-                    <h2>Sprawdź moje ostatnie projekty</h2>
-                </Link>
-            </Slides>
+            <SingleSlide
+                text='Masz wątpliwości? Zobacz o co pytają klienci'
+                location='/pytania'
+                image={img1}
+            />
+
+            <SingleSlide
+                text='Sprawdź moje ostatnie projekty'
+                location='/portfolio'
+                image={img2}
+            />
 
             <Footer />
         </>
