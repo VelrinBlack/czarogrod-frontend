@@ -72,7 +72,7 @@ const NajnowszeWpisy = () => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        axios.get('https://czarogrod-server.herokuapp.com/posts?_limit=2').then(res => setArticles(res.data))
+        axios.get('http://czarogrod-backend-strapi.herokuapp.com/posts?_limit=2').then(res => setArticles(res.data))
     }, []);
 
     return (

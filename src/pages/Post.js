@@ -88,7 +88,7 @@ const Post = props => {
             behavior: 'smooth'
         });
         
-        axios.get(`https://czarogrod-server.herokuapp.com/posts/${props.match.params.id}`).then(res => setArticle(res.data))
+        axios.get(`http://czarogrod-backend-strapi.herokuapp.com/posts/${props.match.params.id}`).then(res => setArticle(res.data))
         
     }, [props.match.params.id]);
     

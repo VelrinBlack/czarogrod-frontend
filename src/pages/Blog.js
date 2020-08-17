@@ -38,7 +38,7 @@ const Blog = () => {
         });
 
         // set articles to posts from strapi
-        axios.get('https://czarogrod-server.herokuapp.com/posts').then(res => setArticles(res.data))
+        axios.get('http://czarogrod-backend-strapi.herokuapp.com/posts').then(res => setArticles(res.data))
 
     }, []);
 
