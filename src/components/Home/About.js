@@ -116,40 +116,6 @@ const About = () => {
                 <div className='text-container'>
                     <h2>O mnie</h2>
                     <ReactMarkdown source={data} />
-                    {/* <p>
-                        Dzień dobry. Witaj w Czarogrodzie. Razem
-                        odmienimy Twój ogród!
-                        <br/>
-                        <br/>
-                        Nazywam się Agnieszka Lizończyk i z
-                        chęcią zaczaruję każdy zielony zakątek, nawet
-                        ten najmniejszy.
-                        <br/>
-                        <br/>
-                        Ostatnie kilkanaście lat przepracowałam w
-                        korporacji, nieobce mi są pojęcia analizy
-                        finansowej, czy przygotowywania budżetu. Excel i
-                        Power Point nie mają przede mną żadnych
-                        tajemnic.
-                        <br/>
-                        <br/>
-                        Jednak moją największa pasją są ogrody i
-                        dziś mogę się szczycić tytułem architekta
-                        krajobrazu. W każdy projekt wkładam swoje serce
-                        i zapał, zawsze dbam o to, by koncepcja była
-                        indywidualnie dopasowana do potrzeb odbiorcy.
-                        <br/>
-                        <br/>
-                        Zapraszam do współpracy, razem możemy wyczarować
-                        Twój idealny ogród, balkon lub taras.
-                        <br/>
-                        <br/>
-                        Działam na terenie województwa
-                        małopolskiego i śląskiego, jednak w przypadku
-                        mniejszych projektów z innych części Polski, z
-                        chęcią podejmę się współpracy z Tobą w sposób
-                        zdalny.
-                    </p> */}
                 </div>
                 <div className='image-container'>
                     <img src={portrait} alt='Mój portret' />
