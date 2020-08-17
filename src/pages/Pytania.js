@@ -1,8 +1,9 @@
 // react
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // external packages
 import styled from 'styled-components';
+import axios from 'axios';
 
 // components
 import Header from '../components/Header';
@@ -38,12 +39,18 @@ const StyledContainer = styled.div`
 
 const Pytania = () => {
 
+    const [data, setData] = useState([])
+
     useEffect(() => {
         // scroll to the top
         window.scroll({
             top: 0,
             behavior: 'smooth'
         });
+
+        // load data from api
+        axios.get('https://czarogrod-backend-strapi.herokuapp.com/questions')
+        .then(data => setData(data.data))
     }, [])
 
     return (
@@ -51,7 +58,26 @@ const Pytania = () => {
             <Header />
             <StyledContainer>
                 <h1>Pytania</h1>
-                <Question 
+                {
+                    data.map(question => {
+                        if (data[data.length - 1] === question) {
+                            return (
+                                <Question 
+                                    question={question.question}
+                                    anwser={question.anwser}
+                                /> 
+                            )
+                        }
+                        return (
+                            <Question 
+                            question={question.question}
+                            anwser={question.anwser}
+                            leaf
+                        /> 
+                        ) 
+                    })
+                }
+                {/* <Question 
                     question='W jakiej części Polski działa Czarogród.pl?'
                     anwser='Mieszkam w Alwerni, niewielkiej miejscowości w połowie drogi między Krakowem, a Katowicami, dlatego główny obszar działania to województwa małopolskie i śląskie, jednak w przypadku mniejszych projektów z innych części Polski, z chęcią podejmę się współpracy z Tobą w sposób zdalny.'
                     leaf
@@ -104,7 +130,7 @@ const Pytania = () => {
                 <Question
                     question='Dopiero planuję budowę domu, czy to nie za wcześnie na projekt ogrodu?'
                     anwser='Etap projektowania domu jest idealnym momentem na przygotowanie projektu ogrodu! Istnieje wtedy możliwość dopasowania wyglądu ogrodu i tarasu do projektowanych wnętrz, tak aby razem stanowiły spójną całość.'
-                />
+                /> */}
             </StyledContainer>
 
             <SingleSlide
