@@ -16,7 +16,7 @@ const Home = (props) => {
         // if path is '/omnie' scroll to 'o mnie' section
         if (props.location.pathname === '/omnie') {
             window.scroll({
-                top: 1050,
+                top: 1250,
                 behavior: 'smooth'
             });
         } else { // else scroll up
