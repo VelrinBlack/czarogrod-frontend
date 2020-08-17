@@ -1,5 +1,5 @@
 // react
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom'
 
 // external packages
@@ -191,6 +191,10 @@ const StyledContainer = styled.div`
                 text-decoration:underline;
             }
         }
+
+        .send-info {
+            text-align: center;
+        }
     }
 `;
 
@@ -199,7 +203,7 @@ const Form = () => {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [message, setMessage] = useState('');
-    const [rodo, setRodo] = useState('');
+    const rodo = useRef()
 
     const [nameError, setNameError] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -213,8 +217,8 @@ const Form = () => {
     const handleChangeName = e => {
         setName(e.target.value);
 
-        if (!e.target.value.match(/^[a-zA-Z]+$/) && e.target.value.length > 0) {
-            setNameError('To pole może zawierać tylko małe i duże litery');
+        if (!e.target.value.match(/^[a-z A-Zążźćęółś]+$/) && e.target.value.length > 0) {
+            setNameError('To pole może zawierać tylko litery i spacje');
         } else {
             setNameError('');
         }
@@ -244,6 +248,10 @@ const Form = () => {
 
         if (!e.target.value) {
             setPhoneNumberError('Wypełnij proszę to pole');
+        } else if (e.target.value.length !== 9) {
+            setPhoneNumberError('Wpisz proszę poprawny numer telefonu');
+        } else {
+            setPhoneNumberError('')
         }
     }
 
@@ -258,8 +266,6 @@ const Form = () => {
     };
 
     const handleClickRodo = e => {
-        setRodo(e.target.checked);
-
         if (!e.target.checked) {
             setRodoError('Zaakceptuj proszę naszą politykę prywatności'); 
         } else {
@@ -267,43 +273,45 @@ const Form = () => {
         }
     };
 
+
     const handleSubmit = e => {
         e.preventDefault();
-
-        // check if phone number contains 9 numbers
-        if (phoneNumber[0].length !== 9) {
-            setPhoneNumberError('Wpisz proszę poprawny numer telefonu');
-        }
 
         // check if email field is empty
         if (!email) {
             setEmailError('Uzupełnij proszę to pole');
+        }
+        // check if phone number fiels is empty
+        if (!phoneNumber) {
+            setPhoneNumberError('Uzupełnij proszę to pole');
         }
         // check if message field is empty
         if (!message) {
             setMessageError('Uzupełnij proszę to pole');
         }
         // check if rodo checkbox is not checked
-        if (!rodo) {
+        if (!rodo.current.checked) {
             setRodoError('Zaakceptuj proszę naszą politykę prywatności');
         }
 
         // check if all fields ale completed and there are no errors
         if (
             email &&
+            phoneNumber &&
             message &&
             rodo &&
-            !nameError &&
-            !emailError &&
-            !phoneNumberError &&
-            !messageError &&
-            !rodoError
+            nameError === '' &&
+            emailError === '' &&
+            phoneNumberError === '' &&
+            messageError === '' &&
+            rodoError === ''
         ) {
             // send data to the server
             axios
-                .post('http://localhost:5000/api/sendmail', {
-                    name,
+                .post('https://czarogrod-backend-mail.herokuapp.com/sendmail', {
+                    name,    
                     email,
+                    phoneNumber,
                     message,
                 })
                 .then((res) => {
@@ -311,12 +319,15 @@ const Form = () => {
                     if (res.data.sent) {
                         setName('');
                         setEmail('');
+                        setPhoneNumber('');
                         setMessage('');
+                        rodo.current.checked = false
                         setSend('success');
                     } else { // else display info about error
                         setSend('error');
                     }
-                });
+                }).catch(error => console.log(error))
+                
             // set info about waiting for response from the server
             setSend('pending');
         } else {
@@ -334,10 +345,10 @@ const Form = () => {
                         <h1>Kontakt</h1>
 
                         <p>
-                            <label>Imię i nazwisko</label>
+                            <label>Imię</label>
                             <input
                                 type="text"
-                                placeholder="Podaj imię i nazwisko"
+                                placeholder="Podaj imię"
                                 onChange={(e) => handleChangeName(e)}
                                 value={name}
                             />
@@ -381,6 +392,7 @@ const Form = () => {
                                     name="acceptance-rodo"
                                     value={rodo}
                                     onClick={(e) => handleClickRodo(e)}
+                                    ref={rodo}
                                     className="rodo-checkbox"
                                 />
                                 <span>
@@ -401,7 +413,7 @@ const Form = () => {
                             />
                         </p>
 
-                        <div className={send}>
+                        <div className='send-info'>
                             {!send
                                 ? ''
                                 : send === 'error'

@@ -228,6 +228,7 @@ const Slider = () => {
         autoplay: true,
         loop: true,
         nav: true,
+        autoplayHoverPause: true
     };
 
     return (
