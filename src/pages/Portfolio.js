@@ -35,6 +35,12 @@ const StyledContainer = styled.div`
         grid-column-gap: 40px;
         grid-row-gap: 100px;
 
+        .loading {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
         @media (max-width: 1024px) {
             grid-template-columns: 1fr 1fr;
             grid-column-gap: 30px;
@@ -51,7 +57,7 @@ const StyledContainer = styled.div`
 
 const Portfolio = () => {
 
-    const [cards, setCards] = useState([])
+    const [cards, setCards] = useState(['loading'])
 
     useEffect(() => {
         // scroll to the top
@@ -72,13 +78,16 @@ const Portfolio = () => {
                 <h1>Portfolio</h1>
                 <div className="cardsContainer">
 
-                    {cards.map(card => (
-                        <Card
-                            src={card.Image.url}
-                            alt={card.Image.name}
-                            text={card.Description}
-                        />
-                    ))}
+                    {cards.map(card => {
+                            if (card === 'loading') return <p className='loading'>Ładowanie...</p>
+
+                            return <Card
+                                src={card.Image.url}
+                                alt={card.Image.name}
+                                text={card.Description}
+                            />
+                        }
+                    )}
 
                 </div>
             </StyledContainer>

@@ -24,6 +24,12 @@ const StyledContainer = styled.div`
         margin-top: 400px;
     }
 
+    .loading {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
     h1 {
         text-align: center;
         font-size: 50px;
@@ -47,7 +53,7 @@ const StyledContainer = styled.div`
 
 const Oferta = () => {
 
-    const [data, setData] = useState('Ładowanie...')
+    const [data, setData] = useState('loading')
 
     useEffect(() => {
         // scroll to the top
@@ -58,15 +64,22 @@ const Oferta = () => {
 
         // load data from api
         axios.get('https://czarogrod-backend-strapi.herokuapp.com/offers')
-        .then(data => setData(data.data[0].content))
+        .then(data => {
+            return setData(data.data[0].content)
+        })
     }, [])
 
     return (
         <>
             <Header />
+
             <StyledContainer>
                 <h1>Oferta</h1>
-                <ReactMarkdown source={data}/>
+
+                {
+                    data === 'loading' ? <p className='loading'>Ładowanie...</p> : <ReactMarkdown source={data}/>
+                }
+                
             </StyledContainer>
 
             <SingleSlide

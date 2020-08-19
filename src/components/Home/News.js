@@ -87,9 +87,9 @@ const NajnowszeWpisy = () => {
                 }
 
                 {
-                    articles.map((post) => (
-                        <Post image={post.image.formats.large.url} title={post.title} content={post.content} key={post.id} id={post.id}/>)
-                    )
+                    articles.map(post => {
+                        return <Post image={post.image.url} title={post.title} content={post.content} key={post.id} id={post.id}/>
+                    })
                 }
             </div>
             

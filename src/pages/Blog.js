@@ -52,7 +52,7 @@ const Blog = () => {
                     {
                         articles.map(article => {
 
-                            const image = article.image.formats.large.url
+                            const image = article.image.url
                             const title = article.title
                             const content = article.content
 
