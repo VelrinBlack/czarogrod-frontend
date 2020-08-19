@@ -9,27 +9,44 @@ import styled from 'styled-components';
 
 const StyledPost = styled.div`
     .link-wrapper {
+        display: flex;
+
         color: #000;
         text-decoration: none;
 
+        @media (max-width: 1024px) {
+            flex-direction: column;
+        }
+
         .image {
-            width: 100%;
-            height: 500px;
+            width: 300px;
+            height: 250px;
             object-fit: cover;
 
-            @media (max-width: 1024px) { height: 300px; }
+            @media (max-width: 1024px) { width: 100%; height: 250px; }
         }
         
-        .title {
-            font-size: 25px;
+        .text-content-wrapper {
+            display: flex;
+            flex-direction: column;
 
-            @media (max-width: 1920px) { font-size: 20px; }
-        }
+            padding-left: 40px;
 
-        .text {
-            font-size: 20px;
+            @media (max-width: 1024px) { padding: 0; }
 
-            @media (max-width: 1920px) { font-size: 17px; }
+            .title {
+                font-size: 25px;
+
+                @media (max-width: 1920px) { font-size: 20px; }
+                @media (max-width: 1280px) { font-size: 18px; }
+            }
+
+            .text {
+                font-size: 20px;
+
+                @media (max-width: 1920px) { font-size: 17px; }
+                @media (max-width: 1280px) { font-size: 15px; }
+            }
         }
     }
     
@@ -61,8 +78,10 @@ const Post = (props) => {
         <StyledPost>
             <Link to={'/blog/' + props.id} className='link-wrapper'>
                 <img src={props.image} alt='Zdjęcie artykułu' className='image' />
-                <h3 className='title'>{props.title}</h3>
-                <p className='text'>{loadText()}</p>
+                <div className="text-content-wrapper">
+                    <h3 className='title'>{props.title}</h3>
+                    <p className='text'>{loadText()}</p>
+                </div>
             </Link>
         </StyledPost>
     );

@@ -17,7 +17,7 @@ import img from '../images/slider/4.jpg';
 const StyledContainer = styled.div`
 
     .posts-container {
-        width: 60%;
+        width: 50%;
         margin: 350px auto;
 
         @media (max-width: 1920px) { width: 70%; }
