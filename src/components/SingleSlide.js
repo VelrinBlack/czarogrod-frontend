@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 
 const StyledSingleSlide = styled.div`
+
     .slide {
         width: 100%;
 
@@ -31,13 +32,13 @@ const StyledSingleSlide = styled.div`
             background-color: rgba(0, 0, 0, 0.2);
 
             text-align: center;
-            font-size: 50px;
+            font-size: 40px;
             font-weight: 700;
             letter-spacing: 2px;
 
-            @media (max-width: 1440px) { font-size: 40px; }
-            @media (max-width: 1024px) { font-size: 30px; }
-            @media (max-width: 768px) { font-size: 25px; }
+            @media (max-width: 1440px) { font-size: 30px; letter-spacing: 1.5px; }
+            @media (max-width: 1024px) { font-size: 20px; letter-spacing: 1px;}
+            @media (max-width: 768px) { font-size: 15px; letter-spacing: .5px;}
         }
     }
 `
