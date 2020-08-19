@@ -23,10 +23,9 @@ const StyledCarousel = styled.div`
         margin-top: 150px;
 
         .owl-theme, .owl-carousel {
-
             .slide {
                 width: 100%;
-                height: 630px;
+                height: 500px;
 
                 display: flex;
                 flex-direction: column;
@@ -187,12 +186,14 @@ const StyledCarousel = styled.div`
 
             .owl-nav {
                 position: absolute;
-                top: 385px;
+                top: 49%;
 
                 width: 100%;
 
                 display: flex;
                 justify-content: space-between;
+
+                margin: 0;
                 
                 .owl-prev,
                 .owl-next {

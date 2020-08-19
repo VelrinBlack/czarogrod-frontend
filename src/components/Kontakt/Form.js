@@ -339,7 +339,7 @@ const Form = () => {
         <>
             <StyledContainer>
 
-                    <img src={img} alt='rośliny'/>
+                    <img src={img} alt='słonecznik'/>
 
                     <form onSubmit={(e) => handleSubmit(e)}>
                         <h1>Kontakt</h1>
