@@ -10,14 +10,22 @@ import leaf from '../../images/other/leaf.svg';
 
 const StyledQuestion = styled.div`
     width: 100%;
-    margin: 30px 0;
 
-    h2 {
-        margin-bottom: 30px;
+    * {
+        margin: 0;
     }
 
-    p {
-        margin-bottom: 60px;
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    img {
+        position: relative;
+        right: 15px;
+
+        width: 80px;
+
+        margin: 40px 0 40px 0;
     }
 `;
 
