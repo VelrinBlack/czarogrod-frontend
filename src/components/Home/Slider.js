@@ -26,7 +26,7 @@ const StyledCarousel = styled.div`
 
             .slide {
                 width: 100%;
-                height: 700px;
+                height: 630px;
 
                 display: flex;
                 flex-direction: column;

@@ -72,7 +72,7 @@ Post.propTypes = {
     image: PropTypes.string,
     title: PropTypes.string,
     content: PropTypes.string,
-    id: PropTypes.number
+    id: PropTypes.string
 };
 
 export default Post;
