@@ -63,9 +63,9 @@ const Oferta = () => {
         });
 
         // load data from api
-        axios.get('https://czarogrod-backend-strapi.herokuapp.com/offers')
+        axios.get('https://czarogrod-backend-strapi.herokuapp.com/offer')
         .then(data => {
-            return setData(data.data[0].content)
+            return setData(data.data.content)
         })
     }, [])
 

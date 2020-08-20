@@ -106,8 +106,14 @@ const About = () => {
 
     useEffect(() => {
         // get data from api
-        axios.get('https://czarogrod-backend-strapi.herokuapp.com/abouts')
-        .then(data => setData(data.data[0].content))
+        axios.get('https://czarogrod-backend-strapi.herokuapp.com/about')
+        .then(data => {
+            setData(data.data.content)
+            window.scroll({
+                top: 900,
+                behavior: 'smooth'
+            });
+        })
     }, [])
 
     return (
