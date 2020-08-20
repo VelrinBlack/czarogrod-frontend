@@ -1,5 +1,6 @@
 // react
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 // external packages
 import styled from 'styled-components';
@@ -100,7 +101,7 @@ const StyledAbout = styled.div`
     }
 `;
 
-const About = () => {
+const About = props => {
 
     const [data, setData] = useState('')
 
@@ -109,12 +110,14 @@ const About = () => {
         axios.get('https://czarogrod-backend-strapi.herokuapp.com/about')
         .then(data => {
             setData(data.data.content)
-            window.scroll({
-                top: 900,
-                behavior: 'smooth'
-            });
+            if (props.path === '/omnie') {
+                window.scroll({
+                    top: 900.001,
+                    behavior: 'smooth'
+                });
+            }
         })
-    }, [])
+    }, [props])
 
     return (
         <StyledAbout>
@@ -130,5 +133,9 @@ const About = () => {
         </StyledAbout>
     );
 };
+
+About.propTypes = {
+    path: PropTypes.string
+}
 
 export default About;

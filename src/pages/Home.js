@@ -16,7 +16,7 @@ const Home = (props) => {
         // if path is '/omnie' scroll to 'o mnie' section
         if (props.location.pathname === '/omnie') {
             window.scroll({
-                top: 1200,
+                top: 900,
                 behavior: 'smooth'
             });
         } else { // else scroll up
@@ -46,7 +46,7 @@ const Home = (props) => {
         <>
             <Header />
             <Slider />
-            <About />
+            <About path={props.location.pathname} />
             <News />
             <Footer />
         </>
@@ -54,7 +54,7 @@ const Home = (props) => {
 };
 
 Home.propTypes = {
-    location: PropTypes.string
+    location: PropTypes.object
 };
 
 export default Home;
