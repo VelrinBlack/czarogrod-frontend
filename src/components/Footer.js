@@ -213,7 +213,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <p className="copyright">© 2020 – Mateusz i Bartosz Wleciał</p>
+            <p className="copyright">© 2020 – Bartosz Wleciał</p>
         </StyledFooter>
     );
 };
