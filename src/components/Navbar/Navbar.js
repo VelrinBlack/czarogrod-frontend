@@ -11,30 +11,25 @@ import Tab from './Tab';
 
 // images
 import logo from '../../images/other/logo.png';
-import subtitle from '../../images/other/subtitle.png'
 
 const MobileNavigation = styled.nav`
     position: absolute;
     top: 20px;
 
     width: 100%;
+    height: 0;
 
     z-index: 2;
 
     .logo-link {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
 
-        margin-top: 60px;
+        margin-top: 100px;
 
         .logo-img {
             height: 110px;
-        }
-        .subtitle-img {
-            height: 40px;
-            margin-top: 10px;
         }
     }
     
@@ -42,7 +37,7 @@ const MobileNavigation = styled.nav`
     .hamburger-btn {
         position: absolute;
         left: 50%;
-        top: 240px;
+        top: 220px;
         transform: translateX(-50%);
 
         width: 55px;
@@ -213,14 +208,9 @@ const StyledNavbar = styled.nav`
 
         .logo-link {
             height: 100%;
-            display: flex;
-            align-items: center;
 
             .logo-img {
                 height: 100%;
-            }
-            .subtitle-img {
-                height: 35%;
             }
         }
 
@@ -276,7 +266,6 @@ const Navbar = props => {
             <MobileNavigation>
                 <Link to='/' className='logo-link'>
                     <img src={logo} alt='logo' className='logo-img'/>
-                    <img src={subtitle} alt='subtitle' className='subtitle-img'/>
                 </Link>
 
                 <button
@@ -307,8 +296,7 @@ const Navbar = props => {
         <StyledNavbar className={minimalize ? 'minimalized' : ''}>
             <div className='container'>
                 <Link to='/' className='logo-link'>
-                    <img src={logo} alt='logo' className='logo-img' />
-                    <img src={subtitle} alt='subtitle' className='subtitle-img'/>
+                    <img src={logo} alt=':ogo' className='logo-img' />
                 </Link>
                 <ul className='navigation'>
                     <Tab path='/' name='HOME' exact location={window.location.href}/>
