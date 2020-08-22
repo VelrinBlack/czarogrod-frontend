@@ -237,7 +237,7 @@ const Slider = () => {
             <OwlCarousel {...settings}>
 
                 <div className='slide slide1'>
-                    <h1 className='title'>Zobacz jak pracujemy</h1>
+                    <h1 className='title'>Zobacz jak projektujemy</h1>
 
                     <Link to='/oferta' className='btn btn1'>
                         OFERTA
