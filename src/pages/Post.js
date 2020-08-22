@@ -88,14 +88,14 @@ const Post = props => {
             behavior: 'smooth'
         });
         
-        axios.get(`http://czarogrod-backend-strapi.herokuapp.com/posts/${props.match.params.id}`).then(res => setArticle(res.data))
+        axios.get(`https://czarogrod-backend-strapi.herokuapp.com/posts/${props.match.params.id}`).then(res => setArticle(res.data))
         
     }, [props.match.params.id]);
     
 
     const loadImage = () => {
         try {
-            return <img className='main-image' src={article.image.formats.large.url} alt='Article' />
+            return <img className='main-image' src={article.image.url} alt='Article' />
         } catch (error) {
             return 'Ładowanie...'
         }
@@ -139,7 +139,8 @@ const Post = props => {
                 <h1 className='title'>{loadTitle()}</h1>
                 <p className='txt'>{loadConent()}</p>
                 
-                <Comments/>
+                {article ? <Comments article={article}/> : null}
+                
             </StyledContainer>
             <Footer />
         </>
