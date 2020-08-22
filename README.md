@@ -1,6 +1,6 @@
-This project was created by Mateusz and Bartosz Wleciał.
+This project was created by Bartosz Wleciał.
 
-## To run it, type:
+## To run, type:
 
 1. npm install
 2. npm start

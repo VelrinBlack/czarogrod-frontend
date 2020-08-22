@@ -11,11 +11,13 @@ import Navbar from './Navbar/Navbar';
 
 const StyledHeader = styled.header`
     position: sticky;
-    top: -20%;
+    top: -21.5%;
 
-    height: 290px;
+    height: 320px;
 
     background-color: #fff;
+
+    z-index: 10;
 `
 
 const Header = () => (

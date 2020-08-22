@@ -19,8 +19,6 @@ const MobileNavigation = styled.nav`
 
     width: 100%;
 
-    z-index: 2;
-
     .logo-link {
         display: flex;
         flex-direction: column;
