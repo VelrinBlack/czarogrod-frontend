@@ -108,17 +108,15 @@ const StyledFooter = styled.div`
                 }
 
                 .social-media {
-                    height: 80px;
+                    height: 70px;
                     display: flex;
                     justify-content: space-around;
 
-                    @media (max-width: 1920px) { height: 60px; }
-                    @media (max-width: 1440px) { height: 50px; }
-                    @media (max-width: 1024px) { height: 70px; }
+                    @media (max-width: 1920px) { height: 50px; }
                     @media (max-width: 768px) { height: 60px; }
 
                     .link {
-                        width: 40%;
+                        width: 30%;
 
                         display: flex;
                         justify-content: center;
@@ -130,7 +128,7 @@ const StyledFooter = styled.div`
                             width: 20%;
 
                             @media (max-width: 1440px) { width: 25%; }
-                            @media (max-width: 768px) { width: 20%; }
+                            @media (max-width: 1024px) { width: 20%; }
                             @media (max-width: 500px) { width: 30%; }
                         }
                     }
