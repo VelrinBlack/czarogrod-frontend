@@ -11,7 +11,7 @@ import Navbar from './Navbar/Navbar';
 
 const StyledHeader = styled.header`
     position: sticky;
-    top: -32%;
+    top: -220px;
 
     height: 310px;
 
@@ -20,7 +20,7 @@ const StyledHeader = styled.header`
     z-index: 10;
 
     @media (max-width: 768px) {
-        top: -28%;
+        top: -190px;
     }
 `
 

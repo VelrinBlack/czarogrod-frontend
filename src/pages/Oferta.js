@@ -17,11 +17,10 @@ import img2 from '../images/slider/2.jpg';
 
 const StyledContainer = styled.div`
     width: 70%;
-    margin: 300px auto;
+    margin: 0 auto;
 
     @media (max-width: 1024px) {
         width: 90%;
-        margin-top: 400px;
     }
 
     .loading {

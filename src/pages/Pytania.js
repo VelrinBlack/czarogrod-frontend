@@ -23,13 +23,11 @@ const StyledContainer = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    margin: 350px auto 0 auto;
+    margin: 50px auto 0 auto;
 
     h1 {
         margin-bottom: 100px;
         font-size: 50px;
-
-        @media (max-width: 1024px) { margin-top: 170px; }
     }
 
     @media (max-width: 1280px) { width: 70% }

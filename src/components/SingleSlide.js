@@ -14,7 +14,7 @@ const StyledSingleSlide = styled.div`
         align-items: center;
         justify-content: center;
 
-        margin: 100px 0;
+        margin: 50px 0;
 
         background-image: url(${props => props.image});
         background-position: center;

@@ -16,8 +16,6 @@ const StyledContainer = styled.div`
     display: flex;
     justify-content: space-around;
 
-    margin-top: 250px;
-
     img {
         width: 35%;
         height: 1000px;

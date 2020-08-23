@@ -20,7 +20,6 @@ import arrow_right from '../../images/slider/arrow-right.svg';
 
 
 const StyledCarousel = styled.div`
-        margin-top: 150px;
 
         .owl-theme, .owl-carousel {
             .slide {
@@ -32,8 +31,6 @@ const StyledCarousel = styled.div`
                 align-items: center;
                 justify-content: center;
 
-                margin-top: 100px;
-
                 background-size: cover;
                 background-position: center;
                 
@@ -41,8 +38,8 @@ const StyledCarousel = styled.div`
                 overflow: hidden;
 
                 @media (max-width: 1024px) {
-                    margin-top: 190px;
-                    height: 500px;
+                    margin-top: 20px;
+                    height: 300px;
                 }
             }
 
@@ -229,7 +226,6 @@ const Slider = () => {
         autoplay: true,
         loop: true,
         nav: true,
-        autoplayHoverPause: true
     };
 
     return (

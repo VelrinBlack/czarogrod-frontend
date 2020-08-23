@@ -14,7 +14,7 @@ const StyledContainer = styled.div`
     position: relative;
 
     width: 60%;
-    margin: 300px auto;
+    margin: 150px auto;
 
     @media (max-width: 1920px){ width: 70%; }
     @media (max-width: 1024px){ width: 80%; }

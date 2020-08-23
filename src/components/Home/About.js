@@ -18,7 +18,7 @@ const StyledAbout = styled.div`
     display: flex;
     justify-content: center;
 
-    margin: 150px auto 100px auto;
+    margin: 70px auto 0 auto;
 
     background-color: #f2f2f2;
 
@@ -112,7 +112,7 @@ const About = props => {
             setData(data.data.content)
             if (props.path === '/omnie') {
                 window.scroll({
-                    top: 1200.001,
+                    top: 1100.001,
                     behavior: 'smooth'
                 });
             }

@@ -18,12 +18,10 @@ import img4 from '../images/slider/4.jpg';
 
 const StyledContainer = styled.div`
     width: 80%;
-    margin: 350px auto 0 auto;
-
-    @media (max-width: 1024px) { margin: 350px auto 0 auto; }
+    margin: 0 auto;
 
     h1 {
-        margin: 150px 0 100px 0;
+        margin-bottom: 100px;
 
         text-align: center;
         font-size: 50px;
