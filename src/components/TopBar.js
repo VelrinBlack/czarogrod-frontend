@@ -134,7 +134,7 @@ const TopBar = () => {
 
                     <div className="contact-phone">
 
-                        <a href="tel:++48784880484">
+                        <a href="tel:+48784880484">
                             <img
                                 src={phone}
                                 alt="telefon"
@@ -143,7 +143,7 @@ const TopBar = () => {
                         </a>
 
                         <p className="phone-number">
-                            <a href="tel:++48784880484">+48 784 880 484</a>
+                            <a href="tel:+48784880484">+48 784 880 484</a>
                         </p>
 
                     </div>
