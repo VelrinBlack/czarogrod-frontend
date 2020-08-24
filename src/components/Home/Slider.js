@@ -191,7 +191,7 @@ const StyledCarousel = styled.div`
 
             .owl-nav {
                 position: absolute;
-                top: 49%;
+                top: 40%;
 
                 width: 100%;
 

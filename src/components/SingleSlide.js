@@ -24,6 +24,8 @@ const StyledSingleSlide = styled.div`
         color: #fff;
         overflow: hidden;
 
+        @media (max-width: 768px) { height: 100px; }
+
         h2 {
             width: 100%;
             display: block;
