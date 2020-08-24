@@ -112,7 +112,7 @@ const About = props => {
             setData(data.data.content)
             if (props.path === '/omnie') {
                 window.scroll({
-                    top: 1100.001,
+                    top: 700.001,
                     behavior: 'smooth'
                 });
             }
