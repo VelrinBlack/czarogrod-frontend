@@ -7,7 +7,12 @@ import Header from '../components/Header';
 import Slider from '../components/Home/Slider';
 import About from '../components/Home/About';
 import News from '../components/Home/News';
+import SingleSlide from '../components/SingleSlide';
 import Footer from '../components/Footer';
+
+// images
+import img1 from '../images/slider/2.jpg';
+import img2 from '../images/slider/4.jpg';
 
 
 const Home = (props) => {
@@ -48,6 +53,8 @@ const Home = (props) => {
             <Slider />
             <About path={props.location.pathname} />
             <News />
+            <SingleSlide image={img1} location='/oferta' text='Zobacz szczegóły oferty'/>
+            <SingleSlide image={img2} location='/pytania' text='Sprawdź, o co pytają klienci'/>
             <Footer />
         </>
     );

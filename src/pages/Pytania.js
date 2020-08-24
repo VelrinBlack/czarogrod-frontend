@@ -12,7 +12,8 @@ import Question from '../components/Pytania/Question';
 import SingleSlide from '../components/SingleSlide';
 
 // images
-import img from '../images/slider/4.jpg';
+import img1 from '../images/slider/3.jpg';
+import img2 from '../images/slider/2.jpg';
 
 
 const StyledContainer = styled.div`
@@ -83,9 +84,15 @@ const Pytania = () => {
             </StyledContainer>
 
             <SingleSlide
+                text='Sprawdź przykładowe projekty'
+                location='/portfolio'
+                image={img1}
+            />
+
+            <SingleSlide
                 text='Masz więcej pytań? Zadzwoń lub napisz'
                 location='/kontakt'
-                image={img}
+                image={img2}
             />
 
             <Footer />

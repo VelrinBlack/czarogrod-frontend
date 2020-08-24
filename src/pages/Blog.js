@@ -12,7 +12,8 @@ import Post from '../components/Blog/Post';
 import SingleSlide from '../components/SingleSlide';
 
 // images
-import img from '../images/slider/4.jpg';
+import img1 from '../images/slider/1.jpg';
+import img2 from '../images/slider/3.jpg';
 
 const StyledContainer = styled.div`
 
@@ -65,9 +66,15 @@ const Blog = () => {
             </StyledContainer>
 
             <SingleSlide
+                text='Chcesz zlecić wykonanie projektu? Sprawdź szczegóły oferty'
+                location='/oferta'
+                image={img1}
+            />
+
+            <SingleSlide
                 text='Potrzebujesz pomocy? Zadzwoń lub napisz'
                 location='/portfolio'
-                image={img}
+                image={img2}
             />
 
 

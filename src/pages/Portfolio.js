@@ -12,7 +12,7 @@ import Card from '../components/Portfolio/Card';
 import SingleSlide from '../components/SingleSlide';
 
 // images for slides
-import img3 from '../images/slider/3.jpg';
+import img3 from '../images/slider/1.jpg';
 import img4 from '../images/slider/4.jpg';
 
 
