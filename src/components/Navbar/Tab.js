@@ -57,7 +57,7 @@ const Tab = (props) => {
     let classes = ['link'];
 
     try {
-        if (props.location.replace('http://localhost:3000', '') === props.path) classes.push('active')
+        if (props.location.replace('https://czarogrod.pl', '') === props.path) classes.push('active')
     } catch (error) {}
 
     return (

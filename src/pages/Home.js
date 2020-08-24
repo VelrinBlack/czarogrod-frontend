@@ -40,7 +40,7 @@ const Home = (props) => {
 
     const checkPosition = () => {
         // if 'o mnie' section is displaying on the screen, then set path to '/omnie'
-        if (window.pageYOffset >= 850 && window.pageYOffset < 1800) {
+        if (window.pageYOffset >= 650 && window.pageYOffset < 1800) {
             window.history.pushState('O mnie', 'O mnie', '/omnie');
         } else { // else - if rest of home page is displaying on the screen - set path to '/';
             window.history.pushState('Home', 'Home', '/');
