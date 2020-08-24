@@ -15,6 +15,10 @@ import img1 from '../../images/slider/1.jpg';
 import img2 from '../../images/slider/2.jpg';
 import img3 from '../../images/slider/3.jpg';
 import img4 from '../../images/slider/4.jpg';
+import img1_mobile from '../../images/slider/1-mobile.jpg';
+import img2_mobile from '../../images/slider/2-mobile.jpg';
+import img3_mobile from '../../images/slider/3-mobile.jpg';
+import img4_mobile from '../../images/slider/4-mobile.jpg';
 import arrow_left from '../../images/slider/arrow-left.svg';
 import arrow_right from '../../images/slider/arrow-right.svg';
 
@@ -45,15 +49,19 @@ const StyledCarousel = styled.div`
 
             .slide1 {
                 background-image: url(${img1});
+                @media (max-width: 1024px) { background-image: url(${img1_mobile}) }
             }
             .slide2 {
                 background-image: url(${img2});
+                @media (max-width: 1024px) { background-image: url(${img2_mobile}) }
             }
             .slide3 {
                 background-image: url(${img3});
+                @media (max-width: 1024px) { background-image: url(${img3_mobile}) }
             }
             .slide4 {
                 background-image: url(${img4});
+                @media (max-width: 1024px) { background-image: url(${img4_mobile}) }
             }
 
             .title {
