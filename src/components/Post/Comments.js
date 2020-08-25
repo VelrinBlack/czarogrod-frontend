@@ -32,7 +32,7 @@ const Comments = props => (
             shortname='czarogrod'
             config={
                 {
-                    url: 'http://localhost:3000/blog/' + props.article.id,
+                    url: 'https://czarogrod.pl/blog/' + props.article.id,
                     identifier: props.article.id,
                     title: props.article.title,
                     language: 'pl'
