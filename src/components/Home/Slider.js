@@ -1,16 +1,12 @@
-// react
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// external packages
 import styled from 'styled-components';
 import OwlCarousel from 'react-owl-carousel';
 
-// styles
 import 'owl.carousel/dist/assets/owl.carousel.min.css';
 import 'owl.carousel/dist/assets/owl.theme.default.min.css';
 
-// images
 import img1 from '../../images/slider/1.jpg';
 import img2 from '../../images/slider/2.jpg';
 import img3 from '../../images/slider/3.jpg';
@@ -22,258 +18,266 @@ import img4_mobile from '../../images/slider/4-mobile.jpg';
 import arrow_left from '../../images/slider/arrow-left.svg';
 import arrow_right from '../../images/slider/arrow-right.svg';
 
-
 const StyledCarousel = styled.div`
+  .owl-theme,
+  .owl-carousel {
+    .slide {
+      width: 100%;
+      height: 500px;
 
-        .owl-theme, .owl-carousel {
-            .slide {
-                width: 100%;
-                height: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
+      background-size: cover;
+      background-position: center;
 
-                background-size: cover;
-                background-position: center;
-                
-                color: #fff;
-                overflow: hidden;
+      color: #fff;
+      overflow: hidden;
 
-                @media (max-width: 1024px) {
-                    margin-top: 20px;
-                    height: 300px;
-                }
-            }
+      @media (max-width: 1024px) {
+        margin-top: 20px;
+        height: 300px;
+      }
+    }
 
-            .slide1 {
-                background-image: url(${img1});
-                @media (max-width: 1024px) { background-image: url(${img1_mobile}) }
-            }
-            .slide2 {
-                background-image: url(${img2});
-                @media (max-width: 1024px) { background-image: url(${img2_mobile}) }
-            }
-            .slide3 {
-                background-image: url(${img3});
-                @media (max-width: 1024px) { background-image: url(${img3_mobile}) }
-            }
-            .slide4 {
-                background-image: url(${img4});
-                @media (max-width: 1024px) { background-image: url(${img4_mobile}) }
-            }
+    .slide1 {
+      background-image: url(${img1});
+      @media (max-width: 1024px) {
+        background-image: url(${img1_mobile});
+      }
+    }
+    .slide2 {
+      background-image: url(${img2});
+      @media (max-width: 1024px) {
+        background-image: url(${img2_mobile});
+      }
+    }
+    .slide3 {
+      background-image: url(${img3});
+      @media (max-width: 1024px) {
+        background-image: url(${img3_mobile});
+      }
+    }
+    .slide4 {
+      background-image: url(${img4});
+      @media (max-width: 1024px) {
+        background-image: url(${img4_mobile});
+      }
+    }
 
-            .title {
-                width: 100vw;
+    .title {
+      width: 100vw;
 
-                display: block;
+      display: block;
 
-                padding: 20px;
-                background: rgba(0,0,0, .2);
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.2);
 
-                text-align: center; 
-                font-size: 50px;
-                font-weight: 700;
-                letter-spacing: 2px;
+      text-align: center;
+      font-size: 50px;
+      font-weight: 700;
+      letter-spacing: 2px;
 
-                @media (max-width: 1024px) {
-                    font-size: 30px;
-                }
+      @media (max-width: 1024px) {
+        font-size: 30px;
+      }
 
-                @media (max-width: 786px) {
-                    font-size: 25px;
-                }
-            }
+      @media (max-width: 786px) {
+        font-size: 25px;
+      }
+    }
 
-            .btn {
-                position: relative;
+    .btn {
+      position: relative;
 
-                width: 150px;
-                height: 50px;
+      width: 150px;
+      height: 50px;
 
-                display: flex;
-                justify-content: center;
-                align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-                background-color: #399CA1;
+      background-color: #399ca1;
 
-                color: #fff;
-                font-size: 16px;
-                font-weight: 700;
-                text-decoration: none;
-                letter-spacing: 1.5px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 1.5px;
 
-                border: none;
-                border-radius: 4px;
-                box-shadow: 0 5px 10px 5px rgba(0,0,0, .2);
+      border: none;
+      border-radius: 4px;
+      box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.2);
 
-                cursor: pointer;
-                overflow: hidden;
-                z-index: 0;
-                
-                @media (max-width: 1024px) {
-                    width: 140px;
-                    height: 45px;
-                }
+      cursor: pointer;
+      overflow: hidden;
+      z-index: 0;
 
-                &::before {
-                    content: '';
+      @media (max-width: 1024px) {
+        width: 140px;
+        height: 45px;
+      }
 
-                    position: absolute;
-                    top: 0;
-                    left: 0;
+      &::before {
+        content: '';
 
-                    width: 100%;
-                    height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
 
-                    background-color: #fff;
+        width: 100%;
+        height: 100%;
 
-                    transform: translateX(-100%);
-                    transition: transform .3s;
-                    z-index: -1;
-                }
-                
-                &:hover {
-                    color: #399CA1;
+        background-color: #fff;
 
-                    &::before {
-                        transform: translateX(0);
-                    }
-                }
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+        z-index: -1;
+      }
 
-                &:focus {
-                    outline: none;
-                }
-            }
+      &:hover {
+        color: #399ca1;
 
-            .owl-dots {
-                position: absolute;
-                bottom: 40px;
-
-                width: 100%;
-
-                @media (max-width: 1024px) {
-                    display: none;
-                }
-
-                .owl-dot {
-                    width: 25px;
-                    height: 25px;
-
-                    outline: none;
-
-                    &:hover span {
-                        opacity: 1;
-                        background-color: #fff !important;
-                    }
-
-                    &.active span {
-                        background-color: #fff !important;
-                        opacity: 1;
-                    }
-
-                    &:focus {
-                        outline: none;
-                    }
-
-                    span {
-                        width: 15px;
-                        height: 15px;
-
-                        background-color: #fff;
-                        opacity: 0.5;
-
-                        transition: 0.3s all;
-                    }
-                }
-            }
-
-            .owl-nav {
-                position: absolute;
-                top: 40%;
-
-                width: 100%;
-
-                display: flex;
-                justify-content: space-between;
-
-                margin: 0;
-                
-                .owl-prev,
-                .owl-next {
-                    width: 50px;
-                    height: 50px;
-
-                    @media (max-width: 1024px) {
-                        display: none;
-                    }
-
-                    &:hover {
-                        background-color: transparent;
-                    }
-
-                    &:focus {
-                        outline: none;
-                    }
-                }
-                .owl-prev span {
-                    content: url(${arrow_left});
-                }
-                .owl-next span {
-                    content: url(${arrow_right});
-                }
-            }
+        &::before {
+          transform: translateX(0);
         }
-    `;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .owl-dots {
+      position: absolute;
+      bottom: 40px;
+
+      width: 100%;
+
+      @media (max-width: 1024px) {
+        display: none;
+      }
+
+      .owl-dot {
+        width: 25px;
+        height: 25px;
+
+        outline: none;
+
+        &:hover span {
+          opacity: 1;
+          background-color: #fff !important;
+        }
+
+        &.active span {
+          background-color: #fff !important;
+          opacity: 1;
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        span {
+          width: 15px;
+          height: 15px;
+
+          background-color: #fff;
+          opacity: 0.5;
+
+          transition: 0.3s all;
+        }
+      }
+    }
+
+    .owl-nav {
+      position: absolute;
+      top: 40%;
+
+      width: 100%;
+
+      display: flex;
+      justify-content: space-between;
+
+      margin: 0;
+
+      .owl-prev,
+      .owl-next {
+        width: 50px;
+        height: 50px;
+
+        @media (max-width: 1024px) {
+          display: none;
+        }
+
+        &:hover {
+          background-color: transparent;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+      .owl-prev span {
+        content: url(${arrow_left});
+      }
+      .owl-next span {
+        content: url(${arrow_right});
+      }
+    }
+  }
+`;
 
 const Slider = () => {
-    const settings = {
-        className: 'owl-theme owl carousel',
-        items: 1,
-        autoplay: true,
-        loop: true,
-        nav: true,
-    };
+  const settings = {
+    className: 'owl-theme owl carousel',
+    items: 1,
+    autoplay: true,
+    loop: true,
+    nav: true,
+  };
 
-    return (
-        <StyledCarousel>
-            <OwlCarousel {...settings}>
+  return (
+    <StyledCarousel>
+      <OwlCarousel {...settings}>
+        <div className='slide slide1'>
+          <h1 className='title'>Zobacz jak projektujemy</h1>
 
-                <div className='slide slide1'>
-                    <h1 className='title'>Zobacz jak projektujemy</h1>
+          <Link to='/oferta' className='btn btn1'>
+            OFERTA
+          </Link>
+        </div>
 
-                    <Link to='/oferta' className='btn btn1'>
-                        OFERTA
-                    </Link>
-                </div>
+        <div className='slide slide2'>
+          <h1 className='title'>Każde miejsce można zaczarować</h1>
 
-                <div className='slide slide2'>
-                    <h1 className='title'>Każde miejsce można zaczarować</h1>
+          <Link to='/portfolio' className='btn btn2'>
+            PORTFOLIO
+          </Link>
+        </div>
 
-                    <Link to='/portfolio' className='btn btn2'>
-                        PORTFOLIO
-                    </Link>
-                </div>
+        <div className='slide slide3'>
+          <h1 className='title'>
+            {' '}
+            Masz wątpliwości? <br /> Zobacz o co pytają klienci
+          </h1>
 
-                <div className='slide slide3'>
-                    <h1 className='title'> Masz wątpliwości? <br /> Zobacz o co pytają klienci</h1>
+          <Link to='/pytania' className='btn btn3'>
+            PYTANIA
+          </Link>
+        </div>
 
-                    <Link to='/pytania' className='btn btn3'>
-                        PYTANIA
-                    </Link>
-                </div>
-
-                <div className='slide slide4'>
-                    <h1 className='title'>Zadzwoń lub napisz – służę pomocą</h1>
-                    <Link to='/kontakt' className='btn btn4'>
-                        KONTAKT
-                    </Link>
-                </div>
-                
-            </OwlCarousel>
-        </StyledCarousel>
-    );
+        <div className='slide slide4'>
+          <h1 className='title'>Zadzwoń lub napisz – służę pomocą</h1>
+          <Link to='/kontakt' className='btn btn4'>
+            KONTAKT
+          </Link>
+        </div>
+      </OwlCarousel>
+    </StyledCarousel>
+  );
 };
 
 export default Slider;

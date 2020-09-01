@@ -1,34 +1,30 @@
-// react
 import React from 'react';
 
-// external libraries
 import styled from 'styled-components';
 
-// components
 import TopBar from './TopBar';
 import Navbar from './Navbar/Navbar';
 
-
 const StyledHeader = styled.header`
-    position: sticky;
-    top: -220px;
+  position: sticky;
+  top: -220px;
 
-    height: 310px;
+  height: 310px;
 
-    background-color: #fff;
+  background-color: #fff;
 
-    z-index: 10;
+  z-index: 10;
 
-    @media (max-width: 768px) {
-        top: -190px;
-    }
-`
+  @media (max-width: 768px) {
+    top: -190px;
+  }
+`;
 
 const Header = () => (
-    <StyledHeader>
-        <TopBar />
-        <Navbar />
-    </StyledHeader>
+  <StyledHeader>
+    <TopBar />
+    <Navbar />
+  </StyledHeader>
 );
 
 export default Header;
