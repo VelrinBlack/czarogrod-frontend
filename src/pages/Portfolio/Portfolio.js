@@ -34,13 +34,18 @@ const Portfolio = () => {
         <div className='cardsContainer'>
           {cards.map((card) => {
             if (card === 'loading')
-              return <p className='loading'>Ładowanie...</p>;
+              return (
+                <p className='loading' key='loading'>
+                  Ładowanie...
+                </p>
+              );
 
             return (
               <Card
                 src={card.Image.url}
                 alt={card.Image.name}
                 text={card.Description}
+                key={card.id}
               />
             );
           })}

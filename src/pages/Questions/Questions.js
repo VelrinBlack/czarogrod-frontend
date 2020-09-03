@@ -34,11 +34,19 @@ const Questions = () => {
 
         {data.map((question) => {
           if (question === 'loading')
-            return <p className='loading'>Ładowanie...</p>;
+            return (
+              <p className='loading' key='loading'>
+                Ładowanie...
+              </p>
+            );
 
           if (data[data.length - 1] === question) {
             return (
-              <Question question={question.question} anwser={question.anwser} />
+              <Question
+                question={question.question}
+                anwser={question.anwser}
+                key={question.id}
+              />
             );
           }
 
@@ -47,6 +55,7 @@ const Questions = () => {
               question={question.question}
               anwser={question.anwser}
               leaf
+              key={question.id}
             />
           );
         })}
