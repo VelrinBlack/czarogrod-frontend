@@ -5,9 +5,9 @@ import styled from 'styled-components';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Comments from '../components/Post/Comments';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Comments from '../../components/Article/Comments';
 
 const StyledContainer = styled.div`
   position: relative;
@@ -75,7 +75,7 @@ const StyledContainer = styled.div`
   }
 `;
 
-const Post = (props) => {
+const Article = (props) => {
   const [article, setArticle] = useState('Ładowanie...');
 
   useEffect(() => {
@@ -146,8 +146,8 @@ const Post = (props) => {
   );
 };
 
-Post.propTypes = {
+Article.propTypes = {
   match: PropTypes.object,
 };
 
-export default Post;
+export default Article;

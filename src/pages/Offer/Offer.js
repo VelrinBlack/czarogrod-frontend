@@ -1,48 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-import styled from 'styled-components';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import SingleSlide from '../components/SingleSlide';
+import { StyledContainer } from './OfferStyles';
 
-import img1 from '../images/slider/3.jpg';
-import img2 from '../images/slider/2.jpg';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import SingleSlide from '../../components/SingleSlide';
 
-const StyledContainer = styled.div`
-  width: 70%;
-  margin: 0 auto;
-
-  @media (max-width: 1024px) {
-    width: 90%;
-  }
-
-  .loading {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  h1 {
-    text-align: center;
-    font-size: 50px;
-  }
-
-  h2 {
-    font-size: 30px;
-    margin-top: 100px;
-
-    @media (max-width: 1024px) {
-      font-size: 25px;
-    }
-
-    @media (max-width: 768px) {
-      font-size: 20px;
-    }
-  }
-`;
+import img1 from '../../images/slider/3.jpg';
+import img2 from '../../images/slider/2.jpg';
 
 const Offer = () => {
   const [data, setData] = useState('loading');

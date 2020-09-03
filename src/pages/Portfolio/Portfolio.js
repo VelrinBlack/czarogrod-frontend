@@ -1,52 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-import styled from 'styled-components';
 import axios from 'axios';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Card from '../components/Portfolio/Card';
-import SingleSlide from '../components/SingleSlide';
+import { StyledContainer } from './PortfolioStyles';
 
-import img3 from '../images/slider/1.jpg';
-import img4 from '../images/slider/4.jpg';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Card from '../../components/Portfolio/Card';
+import SingleSlide from '../../components/SingleSlide';
 
-const StyledContainer = styled.div`
-  width: 80%;
-  margin: 0 auto;
-
-  h1 {
-    margin-bottom: 100px;
-
-    text-align: center;
-    font-size: 50px;
-  }
-
-  .cardsContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 40px;
-    grid-row-gap: 100px;
-
-    .loading {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    @media (max-width: 1024px) {
-      grid-template-columns: 1fr 1fr;
-      grid-column-gap: 30px;
-      grid-row-gap: 80px;
-    }
-
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      grid-column-gap: 0px;
-      grid-row-gap: 40px;
-    }
-  }
-`;
+import img3 from '../../images/slider/1.jpg';
+import img4 from '../../images/slider/4.jpg';
 
 const Portfolio = () => {
   const [cards, setCards] = useState(['loading']);

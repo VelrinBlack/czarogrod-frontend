@@ -1,41 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-import styled from 'styled-components';
 import axios from 'axios';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Question from '../components/Pytania/Question';
-import SingleSlide from '../components/SingleSlide';
+import { StyledContainer } from './QuestionsStyles';
 
-import img1 from '../images/slider/3.jpg';
-import img2 from '../images/slider/2.jpg';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Question from '../../components/Pytania/Question';
+import SingleSlide from '../../components/SingleSlide';
 
-const StyledContainer = styled.div`
-  width: 50%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-  margin: 50px auto 0 auto;
-
-  h1 {
-    margin-bottom: 100px;
-    font-size: 50px;
-  }
-
-  @media (max-width: 1280px) {
-    width: 70%;
-  }
-  @media (max-width: 1024px) {
-    width: 80%;
-  }
-  @media (max-width: 768px) {
-    width: 90%;
-  }
-`;
+import img1 from '../../images/slider/3.jpg';
+import img2 from '../../images/slider/2.jpg';
 
 const Questions = () => {
   const [data, setData] = useState(['loading']);
