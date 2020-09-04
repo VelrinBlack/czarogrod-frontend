@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 
 import { StyledContainer } from './AboutStyles';
+import { fetchAbout } from '../../../utilities/apiCalls';
 
 import portrait from '../../../images/other/profile.jpg';
 
@@ -11,17 +11,7 @@ const About = (props) => {
   const [data, setData] = useState('');
 
   useEffect(() => {
-    axios
-      .get('https://czarogrod-backend-strapi.herokuapp.com/about')
-      .then((data) => {
-        setData(data.data.content);
-        if (props.path === '/omnie') {
-          window.scroll({
-            top: 700.001,
-            behavior: 'smooth',
-          });
-        }
-      });
+    fetchAbout(props).then((res) => setData(res.data.content));
   }, [props]);
 
   return (

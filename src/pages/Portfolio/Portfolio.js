@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 import { StyledContainer } from './PortfolioStyles';
 import Card from '../../components/Portfolio/Card/Card';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
+import { fetchPortfolio } from '../../utilities/apiCalls';
 
 import img3 from '../../images/slider/1.jpg';
 import img4 from '../../images/slider/4.jpg';
@@ -17,9 +17,7 @@ const Portfolio = () => {
       behavior: 'smooth',
     });
 
-    axios
-      .get('https://czarogrod-backend-strapi.herokuapp.com/portfolio-cards')
-      .then((data) => setCards(data.data));
+    fetchPortfolio().then((data) => setCards(data.data));
   }, []);
 
   return (

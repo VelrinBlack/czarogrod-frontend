@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 import { StyledContainer } from './NewsStyles';
 import Post from '../../Blog/Article/Article';
+import { fetchNews } from '../../../utilities/apiCalls';
 
 const News = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    axios
-      .get('https://czarogrod-backend-strapi.herokuapp.com/posts?_limit=2')
-      .then((res) => setArticles(res.data));
+    fetchNews().then((res) => setArticles(res.data));
   }, []);
 
   return (

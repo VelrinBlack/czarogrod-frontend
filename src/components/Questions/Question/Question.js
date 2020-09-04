@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { StyledContainer } from './QuestionStyles';
 
@@ -12,6 +13,11 @@ const Question = (props) => {
       {props.leaf ? <img src={leaf} alt='liść' /> : null}
     </StyledContainer>
   );
+};
+Question.propTypes = {
+  question: PropTypes.string,
+  anwser: PropTypes.string,
+  leaf: PropTypes.bool,
 };
 
 export default Question;

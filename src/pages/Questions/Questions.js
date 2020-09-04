@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 import { StyledContainer } from './QuestionsStyles';
 import Question from '../../components/Questions/Question/Question';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
+import { fetchQuestions } from '../../utilities/apiCalls';
 
 import img1 from '../../images/slider/3.jpg';
 import img2 from '../../images/slider/2.jpg';
@@ -17,9 +17,7 @@ const Questions = () => {
       behavior: 'smooth',
     });
 
-    axios
-      .get('https://czarogrod-backend-strapi.herokuapp.com/questions')
-      .then((data) => setData(data.data));
+    fetchQuestions().then((data) => setData(data.data));
   }, []);
 
   return (

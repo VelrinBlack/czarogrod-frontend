@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 
 import Comments from '../../components/Article/Comments/Comments';
+import { fetchArticle } from '../../utilities/apiCalls';
 
 const StyledContainer = styled.div`
   position: relative;
@@ -81,11 +81,7 @@ const Article = (props) => {
       behavior: 'smooth',
     });
 
-    axios
-      .get(
-        `https://czarogrod-backend-strapi.herokuapp.com/posts/${props.match.params.id}`,
-      )
-      .then((res) => setArticle(res.data));
+    fetchArticle(props.match.params.id).then((res) => setArticle(res.data));
   }, [props.match.params.id]);
 
   const loadImage = () => {

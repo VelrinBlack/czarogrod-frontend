@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 
 import { StyledContainer } from './OfferStyles';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
+import { fetchOffer } from '../../utilities/apiCalls';
 
 import img1 from '../../images/slider/3.jpg';
 import img2 from '../../images/slider/2.jpg';
@@ -17,11 +17,9 @@ const Offer = () => {
       behavior: 'smooth',
     });
 
-    axios
-      .get('https://czarogrod-backend-strapi.herokuapp.com/offer')
-      .then((data) => {
-        return setData(data.data.content);
-      });
+    fetchOffer().then((data) => {
+      return setData(data.data.content);
+    });
   }, []);
 
   return (

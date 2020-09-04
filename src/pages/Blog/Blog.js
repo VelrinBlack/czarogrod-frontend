@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 import { StyledContainer } from './BlogStyles';
 import Post from '../../components/Blog/Article/Article';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
+import { fetchArticles } from '../../utilities/apiCalls';
 
 import img1 from '../../images/slider/1.jpg';
 import img2 from '../../images/slider/3.jpg';
@@ -17,9 +17,7 @@ const Blog = () => {
       behavior: 'smooth',
     });
 
-    axios
-      .get('https://czarogrod-backend-strapi.herokuapp.com/posts')
-      .then((res) => setArticles(res.data));
+    fetchArticles().then((res) => setArticles(res.data));
   }, []);
 
   return (
