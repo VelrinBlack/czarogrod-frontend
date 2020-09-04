@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import axios from 'axios';
 
 import { StyledContainer } from './NewsStyles';
-
 import Post from '../../Blog/Article/Article';
 
 const News = () => {

@@ -2,10 +2,10 @@ import React from 'react';
 
 import { StyledContainer } from './TopBarStyles';
 
-import phone from '../../images/contact/phone.svg';
-import mail from '../../images/contact/mail.svg';
-import facebook from '../../images/social_media/facebook.svg';
-import instagram from '../../images/social_media/instagram.svg';
+import phone from '../../../images/contact/phone.svg';
+import mail from '../../../images/contact/mail.svg';
+import facebook from '../../../images/social_media/facebook.svg';
+import instagram from '../../../images/social_media/instagram.svg';
 
 const TopBar = () => {
   return (

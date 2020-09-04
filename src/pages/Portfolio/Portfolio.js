@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
 import axios from 'axios';
 
 import { StyledContainer } from './PortfolioStyles';
-
 import Card from '../../components/Portfolio/Card/Card';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
 

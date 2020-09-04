@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
 import axios from 'axios';
 
 import { StyledContainer } from './QuestionsStyles';
-
 import Question from '../../components/Questions/Question/Question';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
 

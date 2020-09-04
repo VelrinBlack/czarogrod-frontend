@@ -7,8 +7,8 @@ import { MobileNavigation, DesktopNavigation } from './NavbarStyles';
 
 import Tab from './Tab/Tab';
 
-import logo from '../../images/other/logo.png';
-import subtitle from '../../images/other/subtitle.png';
+import logo from '../../../images/other/logo.png';
+import subtitle from '../../../images/other/subtitle.png';
 
 const Navbar = () => {
   const [width, setWidth] = useState(window.innerWidth);

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 
 import { StyledContainer } from './OfferStyles';
-
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
 
 import img1 from '../../images/slider/3.jpg';
