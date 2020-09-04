@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import Header from '../../components/Header';
-import Slider from '../../components/Home/Slider';
-import About from '../../components/Home/About';
-import News from '../../components/Home/News';
-import SingleSlide from '../../components/SingleSlide';
-import Footer from '../../components/Footer';
+import Slider from '../../components/Home/Slider/Slider';
+import About from '../../components/Home/About/About';
+import News from '../../components/Home/News/News';
+import SingleSlide from '../../components/SingleSlide/SingleSlide';
 
 import img1 from '../../images/slider/2.jpg';
 import img2 from '../../images/slider/4.jpg';
@@ -40,7 +38,6 @@ const Home = (props) => {
 
   return (
     <>
-      <Header />
       <Slider />
       <About path={props.location.pathname} />
       <News />
@@ -54,7 +51,6 @@ const Home = (props) => {
         location='/pytania'
         text='Sprawdź, o co pytają klienci'
       />
-      <Footer />
     </>
   );
 };

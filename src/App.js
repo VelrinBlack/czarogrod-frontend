@@ -12,11 +12,14 @@ import Blog from './pages/Blog/Blog';
 import Article from './pages/Article/Article';
 import Contact from './pages/Contact/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
     <Router>
       <Analytics id='UA-172534345-1'>
+        <Header />
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/omnie' exact component={Home} />
@@ -29,6 +32,7 @@ const App = () => {
           <Route path='/kontakt' component={Contact} />
           <Route path='/polityka_prywatności' component={PrivacyPolicy} />
         </Switch>
+        <Footer />
       </Analytics>
     </Router>
   );

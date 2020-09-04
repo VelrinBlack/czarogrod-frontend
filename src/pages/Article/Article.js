@@ -5,9 +5,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Comments from '../../components/Article/Comments';
+import Comments from '../../components/Article/Comments/Comments';
 
 const StyledContainer = styled.div`
   position: relative;
@@ -132,17 +130,13 @@ const Article = (props) => {
   };
 
   return (
-    <>
-      <Header />
-      <StyledContainer>
-        {loadImage()}
-        <h1 className='title'>{loadTitle()}</h1>
-        <p className='txt'>{loadConent()}</p>
+    <StyledContainer>
+      {loadImage()}
+      <h1 className='title'>{loadTitle()}</h1>
+      <p className='txt'>{loadConent()}</p>
 
-        {article ? <Comments article={article} /> : null}
-      </StyledContainer>
-      <Footer />
-    </>
+      {article ? <Comments article={article} /> : null}
+    </StyledContainer>
   );
 };
 

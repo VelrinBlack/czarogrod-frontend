@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 
-import Header from '../../components/Header';
-import Form from '../../components/Contakt/Form';
-import Footer from '../../components/Footer';
+import Form from '../../components/Contakt/Form/Form';
 
-const Home = () => {
+const Contact = () => {
   useEffect(() => {
     window.scroll({
       top: 0,
@@ -12,13 +10,7 @@ const Home = () => {
     });
   }, []);
 
-  return (
-    <>
-      <Header />
-      <Form />
-      <Footer />
-    </>
-  );
+  return <Form />;
 };
 
-export default Home;
+export default Contact;

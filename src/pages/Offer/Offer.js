@@ -5,9 +5,7 @@ import ReactMarkdown from 'react-markdown';
 
 import { StyledContainer } from './OfferStyles';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import SingleSlide from '../../components/SingleSlide';
+import SingleSlide from '../../components/SingleSlide/SingleSlide';
 
 import img1 from '../../images/slider/3.jpg';
 import img2 from '../../images/slider/2.jpg';
@@ -30,8 +28,6 @@ const Offer = () => {
 
   return (
     <>
-      <Header />
-
       <StyledContainer>
         <h1>Oferta</h1>
 
@@ -53,8 +49,6 @@ const Offer = () => {
         location='/portfolio'
         image={img2}
       />
-
-      <Footer />
     </>
   );
 };

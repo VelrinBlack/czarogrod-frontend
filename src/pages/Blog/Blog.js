@@ -4,10 +4,8 @@ import axios from 'axios';
 
 import { StyledContainer } from './BlogStyles';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Post from '../../components/Blog/Post';
-import SingleSlide from '../../components/SingleSlide';
+import Post from '../../components/Blog/Article/Article';
+import SingleSlide from '../../components/SingleSlide/SingleSlide';
 
 import img1 from '../../images/slider/1.jpg';
 import img2 from '../../images/slider/3.jpg';
@@ -28,8 +26,6 @@ const Blog = () => {
 
   return (
     <>
-      <Header />
-
       <StyledContainer>
         <div className='posts-container'>
           {articles.map((article) => {
@@ -61,8 +57,6 @@ const Blog = () => {
         location='/portfolio'
         image={img2}
       />
-
-      <Footer />
     </>
   );
 };

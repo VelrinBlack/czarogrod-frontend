@@ -1,9 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
 import styled from 'styled-components';
 
-const StyledSingleSlide = styled.div`
+export const StyledContainer = styled.div`
   .slide {
     width: 100%;
 
@@ -52,13 +49,3 @@ const StyledSingleSlide = styled.div`
     }
   }
 `;
-
-const SingleSlide = ({ text, location, image }) => (
-  <StyledSingleSlide image={image}>
-    <Link to={location} className='slide'>
-      <h2>{text}</h2>
-    </Link>
-  </StyledSingleSlide>
-);
-
-export default SingleSlide;

@@ -4,10 +4,8 @@ import axios from 'axios';
 
 import { StyledContainer } from './PortfolioStyles';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Card from '../../components/Portfolio/Card';
-import SingleSlide from '../../components/SingleSlide';
+import Card from '../../components/Portfolio/Card/Card';
+import SingleSlide from '../../components/SingleSlide/SingleSlide';
 
 import img3 from '../../images/slider/1.jpg';
 import img4 from '../../images/slider/4.jpg';
@@ -28,7 +26,6 @@ const Portfolio = () => {
 
   return (
     <>
-      <Header />
       <StyledContainer>
         <h1>Portfolio</h1>
         <div className='cardsContainer'>
@@ -63,8 +60,6 @@ const Portfolio = () => {
         location='/kontakt'
         image={img4}
       />
-
-      <Footer />
     </>
   );
 };

@@ -4,10 +4,8 @@ import axios from 'axios';
 
 import { StyledContainer } from './QuestionsStyles';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Question from '../../components/Pytania/Question';
-import SingleSlide from '../../components/SingleSlide';
+import Question from '../../components/Questions/Question/Question';
+import SingleSlide from '../../components/SingleSlide/SingleSlide';
 
 import img1 from '../../images/slider/3.jpg';
 import img2 from '../../images/slider/2.jpg';
@@ -28,7 +26,6 @@ const Questions = () => {
 
   return (
     <>
-      <Header />
       <StyledContainer>
         <h1>Pytania</h1>
 
@@ -72,8 +69,6 @@ const Questions = () => {
         location='/kontakt'
         image={img2}
       />
-
-      <Footer />
     </>
   );
 };
