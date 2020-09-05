@@ -7,6 +7,8 @@ export const StyledContainer = styled.div`
   display: flex;
   justify-content: space-around;
 
+  padding-bottom: 1800px;
+
   img {
     width: 35%;
     height: 1000px;
@@ -50,10 +52,6 @@ export const StyledContainer = styled.div`
     p {
       position: relative;
       width: 100%;
-
-      @media (max-width: 500px) {
-        margin: 30px 0;
-      }
 
       label {
         display: block;
@@ -106,19 +104,6 @@ export const StyledContainer = styled.div`
         }
       }
 
-      .errorTxt {
-        position: absolute;
-        top: 95%;
-
-        font-size: 14px;
-        color: red;
-
-        @media (max-width: 500px) {
-          top: 75%;
-          text-align: center;
-        }
-      }
-
       .rodo {
         margin-top: 50px;
         font-size: 14px;
@@ -140,6 +125,16 @@ export const StyledContainer = styled.div`
         &:hover {
           cursor: pointer;
         }
+      }
+    }
+
+    .errorTxt {
+      font-size: 14px;
+      color: red;
+
+      @media (max-width: 500px) {
+        top: 75%;
+        text-align: center;
       }
     }
 

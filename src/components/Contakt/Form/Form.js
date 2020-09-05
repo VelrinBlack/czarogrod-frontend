@@ -6,6 +6,13 @@ import axios from 'axios';
 import { StyledContainer } from './FormStyles';
 
 import img from '../../../images/other/contakt-img.jpg';
+import {
+  handleNameError,
+  handleEmailError,
+  handlePhoneNumberError,
+  handleMessageError,
+  handleRodoError,
+} from '../../../utilities/contactForm';
 
 const Form = () => {
   const [name, setName] = useState('');
@@ -22,66 +29,33 @@ const Form = () => {
 
   const [send, setSend] = useState(false);
 
-  const handleChangeName = (e) => {
-    setName(e.target.value);
-
-    if (
-      !e.target.value.match(/^[a-z A-Zążźćęółś]+$/) &&
-      e.target.value.length > 0
-    ) {
-      setNameError('To pole może zawierać tylko litery i spacje');
-    } else {
-      setNameError('');
-    }
+  const handleChangeName = ({ target }) => {
+    setName(target.value);
+    setNameError(handleNameError(target.value));
   };
 
-  const handleChangeEmail = (e) => {
-    setEmail(e.target.value);
-
-    if (!e.target.value) {
-      setEmailError('Wypełnij proszę to pole');
-    } else if (
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value) &&
-      e.target.value.length > 0
-    ) {
-      setEmailError('Wpisz proszę poprawny adres email');
-    } else {
-      setEmailError('');
-    }
+  const handleChangeEmail = ({ target }) => {
+    setEmail(target.value);
+    setEmailError(handleEmailError(target.value));
   };
 
-  const handleChangePhoneNumber = (e) => {
-    if (e.target.value.match(/[0-9]+/g) === null) {
+  const handleChangePhoneNumber = ({ target }) => {
+    if (target.value.match(/[0-9+ ]+/g) === null) {
       setPhoneNumber('');
     } else {
-      setPhoneNumber(e.target.value.match(/[0-9]+/g));
+      setPhoneNumber(target.value.match(/[0-9+ ]+/g));
     }
 
-    if (!e.target.value) {
-      setPhoneNumberError('Wypełnij proszę to pole');
-    } else if (e.target.value.length !== 9) {
-      setPhoneNumberError('Wpisz proszę poprawny numer telefonu');
-    } else {
-      setPhoneNumberError('');
-    }
+    setPhoneNumberError(handlePhoneNumberError(target.value));
   };
 
-  const handleChangeMessage = (e) => {
-    setMessage(e.target.value);
-
-    if (!e.target.value) {
-      setMessageError('Wypełnij proszę to pole');
-    } else {
-      setMessageError('');
-    }
+  const handleChangeMessage = ({ target }) => {
+    setMessage(target.value);
+    setMessageError(handleMessageError(target.value));
   };
 
-  const handleClickRodo = (e) => {
-    if (!e.target.checked) {
-      setRodoError('Zaakceptuj proszę naszą politykę prywatności');
-    } else {
-      setRodoError('');
-    }
+  const handleClickRodo = ({ target }) => {
+    setRodoError(handleRodoError(target.checked));
   };
 
   const handleSubmit = (e) => {
@@ -157,8 +131,8 @@ const Form = () => {
               onChange={(e) => handleChangeName(e)}
               value={name}
             />
-            <p className='errorTxt'>{nameError}</p>
           </p>
+          <p className='errorTxt'>{`${nameError}`}</p>
 
           <p>
             <label>Adres email (wymagane)</label>
@@ -167,8 +141,8 @@ const Form = () => {
               onChange={(e) => handleChangeEmail(e)}
               value={email}
             />
-            <p className='errorTxt'>{emailError}</p>
           </p>
+          <p className='errorTxt'>{emailError}</p>
 
           <p>
             <label>Numer telefonu (wymagane)</label>
@@ -177,8 +151,8 @@ const Form = () => {
               onChange={(e) => handleChangePhoneNumber(e)}
               value={phoneNumber}
             />
-            <p className='errorTxt'>{phoneNumberError}</p>
           </p>
+          <p className='errorTxt'>{phoneNumberError}</p>
 
           <p>
             <label>Wiadomość (wymagane)</label>
@@ -187,8 +161,8 @@ const Form = () => {
               onChange={(e) => handleChangeMessage(e)}
               value={message}
             />
-            <p className='errorTxt'>{messageError}</p>
           </p>
+          <p className='errorTxt'>{messageError}</p>
 
           <p>
             <label className='rodo'>
@@ -217,8 +191,8 @@ const Form = () => {
                 Polityką prywatności
               </Link>
             </label>
-            <p className='errorTxt'>{rodoError}</p>
           </p>
+          <p className='errorTxt'>{rodoError}</p>
 
           <p>
             <input type='submit' className='submit' value='Wyślij' />

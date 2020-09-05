@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { StyledContainer } from './TabStyles';
@@ -9,7 +10,9 @@ const Tab = (props) => {
   try {
     if (props.location.replace('https://czarogrod.pl', '') === props.path)
       classes.push('active');
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 
   return (
     <StyledContainer>
@@ -18,6 +21,12 @@ const Tab = (props) => {
       </Link>
     </StyledContainer>
   );
+};
+
+Tab.propTypes = {
+  location: PropTypes.string,
+  path: PropTypes.string,
+  name: PropTypes.string,
 };
 
 export default Tab;

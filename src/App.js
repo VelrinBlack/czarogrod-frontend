@@ -7,7 +7,7 @@ import './App.css';
 import Home from './pages/Home/Home';
 import Offer from './pages/Offer/Offer';
 import Portfolio from './pages/Portfolio/Portfolio';
-import Pytania from './pages/Questions/Questions';
+import Questions from './pages/Questions/Questions';
 import Blog from './pages/Blog/Blog';
 import Article from './pages/Article/Article';
 import Contact from './pages/Contact/Contact';
@@ -26,7 +26,7 @@ const App = () => {
           <Route path='/home' component={Home} />
           <Route path='/oferta' component={Offer} />
           <Route path='/portfolio' component={Portfolio} />
-          <Route path='/pytania' component={Pytania} />
+          <Route path='/pytania' component={Questions} />
           <Route path='/blog/:id' component={Article} />
           <Route path='/blog' component={Blog} />
           <Route path='/kontakt' component={Contact} />
