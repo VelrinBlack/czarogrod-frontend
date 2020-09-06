@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Analytics from 'react-router-ga';
 
@@ -15,24 +15,61 @@ import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
+import {
+  fetchAbout,
+  fetchNews,
+  fetchArticles,
+  fetchOffer,
+  fetchPortfolio,
+  fetchQuestions,
+} from './utilities/apiCalls';
+
+import dataContext from './Context';
+
 const App = () => {
+  const [contextValue, setContextValue] = useState(null);
+
+  useEffect(() => {
+    const wrapper = async () => {
+      let data = {};
+
+      const fetchData = () => {
+        return Promise.all([
+          fetchAbout().then((res) => (data.about = res.data)),
+          fetchNews().then((res) => (data.news = res.data)),
+          fetchArticles().then((res) => (data.articles = res.data)),
+          fetchOffer().then((res) => (data.offer = res.data)),
+          fetchPortfolio().then((res) => (data.portfolio = res.data)),
+          fetchQuestions().then((res) => (data.questions = res.data)),
+        ]);
+      };
+      await fetchData();
+
+      setContextValue(data);
+    };
+
+    wrapper();
+  }, []);
+
   return (
     <Router>
       <Analytics id='UA-172534345-1'>
-        <Header />
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/omnie' exact component={Home} />
-          <Route path='/home' component={Home} />
-          <Route path='/oferta' component={Offer} />
-          <Route path='/portfolio' component={Portfolio} />
-          <Route path='/pytania' component={Questions} />
-          <Route path='/blog/:id' component={Article} />
-          <Route path='/blog' component={Blog} />
-          <Route path='/kontakt' component={Contact} />
-          <Route path='/polityka_prywatności' component={PrivacyPolicy} />
-        </Switch>
-        <Footer />
+        <dataContext.Provider value={contextValue}>
+          <Header />
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/omnie' exact component={Home} />
+            <Route path='/home' component={Home} />
+            <Route path='/oferta' component={Offer} />
+            <Route path='/portfolio' component={Portfolio} />
+            <Route path='/pytania' component={Questions} />
+            <Route path='/blog/:id' component={Article} />
+            <Route path='/blog' component={Blog} />
+            <Route path='/kontakt' component={Contact} />
+            <Route path='/polityka_prywatności' component={PrivacyPolicy} />
+          </Switch>
+          <Footer />
+        </dataContext.Provider>
       </Analytics>
     </Router>
   );

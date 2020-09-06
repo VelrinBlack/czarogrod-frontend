@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { StyledContainer } from './NewsStyles';
 import Post from '../../Blog/Article/Article';
-import { fetchNews } from '../../../utilities/apiCalls';
+import dataContext from '../../../Context';
 
 const News = () => {
-  const [articles, setArticles] = useState([]);
+  const data = useContext(dataContext);
 
-  useEffect(() => {
-    fetchNews().then((res) => setArticles(res.data));
-  }, []);
+  let articles = [];
+
+  if (data) {
+    articles = data.news;
+  }
 
   return (
     <StyledContainer>
       <h1 className='heading'>Najnowsze wpisy</h1>
       <div className='posts'>
-        {articles.length === 0 ? <h5>Tu jest pusto!</h5> : null}
+        {articles.length === 0 ? 'Ładowanie...' : null}
 
         {articles.map((post) => {
           return (

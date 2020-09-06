@@ -1,24 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import { StyledContainer } from './OfferStyles';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
-import { fetchOffer } from '../../utilities/apiCalls';
+import dataContext from '../../Context';
 
 import img1 from '../../images/slider/3.jpg';
 import img2 from '../../images/slider/2.jpg';
 
 const Offer = () => {
-  const [data, setData] = useState('loading');
+  const data = useContext(dataContext);
+
+  let offer = 'Ładowanie...';
+
+  if (data) {
+    offer = data.offer.content;
+  }
 
   useEffect(() => {
     window.scroll({
       top: 0,
       behavior: 'smooth',
-    });
-
-    fetchOffer().then((data) => {
-      return setData(data.data.content);
     });
   }, []);
 
@@ -26,12 +28,7 @@ const Offer = () => {
     <>
       <StyledContainer>
         <h1>Oferta</h1>
-
-        {data === 'loading' ? (
-          <p className='loading'>Ładowanie...</p>
-        ) : (
-          <ReactMarkdown source={data} />
-        )}
+        <ReactMarkdown source={offer} />
       </StyledContainer>
 
       <SingleSlide

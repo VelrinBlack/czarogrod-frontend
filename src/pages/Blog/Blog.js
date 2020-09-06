@@ -1,23 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 
 import { StyledContainer } from './BlogStyles';
 import Post from '../../components/Blog/Article/Article';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
-import { fetchArticles } from '../../utilities/apiCalls';
+import dataContext from '../../Context';
 
 import img1 from '../../images/slider/1.jpg';
 import img2 from '../../images/slider/3.jpg';
 
 const Blog = () => {
-  const [articles, setArticles] = useState([]);
+  const data = useContext(dataContext);
+
+  let articles = [];
+
+  if (data) {
+    articles = data.articles;
+  }
 
   useEffect(() => {
     window.scroll({
       top: 0,
       behavior: 'smooth',
     });
-
-    fetchArticles().then((res) => setArticles(res.data));
   }, []);
 
   return (
