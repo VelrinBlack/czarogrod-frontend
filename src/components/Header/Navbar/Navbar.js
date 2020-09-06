@@ -69,13 +69,33 @@ const Navbar = () => {
 
         <nav onClick={() => setHamburgerActive(false)}>
           <ul className={hamburgerActive ? 'navigation active' : 'navigation'}>
-            <Tab path='/' name='HOME' />
-            <Tab path='/oferta' name='OFERTA' />
-            <Tab path='/portfolio' name='PORTFOLIO' />
-            <Tab path='/pytania' name='PYTANIA' />
-            <Tab path='/blog' name='BLOG' />
-            <Tab path='/omnie' name='O MNIE' />
-            <Tab path='/kontakt' name='KONTAKT' />
+            <Tab path='/' name='HOME' location={window.location.pathname} />
+            <Tab
+              path='/oferta'
+              name='OFERTA'
+              location={window.location.pathname}
+            />
+            <Tab
+              path='/portfolio'
+              name='PORTFOLIO'
+              location={window.location.pathname}
+            />
+            <Tab
+              path='/pytania'
+              name='PYTANIA'
+              location={window.location.pathname}
+            />
+            <Tab path='/blog' name='BLOG' location={window.location.pathname} />
+            <Tab
+              path='/omnie'
+              name='O MNIE'
+              location={window.location.pathname}
+            />
+            <Tab
+              path='/kontakt'
+              name='KONTAKT'
+              location={window.location.pathname}
+            />
           </ul>
         </nav>
       </MobileNavigation>
