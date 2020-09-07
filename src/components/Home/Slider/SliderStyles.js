@@ -12,6 +12,8 @@ import arrow_left from '../../../images/slider/arrow-left.svg';
 import arrow_right from '../../../images/slider/arrow-right.svg';
 
 export const StyledContainer = styled.div`
+  margin-top: 50px;
+
   .owl-theme,
   .owl-carousel {
     .slide {
