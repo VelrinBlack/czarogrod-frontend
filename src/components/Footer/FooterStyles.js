@@ -14,7 +14,7 @@ export const StyledContainer = styled.div`
   background-color: #f2f2f2;
 
   @media (max-width: 1024px) {
-    height: 1200px;
+    height: 1100px;
   }
   @media (max-width: 768px) {
     height: 1000px;
@@ -48,12 +48,15 @@ export const StyledContainer = styled.div`
       }
 
       &.logo-box {
-        width: 20%;
+        width: 15%;
         display: flex;
         align-items: center;
 
+        @media (max-width: 1600px) {
+          width: 20%;
+        }
         @media (max-width: 1024px) {
-          width: 50%;
+          width: 35%;
         }
         @media (max-width: 500px) {
           width: 60%;

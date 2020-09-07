@@ -19,7 +19,7 @@ export const MobileNavigation = styled.nav`
     }
 
     .subtitle-img {
-      height: 40px;
+      height: 50px;
       margin-top: 10px;
     }
   }
@@ -161,6 +161,7 @@ export const MobileNavigation = styled.nav`
     }
   }
 `;
+
 export const DesktopNavigation = styled.nav`
   position: fixed;
   top: 0;
@@ -196,7 +197,7 @@ export const DesktopNavigation = styled.nav`
     justify-content: space-between;
 
     @media (max-width: 1280px) {
-      width: 90%;
+      width: 95%;
     }
 
     .logo-link {
@@ -209,7 +210,7 @@ export const DesktopNavigation = styled.nav`
       }
 
       .subtitle-img {
-        height: 35%;
+        height: 45%;
       }
     }
 
