@@ -2,11 +2,7 @@ import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
   position: relative;
-  margin-top: 150px;
-
-  @media (max-width: 1024px) {
-    margin-top: 330px;
-  }
+  margin-top: 50px;
 
   img {
     width: 100%;

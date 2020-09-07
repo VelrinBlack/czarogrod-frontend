@@ -8,7 +8,7 @@ export const StyledContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  margin: 50px auto 0 auto;
+  margin: 0 auto;
 
   h1 {
     margin-bottom: 100px;
