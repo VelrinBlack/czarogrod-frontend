@@ -48,15 +48,15 @@ export const StyledContainer = styled.div`
       }
 
       &.logo-box {
-        width: 15%;
+        width: 10%;
         display: flex;
         align-items: center;
 
         @media (max-width: 1600px) {
-          width: 20%;
+          width: 15%;
         }
         @media (max-width: 1024px) {
-          width: 35%;
+          width: 30%;
         }
         @media (max-width: 500px) {
           width: 60%;

@@ -19,7 +19,7 @@ export const MobileNavigation = styled.nav`
     }
 
     .subtitle-img {
-      height: 50px;
+      height: 60px;
       margin-top: 10px;
     }
   }
@@ -27,7 +27,7 @@ export const MobileNavigation = styled.nav`
   .hamburger-btn {
     position: absolute;
     left: 50%;
-    top: 240px;
+    top: 260px;
     transform: translateX(-50%);
 
     width: 55px;
@@ -197,7 +197,7 @@ export const DesktopNavigation = styled.nav`
     justify-content: space-between;
 
     @media (max-width: 1280px) {
-      width: 95%;
+      width: 96%;
     }
 
     .logo-link {
@@ -210,7 +210,7 @@ export const DesktopNavigation = styled.nav`
       }
 
       .subtitle-img {
-        height: 45%;
+        height: 50%;
       }
     }
 

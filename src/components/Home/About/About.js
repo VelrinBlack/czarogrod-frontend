@@ -1,25 +1,28 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import ReactMarkdown from 'react-markdown';
+import React from 'react';
 
 import { StyledContainer } from './AboutStyles';
-import dataContext from '../../../Context';
 
 import portrait from '../../../images/other/profile.jpg';
 
 const About = () => {
-  const data = useContext(dataContext);
-
   return (
     <StyledContainer>
       <div className='container'>
         <div className='text-container'>
           <h2>O mnie</h2>
-          {data ? (
-            <ReactMarkdown source={data.about.content} />
-          ) : (
-            'Ładowanie...'
-          )}
+          Dzień dobry. Witaj w Czarogrodzie. Razem odmienimy Twój ogród! Nazywam
+          się Agnieszka Lizończyk i z chęcią zaczaruję każdy zielony zakątek,
+          nawet ten najmniejszy. Ostatnie kilkanaście lat przepracowałam w
+          korporacji, nieobce są mi pojęcia analizy finansowej, czy
+          przygotowywania budżetu. Excel i Power Point nie mają przede mną
+          żadnych tajemnic. Jednak od lat moją największa pasją są ogrody i dziś
+          mogę się szczycić tytułem architekta krajobrazu. W każdy projekt
+          wkładam swoje serce i zapał, zawsze dbam o to, by koncepcja była
+          indywidualnie dopasowana do potrzeb odbiorcy. Zapraszam do współpracy,
+          razem możemy wyczarować Twój idealny ogród, balkon lub taras. Działam
+          na terenie województwa małopolskiego i śląskiego, jednak w przypadku
+          mniejszych projektów z innych części Polski, z chęcią podejmę się
+          współpracy z Tobą w sposób zdalny.
         </div>
         <div className='image-container'>
           <img src={portrait} alt='Mój portret' />
@@ -27,10 +30,6 @@ const About = () => {
       </div>
     </StyledContainer>
   );
-};
-
-About.propTypes = {
-  path: PropTypes.string,
 };
 
 export default About;

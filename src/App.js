@@ -15,14 +15,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
-import {
-  fetchAbout,
-  fetchNews,
-  fetchArticles,
-  fetchOffer,
-  fetchPortfolio,
-  fetchQuestions,
-} from './utilities/apiCalls';
+import { fetchNews, fetchArticles } from './utilities/apiCalls';
 
 import dataContext from './Context';
 
@@ -35,12 +28,8 @@ const App = () => {
 
       const fetchData = () => {
         return Promise.all([
-          fetchAbout().then((res) => (data.about = res.data)),
           fetchNews().then((res) => (data.news = res.data)),
           fetchArticles().then((res) => (data.articles = res.data)),
-          fetchOffer().then((res) => (data.offer = res.data)),
-          fetchPortfolio().then((res) => (data.portfolio = res.data)),
-          fetchQuestions().then((res) => (data.questions = res.data)),
         ]);
       };
       await fetchData();
