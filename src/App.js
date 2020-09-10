@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Analytics from 'react-router-ga';
+import { Helmet } from 'react-helmet';
 
 import './App.css';
 
@@ -44,6 +45,17 @@ const App = () => {
     <Router>
       <Analytics id='UA-172534345-1'>
         <dataContext.Provider value={contextValue}>
+          <Helmet>
+            <meta
+              property='og:image'
+              content='https://czarogrod.pl/static/media/logo.b6114b2c.png'
+            />
+            <meta
+              property='og:image:secure_url'
+              content='https://czarogrod.pl/static/media/logo.b6114b2c.png'
+            />
+          </Helmet>
+
           <Header />
           <Switch>
             <Route path='/' exact component={Home} />

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
+import { Helmet } from 'react-helmet';
 
 import Comments from '../../components/Article/Comments/Comments';
 import { fetchArticle } from '../../utilities/apiCalls';
@@ -59,13 +60,21 @@ const Article = (props) => {
   };
 
   return (
-    <StyledContainer>
-      {loadImage()}
-      <h1 className='title'>{loadTitle()}</h1>
-      <p className='txt'>{loadConent()}</p>
+    <>
+      {article ? (
+        <Helmet>
+          <meta property='og:image' content={article.image.url} />
+          <meta property='og:image:secure_url' content={article.image.url} />
+        </Helmet>
+      ) : null}
+      <StyledContainer>
+        {loadImage()}
+        <h1 className='title'>{loadTitle()}</h1>
+        <p className='txt'>{loadConent()}</p>
 
-      {article ? <Comments article={article} /> : null}
-    </StyledContainer>
+        {article ? <Comments article={article} /> : null}
+      </StyledContainer>
+    </>
   );
 };
 

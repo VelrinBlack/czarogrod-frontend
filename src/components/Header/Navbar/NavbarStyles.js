@@ -27,7 +27,7 @@ export const MobileNavigation = styled.nav`
   .hamburger-btn {
     position: absolute;
     left: 50%;
-    top: 260px;
+    top: 250px;
     transform: translateX(-50%);
 
     width: 55px;
