@@ -8,7 +8,7 @@ import { fetchArticle } from '../../utilities/apiCalls';
 import { StyledContainer } from './ArticleStyles';
 
 const Article = (props) => {
-  const [article, setArticle] = useState('Ładowanie...');
+  const [article, setArticle] = useState();
 
   useEffect(() => {
     window.scroll({

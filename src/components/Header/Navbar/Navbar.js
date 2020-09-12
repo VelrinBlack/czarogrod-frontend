@@ -27,8 +27,8 @@ const Navbar = () => {
 
   const checkPosition = () => {
     if (
-      window.location.href === 'http://localhost:3000/omnie' ||
-      window.location.href === 'http://localhost:3000/'
+      window.location.href === 'http://localhost:3001/omnie' ||
+      window.location.href === 'http://localhost:3001/'
     ) {
       forceUpdate();
     }
@@ -109,7 +109,7 @@ const Navbar = () => {
           <img src={logo} alt='logo' className='logo-img' />
           <img src={subtitle} alt='subtitle' className='subtitle-img' />
         </Link>
-        <ul className='navigation'>
+        <ul className='navigation' onClick={() => forceUpdate()}>
           <Tab path='/' name='HOME' exact location={window.location.href} />
           <Tab path='/oferta' name='OFERTA' location={window.location.href} />
           <Tab

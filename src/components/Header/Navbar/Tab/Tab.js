@@ -8,7 +8,9 @@ const Tab = (props) => {
   let classes = ['link'];
 
   try {
-    if (props.location === props.path) classes.push('active');
+    if (props.location.replace('http://localhost:3001', '') === props.path) {
+      classes.push('active');
+    }
   } catch (error) {
     console.log(error);
   }
