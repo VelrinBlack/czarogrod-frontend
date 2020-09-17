@@ -15,7 +15,7 @@ export const StyledContainer = styled.div`
     height: 1400px;
   }
   @media (max-width: 599px) {
-    height: 1600px;
+    height: 1700px;
   }
 
   .container {
@@ -76,18 +76,20 @@ export const StyledContainer = styled.div`
         width: 400px;
       }
       @media (max-width: 1024px) {
-        width: 350px;
-      }
-      @media (max-width: 599px) {
         width: 80%;
       }
 
       img {
         width: 100%;
+        height: 700px;
+
         z-index: 1;
         box-shadow: 25px 25px 0 0 #399ca1;
 
+        object-fit: cover;
+
         @media (max-width: 1024px) {
+          height: 500px;
           margin-top: 50px;
           box-shadow: 20px 20px 0 0 #399ca1;
         }
