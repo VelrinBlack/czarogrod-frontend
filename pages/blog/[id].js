@@ -12,7 +12,7 @@ const Header = dynamic(
   { ssr: false },
 );
 
-const Index = () => (
+const Post = () => (
   <>
     <Header />
     <Article />
@@ -20,4 +20,17 @@ const Index = () => (
   </>
 );
 
-export default Index;
+export async function getServerSideProps(context) {
+  const res = await fetch(
+    `https://czarogrod-backend-strapi.herokuapp.com/posts/${context.params.id}`,
+  );
+  const article = await res.json();
+
+  return {
+    props: {
+      article,
+    },
+  };
+}
+
+export default Post;
