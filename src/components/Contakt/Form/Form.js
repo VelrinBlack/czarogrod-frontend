@@ -1,11 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import axios from 'axios';
 
 import { StyledContainer } from './FormStyles';
 
-import img from '../../../images/other/contakt-img.jpg';
 import {
   handleNameError,
   handleEmailError,
@@ -118,7 +117,7 @@ const Form = () => {
   return (
     <>
       <StyledContainer>
-        <img src={img} alt='słonecznik' />
+        <img src='/images/other/contakt-img.jpg' alt='słonecznik' />
 
         <form onSubmit={(e) => handleSubmit(e)}>
           <h1>Kontakt</h1>
@@ -187,7 +186,7 @@ const Form = () => {
               <br />
               <br />
               <span>Zapoznaj się z naszą </span>
-              <Link className='polityka' to='/polityka_prywatności'>
+              <Link className='polityka' href='/polityka_prywatności'>
                 Polityką prywatności
               </Link>
             </label>

@@ -26,124 +26,135 @@ export const StyledContainer = styled.div`
     display: flex;
     justify-content: space-between;
 
-    margin: 0 auto;
-
     @media (max-width: 1024px) {
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
     }
-
-    .box {
-      width: 25%;
+    .box-container {
+      min-width: 25%;
+      max-width: 25%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       @media (max-width: 1024px) {
-        width: 60%;
+        min-width: 80%;
+        max-width: 80%;
       }
       @media (max-width: 768px) {
-        width: 90%;
+        min-width: 90%;
+        max-width: 90%;
       }
-      @media (max-width: 500px) {
+
+      .box {
         width: 100%;
-      }
 
-      &.logo-box {
-        width: 10%;
-        display: flex;
-        align-items: center;
-
-        @media (max-width: 1600px) {
-          width: 15%;
-        }
         @media (max-width: 1024px) {
-          width: 30%;
-        }
-        @media (max-width: 500px) {
           width: 60%;
         }
-
-        .logo {
+        @media (max-width: 768px) {
+          width: 90%;
+        }
+        @media (max-width: 500px) {
           width: 100%;
-          margin-bottom: 30px;
-        }
-      }
-
-      &.menu-box {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        .link {
-          padding: 6px 0;
-
-          color: #000;
-          font-size: 18px;
-          text-decoration: none;
-        }
-      }
-
-      &.contact-box {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        text-align: center;
-
-        .contact-data {
-          margin-bottom: 50px;
-
-          .phone-number {
-            font-size: 14px;
-            a {
-              color: #000;
-              font-size: 18px;
-              text-decoration: none;
-            }
-          }
-
-          .email-address {
-            font-size: 14px;
-            a {
-              color: #000;
-              font-size: 18px;
-              text-decoration: none;
-            }
-          }
         }
 
-        .social-media {
-          height: 70px;
+        &.logo-box {
+          width: 60%;
           display: flex;
-          justify-content: space-around;
+          align-items: center;
 
-          @media (max-width: 1920px) {
-            height: 50px;
+          @media (max-width: 1024px) {
+            width: 40%;
           }
-          @media (max-width: 768px) {
-            height: 60px;
+          @media (max-width: 500px) {
+            width: 75%;
           }
+
+          .logo {
+            width: 100%;
+            margin-bottom: 30px;
+          }
+        }
+
+        &.menu-box {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
 
           .link {
-            width: 30%;
+            padding: 6px 0;
 
+            color: #000;
+            font-size: 18px;
+            text-decoration: none;
+          }
+        }
+
+        &.contact-box {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          text-align: center;
+
+          .contact-data {
+            margin-bottom: 50px;
+
+            .phone-number {
+              font-size: 14px;
+              a {
+                color: #000;
+                font-size: 18px;
+                text-decoration: none;
+              }
+            }
+
+            .email-address {
+              font-size: 14px;
+              a {
+                color: #000;
+                font-size: 18px;
+                text-decoration: none;
+              }
+            }
+          }
+
+          .social-media {
+            height: 70px;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
 
-            background-color: #399ca1;
-            border-radius: 10px;
+            @media (max-width: 1920px) {
+              height: 50px;
+            }
+            @media (max-width: 768px) {
+              height: 60px;
+            }
 
-            .logo {
-              width: 20%;
+            .link {
+              width: 30%;
 
-              @media (max-width: 1440px) {
-                width: 25%;
-              }
-              @media (max-width: 1024px) {
+              display: flex;
+              justify-content: center;
+
+              background-color: #399ca1;
+              border-radius: 10px;
+
+              .logo {
                 width: 20%;
-              }
-              @media (max-width: 500px) {
-                width: 30%;
+
+                @media (max-width: 1440px) {
+                  width: 25%;
+                }
+                @media (max-width: 1024px) {
+                  width: 20%;
+                }
+                @media (max-width: 500px) {
+                  width: 30%;
+                }
               }
             }
           }

@@ -1,59 +1,77 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
+import Helmet from 'react-helmet';
 
 import { StyledContainer } from './SliderStyles';
 
-import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.min.css';
-import 'owl.carousel/dist/assets/owl.theme.default.min.css';
+import Carousel from 'react-slick';
 
 const Slider = () => {
   const settings = {
-    className: 'owl-theme owl-carousel',
-    items: 1,
+    className: 'carousel',
+    dots: true,
+    infinite: true,
+    speed: 400,
     autoplay: true,
-    loop: true,
-    nav: true,
+    autoplaySpeed: 5000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
 
   return (
-    <StyledContainer>
-      <OwlCarousel {...settings}>
-        <div className='slide slide1'>
-          <h1 className='title'>Zobacz jak projektujemy</h1>
+    <>
+      <Helmet>
+        <link
+          rel='stylesheet'
+          type='text/css'
+          charset='UTF-8'
+          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css'
+        />
+        <link
+          rel='stylesheet'
+          type='text/css'
+          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
+        />
+      </Helmet>
 
-          <Link to='/oferta' className='btn btn1'>
-            OFERTA
-          </Link>
-        </div>
+      <StyledContainer>
+        <Carousel {...settings}>
+          <div className='slide slide1'>
+            <h1 className='title'>Zobacz jak projektujemy</h1>
 
-        <div className='slide slide2'>
-          <h1 className='title'>Każde miejsce można zaczarować</h1>
+            <Link href='/oferta'>
+              <div className='btn btn1'>OFERTA</div>
+            </Link>
+          </div>
 
-          <Link to='/portfolio' className='btn btn2'>
-            PORTFOLIO
-          </Link>
-        </div>
+          <div className='slide slide2'>
+            <h1 className='title'>Każde miejsce można zaczarować</h1>
 
-        <div className='slide slide3'>
-          <h1 className='title'>
-            {' '}
-            Masz wątpliwości? <br /> Zobacz o co pytają klienci
-          </h1>
+            <Link href='/portfolio'>
+              <div className='btn btn2'>PORTFOLIO</div>
+            </Link>
+          </div>
 
-          <Link to='/pytania' className='btn btn3'>
-            PYTANIA
-          </Link>
-        </div>
+          <div className='slide slide3'>
+            <h1 className='title'>
+              {' '}
+              Masz wątpliwości? <br /> Zobacz o co pytają klienci
+            </h1>
 
-        <div className='slide slide4'>
-          <h1 className='title'>Zadzwoń lub napisz – służę pomocą</h1>
-          <Link to='/kontakt' className='btn btn4'>
-            KONTAKT
-          </Link>
-        </div>
-      </OwlCarousel>
-    </StyledContainer>
+            <Link href='/pytania'>
+              <div className='btn btn3'>PYTANIA</div>
+            </Link>
+          </div>
+
+          <div className='slide slide4'>
+            <h1 className='title'>Zadzwoń lub napisz – służę pomocą</h1>
+            <Link href='/kontakt'>
+              <div className='btn btn4'>KONTAKT</div>
+            </Link>
+          </div>
+        </Carousel>
+      </StyledContainer>
+    </>
   );
 };
 

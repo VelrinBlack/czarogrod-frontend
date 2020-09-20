@@ -1,14 +1,18 @@
 import React from 'react';
+
+import Router, { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { StyledContainer } from './TabStyles';
 
 const Tab = (props) => {
+
+  const router = useRouter();
   let classes = ['link'];
 
   try {
-    if (props.location.replace('http://localhost:3001', '') === props.path) {
+    if (props.location.replace('http://localhost:3000', '') === props.path) {
       classes.push('active');
     }
   } catch (error) {
@@ -17,9 +21,34 @@ const Tab = (props) => {
 
   return (
     <StyledContainer>
-      <Link to={props.path} className={classes.join(' ')}>
-        {props.name}
-      </Link>
+
+      {props.path === '/omnie' ? (
+        <div
+          className={classes.join(' ')}
+          onClick={() => {
+            Router.push('/omnie');
+            window.scroll({
+              top: 700,
+              behavior: 'smooth',
+            });
+          }}
+        >
+          {props.name}
+        </div>
+      ) : (
+        <div
+          className={classes.join(' ')}
+          onClick={() => {
+            Router.push(props.path);
+            window.scroll({
+              top: 0,
+              behavior: 'smooth',
+            });
+          }}
+        >
+          {props.name}
+        </div>
+      )}
     </StyledContainer>
   );
 };

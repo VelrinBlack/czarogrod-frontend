@@ -4,17 +4,7 @@ import { StyledContainer } from './PortfolioStyles';
 import Card from '../../components/Portfolio/Card/Card';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
 
-import img3 from '../../images/slider/1.jpg';
-import img4 from '../../images/slider/4.jpg';
-
 const Portfolio = () => {
-  useEffect(() => {
-    window.scroll({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }, []);
-
   return (
     <>
       <StyledContainer>
@@ -86,13 +76,13 @@ const Portfolio = () => {
       <SingleSlide
         text='Masz pytania? Tutaj znajdziesz odpowiedź'
         location='/pytania'
-        image={img3}
+        image='/images/slider/1.jpg'
       />
 
       <SingleSlide
         text='Zadzwoń lub napisz – służę pomocą'
         location='/kontakt'
-        image={img4}
+        image='/images/slider/4.jpg'
       />
     </>
   );

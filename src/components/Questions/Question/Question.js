@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { StyledContainer } from './QuestionStyles';
 
-import leaf from '../../../images/other/leaf.svg';
+import leaf from '../../../../public/images/other/leaf.svg';
 
 const Question = (props) => {
   return (

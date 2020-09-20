@@ -15,7 +15,6 @@ export const StyledContainer = styled.div`
     background-size: cover;
 
     text-decoration: none;
-    color: #fff;
     overflow: hidden;
 
     @media (max-width: 768px) {
@@ -33,6 +32,7 @@ export const StyledContainer = styled.div`
       font-size: 40px;
       font-weight: 700;
       letter-spacing: 2px;
+      color: #fff;
 
       @media (max-width: 1440px) {
         font-size: 30px;

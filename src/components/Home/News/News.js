@@ -1,41 +1,42 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import axios from 'axios';
 
 import { StyledContainer } from './NewsStyles';
 import Post from '../../Blog/Article/Article';
-import dataContext from '../../../Context';
 
 const News = () => {
-  const data = useContext(dataContext);
+  const [articles, setArticles] = useState([]);
 
-  let articles = [];
-
-  if (data) {
-    articles = data.news;
-  }
-
+  useEffect(() => {
+    axios
+      .get('https://czarogrod-backend-strapi.herokuapp.com/posts?_limit=2')
+      .then((data) => setArticles(data.data));
+  }, []);
   return (
     <StyledContainer>
-      <h1 className='heading'>Najnowsze wpisy</h1>
-      <div className='posts'>
-        {articles.length === 0 ? 'Ładowanie...' : null}
+      <>
+        <h1 className='heading'>Najnowsze wpisy</h1>
+        <div className='posts'>
+          {articles.length === 0
+            ? 'Ładowanie...'
+            : articles.map((post) => {
+                return (
+                  <Post
+                    image={post.image.url}
+                    title={post.title}
+                    content={post.content}
+                    key={post.id}
+                    id={post.id}
+                  />
+                );
+              })}
+        </div>
 
-        {articles.map((post) => {
-          return (
-            <Post
-              image={post.image.url}
-              title={post.title}
-              content={post.content}
-              key={post.id}
-              id={post.id}
-            />
-          );
-        })}
-      </div>
-
-      <Link to='/blog' className='see-more'>
-        Zobacz więcej
-      </Link>
+        <Link href='/blog'>
+          <div className='see-more'>Zobacz więcej</div>
+        </Link>
+      </>
     </StyledContainer>
   );
 };

@@ -2,8 +2,6 @@ import React from 'react';
 
 import { StyledContainer } from './AboutStyles';
 
-import portrait from '../../../images/other/profile.jpg';
-
 const About = () => {
   return (
     <StyledContainer>
@@ -43,7 +41,7 @@ const About = () => {
           </p>
         </div>
         <div className='image-container'>
-          <img src={portrait} alt='Mój portret' />
+          <img src='/images/other/profile.jpg' alt='Mój portret' />
         </div>
       </div>
     </StyledContainer>

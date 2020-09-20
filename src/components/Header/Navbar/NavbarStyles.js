@@ -149,6 +149,10 @@ export const MobileNavigation = styled.nav`
     }
 
     li {
+<<<<<<< HEAD
+      height: 60px;
+      text-align: center;
+=======
       width: 100%;
       height: 60px;
 
@@ -158,6 +162,7 @@ export const MobileNavigation = styled.nav`
         text-decoration: none;
         color: #000;
       }
+>>>>>>> 666354762b09944a5bec25808e82a00c65c1324f
     }
   }
 `;

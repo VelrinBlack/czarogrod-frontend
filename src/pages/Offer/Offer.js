@@ -2,17 +2,7 @@ import React, { useEffect } from 'react';
 import { StyledContainer } from './OfferStyles';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
 
-import img1 from '../../images/slider/3.jpg';
-import img2 from '../../images/slider/2.jpg';
-
 const Offer = () => {
-  useEffect(() => {
-    window.scroll({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }, []);
-
   return (
     <>
       <StyledContainer>
@@ -97,13 +87,13 @@ const Offer = () => {
       <SingleSlide
         text='Masz wątpliwości? Zobacz o co pytają klienci'
         location='/pytania'
-        image={img1}
+        image={'/images/slider/3.jpg'}
       />
 
       <SingleSlide
         text='Sprawdź moje ostatnie projekty'
         location='/portfolio'
-        image={img2}
+        image={'/images/slider/4.jpg'}
       />
     </>
   );

@@ -4,17 +4,7 @@ import { StyledContainer } from './QuestionsStyles';
 import Question from '../../components/Questions/Question/Question';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
 
-import img1 from '../../images/slider/3.jpg';
-import img2 from '../../images/slider/2.jpg';
-
 const Questions = () => {
-  useEffect(() => {
-    window.scroll({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }, []);
-
   return (
     <>
       <StyledContainer>
@@ -73,13 +63,13 @@ const Questions = () => {
       <SingleSlide
         text='Sprawdź przykładowe projekty'
         location='/portfolio'
-        image={img1}
+        image='/images/slider/3.jpg'
       />
 
       <SingleSlide
         text='Masz więcej pytań? Zadzwoń lub napisz'
         location='/kontakt'
-        image={img2}
+        image='/images/slider/2.jpg'
       />
     </>
   );

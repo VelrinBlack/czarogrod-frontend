@@ -2,28 +2,31 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { Helmet } from 'react-helmet';
+import { useRouter } from 'next/router';
+import axios from 'axios';
 
 import Comments from '../../components/Article/Comments/Comments';
-import { fetchArticle } from '../../utilities/apiCalls';
 import { StyledContainer } from './ArticleStyles';
 
 const Article = (props) => {
   const [article, setArticle] = useState();
-
+  const router = useRouter();
   useEffect(() => {
-    window.scroll({
-      top: 0,
-      behavior: 'smooth',
-    });
-
-    fetchArticle(props.match.params.id).then((res) => setArticle(res.data));
-  }, [props.match.params.id]);
+    if (router.asPath.replace('/blog/', '') !== '[id]') {
+      axios
+        .get(
+          `https://czarogrod-backend-strapi.herokuapp.com/posts/${router.asPath.replace(
+            '/blog/',
+            '',
+          )}`,
+        )
+        .then((res) => setArticle(res.data));
+    }
+  }, [router.asPath]);
 
   const loadImage = () => {
     try {
-      return (
-        <img className='main-image' src={article.image.url} alt='Article' />
-      );
+      return <img className='main-image' src={article.image.url} alt='Article' />;
     } catch (error) {
       return 'Ładowanie...';
     }
@@ -70,7 +73,7 @@ const Article = (props) => {
       <StyledContainer>
         {loadImage()}
         <h1 className='title'>{loadTitle()}</h1>
-        <p className='txt'>{loadConent()}</p>
+        <div className='txt'>{loadConent()}</div>
 
         {article ? <Comments article={article} /> : null}
       </StyledContainer>

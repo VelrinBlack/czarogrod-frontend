@@ -1,26 +1,19 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import { StyledContainer } from './BlogStyles';
 import Post from '../../components/Blog/Article/Article';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
-import dataContext from '../../Context';
-
-import img1 from '../../images/slider/1.jpg';
-import img2 from '../../images/slider/3.jpg';
 
 const Blog = () => {
-  const data = useContext(dataContext);
-
-  let articles = [];
-
-  if (data) {
-    articles = data.articles;
-  }
-
+  const [articles, setArticles] = useState([]);
   useEffect(() => {
-    window.scroll({
-      top: 0,
-      behavior: 'smooth',
+    axios.get('https://czarogrod-backend-strapi.herokuapp.com/posts').then((data) => {
+      setArticles(data.data);
+      window.scroll({
+        top: 0,
+        behavior: 'smooth',
+      });
     });
   }, []);
 
@@ -49,13 +42,13 @@ const Blog = () => {
       <SingleSlide
         text='Chcesz zlecić wykonanie projektu? Sprawdź szczegóły oferty'
         location='/oferta'
-        image={img1}
+        image='/images/slider/1.jpg'
       />
 
       <SingleSlide
         text='Potrzebujesz pomocy? Zadzwoń lub napisz'
         location='/portfolio'
-        image={img2}
+        image='/images/slider/3.jpg'
       />
     </>
   );

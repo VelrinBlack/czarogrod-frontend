@@ -1,13 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 
 import { StyledContainer } from './SingleSlideStyles';
 
 const SingleSlide = ({ text, location, image }) => (
   <StyledContainer image={image}>
-    <Link to={location} className='slide'>
-      <h2>{text}</h2>
+    <Link href={location}>
+      <div className='slide'>
+        <h2>{text}</h2>
+      </div>
     </Link>
   </StyledContainer>
 );

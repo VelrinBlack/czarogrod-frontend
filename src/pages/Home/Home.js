@@ -1,53 +1,57 @@
 import React, { useEffect } from 'react';
+
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
+import { fetchNews } from '../../utilities/apiCalls';
+import axios from 'axios';
 
 import Slider from '../../components/Home/Slider/Slider';
 import About from '../../components/Home/About/About';
 import News from '../../components/Home/News/News';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
 
-import img1 from '../../images/slider/2.jpg';
-import img2 from '../../images/slider/4.jpg';
+import Context from '../../Context';
 
-const Home = (props) => {
-  useEffect(() => {
-    if (props.location.pathname === '/omnie') {
-      window.scroll({
-        top: 700,
-        behavior: 'smooth',
-      });
-    } else {
-      window.scroll({
-        top: 0,
-        behavior: 'smooth',
-      });
-    }
+const Home = () => {
+  const router = useRouter();
 
-    document.addEventListener('scroll', setURL);
+  if (process.browser) {
+    useEffect(() => {
+      if (router.pathname === '/omnie') {
+        window.scroll({
+          top: 701,
+          behavior: 'smooth',
+        });
+      }
 
-    return () => document.removeEventListener('scroll', setURL);
-  });
+      document.addEventListener('scroll', setURL);
 
-  const setURL = () => {
-    if (window.pageYOffset >= 650 && window.pageYOffset < 1800) {
-      window.history.pushState('O mnie', 'O mnie', '/omnie');
-    } else {
-      window.history.pushState('Home', 'Home', '/');
-    }
-  };
+      return () => document.removeEventListener('scroll', setURL);
+    });
+
+    const setURL = () => {
+      if (window.pageYOffset >= 650 && window.pageYOffset < 1800) {
+        window.history.pushState('O mnie', 'O mnie', '/omnie');
+      } else {
+        window.history.pushState('Home', 'Home', '/');
+      }
+    };
+  }
 
   return (
     <>
       <Slider />
-      <About path={props.location.pathname} />
+
+      <About />
       <News />
       <SingleSlide
-        image={img1}
+        image='/images/slider/4.jpg'
+
         location='/oferta'
         text='Zobacz szczegóły oferty'
       />
       <SingleSlide
-        image={img2}
+        image='/images/slider/2.jpg'
         location='/pytania'
         text='Sprawdź, o co pytają klienci'
       />

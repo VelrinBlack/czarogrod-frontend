@@ -8,16 +8,36 @@
 # testing
 /coverage
 
+<<<<<<< HEAD
+# next.js
+/.next/
+/out/
+
+=======
+>>>>>>> 666354762b09944a5bec25808e82a00c65c1324f
 # production
 /build
 
 # misc
 .DS_Store
+<<<<<<< HEAD
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+=======
+>>>>>>> 666354762b09944a5bec25808e82a00c65c1324f
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+<<<<<<< HEAD
+=======
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+>>>>>>> 666354762b09944a5bec25808e82a00c65c1324f
