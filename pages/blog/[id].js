@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 
 import Article from '../../src/pages/Article/Article';
 import Footer from '../../src/components/Footer/Footer';
@@ -14,6 +15,11 @@ const Header = dynamic(
 
 const Post = ({ article }) => (
   <>
+    <Head>
+      <meta property='og:image' content={article.image.url} />
+      <meta property='og:image:secure_url' content={article.image.url} />
+      <title>Czarogród | Blog</title>
+    </Head>
     <Header />
     <Article article={article} />
     <Footer />

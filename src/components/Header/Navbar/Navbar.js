@@ -9,7 +9,6 @@ import { MobileNavigation, DesktopNavigation } from './NavbarStyles';
 
 import Tab from './Tab/Tab';
 
-
 import logo from '../../../../public/images/other/logo.png';
 import subtitle from '../../../../public/images/other/subtitle.png';
 

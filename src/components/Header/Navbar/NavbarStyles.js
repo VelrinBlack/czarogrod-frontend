@@ -14,6 +14,8 @@ export const MobileNavigation = styled.nav`
 
     margin-top: 60px;
 
+    cursor: pointer;
+
     .logo-img {
       height: 110px;
     }
@@ -209,6 +211,8 @@ export const DesktopNavigation = styled.nav`
       height: 100%;
       display: flex;
       align-items: center;
+
+      cursor: pointer;
 
       .logo-img {
         height: 100%;
