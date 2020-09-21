@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
-import { Helmet } from 'react-helmet';
+import { Head } from 'next/head';
 
 import Comments from '../../components/Article/Comments/Comments';
 import { StyledContainer } from './ArticleStyles';
@@ -47,10 +47,10 @@ const Article = ({ article }) => {
 
   return (
     <>
-      <Helmet>
+      <Head>
         <meta property='og:image' content={article.image.url} />
         <meta property='og:image:secure_url' content={article.image.url} />
-      </Helmet>
+      </Head>
       <StyledContainer>
         {loadImage()}
         <h1 className='title'>{loadTitle()}</h1>

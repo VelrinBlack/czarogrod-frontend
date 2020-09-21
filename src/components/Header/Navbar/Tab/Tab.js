@@ -1,18 +1,14 @@
 import React from 'react';
-
-import Router, { useRouter } from 'next/router';
+import Router from 'next/router';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 
 import { StyledContainer } from './TabStyles';
 
 const Tab = (props) => {
-
-  const router = useRouter();
   let classes = ['link'];
 
   try {
-    if (props.location.replace('http://localhost:3000', '') === props.path) {
+    if (props.location.replace('https://czarogrod.pl', '') === props.path) {
       classes.push('active');
     }
   } catch (error) {
@@ -21,7 +17,6 @@ const Tab = (props) => {
 
   return (
     <StyledContainer>
-
       {props.path === '/omnie' ? (
         <div
           className={classes.join(' ')}
