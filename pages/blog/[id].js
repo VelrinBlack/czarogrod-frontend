@@ -12,10 +12,10 @@ const Header = dynamic(
   { ssr: false },
 );
 
-const Post = () => (
+const Post = ({ article }) => (
   <>
     <Header />
-    <Article />
+    <Article article={article} />
     <Footer />
   </>
 );
