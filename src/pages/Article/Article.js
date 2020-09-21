@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
-import { Head } from 'next/head';
+import Head from 'next/head';
 
 import Comments from '../../components/Article/Comments/Comments';
 import { StyledContainer } from './ArticleStyles';
