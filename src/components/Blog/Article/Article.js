@@ -15,7 +15,6 @@ const Article = (props) => {
             <h3 className='title'>{props.title}</h3>
             <p className='text'>{loadArticlePreviewText(props.content)}</p>
           </div>
-
         </div>
       </Link>
     </StyledContainer>

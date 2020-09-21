@@ -7,11 +7,8 @@ export const StyledContainer = styled.div`
     color: #000;
     text-decoration: none;
 
-<<<<<<< HEAD
     cursor: pointer;
 
-=======
->>>>>>> 666354762b09944a5bec25808e82a00c65c1324f
     @media (max-width: 1024px) {
       flex-direction: column;
     }
