@@ -2,15 +2,11 @@ import React, { useEffect } from 'react';
 
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { fetchNews } from '../../utilities/apiCalls';
-import axios from 'axios';
 
 import Slider from '../../components/Home/Slider/Slider';
 import About from '../../components/Home/About/About';
 import News from '../../components/Home/News/News';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
-
-import Context from '../../Context';
 
 const Home = () => {
   const router = useRouter();
@@ -41,12 +37,10 @@ const Home = () => {
   return (
     <>
       <Slider />
-
       <About />
       <News />
       <SingleSlide
         image='/images/slider/4.jpg'
-
         location='/oferta'
         text='Zobacz szczegóły oferty'
       />

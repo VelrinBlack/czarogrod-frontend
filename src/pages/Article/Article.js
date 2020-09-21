@@ -2,28 +2,11 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import { Helmet } from 'react-helmet';
-import { useRouter } from 'next/router';
-import axios from 'axios';
 
 import Comments from '../../components/Article/Comments/Comments';
 import { StyledContainer } from './ArticleStyles';
 
-const Article = (props) => {
-  const [article, setArticle] = useState();
-  const router = useRouter();
-  useEffect(() => {
-    if (router.asPath.replace('/blog/', '') !== '[id]') {
-      axios
-        .get(
-          `https://czarogrod-backend-strapi.herokuapp.com/posts/${router.asPath.replace(
-            '/blog/',
-            '',
-          )}`,
-        )
-        .then((res) => setArticle(res.data));
-    }
-  }, [router.asPath]);
-
+const Article = ({ article }) => {
   const loadImage = () => {
     try {
       return <img className='main-image' src={article.image.url} alt='Article' />;
@@ -64,12 +47,10 @@ const Article = (props) => {
 
   return (
     <>
-      {article ? (
-        <Helmet>
-          <meta property='og:image' content={article.image.url} />
-          <meta property='og:image:secure_url' content={article.image.url} />
-        </Helmet>
-      ) : null}
+      <Helmet>
+        <meta property='og:image' content={article.image.url} />
+        <meta property='og:image:secure_url' content={article.image.url} />
+      </Helmet>
       <StyledContainer>
         {loadImage()}
         <h1 className='title'>{loadTitle()}</h1>
