@@ -16,9 +16,10 @@ const Header = dynamic(
 const Post = ({ article }) => (
   <>
     <Head>
+      <meta property='og:title' content={article.title} />
       <meta property='og:image' content={article.image.url} />
       <meta property='og:image:secure_url' content={article.image.url} />
-      <title>Czarogród | Blog</title>
+      <title>{article.title}</title>
     </Head>
     <Header />
     <Article article={article} />
