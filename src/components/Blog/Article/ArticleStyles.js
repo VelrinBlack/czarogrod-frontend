@@ -4,6 +4,8 @@ export const StyledContainer = styled.div`
   .link-wrapper {
     display: flex;
 
+    margin: 50px 0;
+
     color: #000;
     text-decoration: none;
 

@@ -21,7 +21,7 @@ const Blog = () => {
     <>
       <StyledContainer>
         <div className='posts-container'>
-          {articles.map((article) => {
+          {articles.reverse().map((article) => {
             const image = article.image.url;
             const title = article.title;
             const content = article.content;

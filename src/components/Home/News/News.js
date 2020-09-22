@@ -20,7 +20,7 @@ const News = () => {
         <div className='posts'>
           {articles.length === 0
             ? 'Ładowanie...'
-            : articles.map((post) => {
+            : articles.reverse().map((post) => {
                 return (
                   <Post
                     image={post.image.url}
