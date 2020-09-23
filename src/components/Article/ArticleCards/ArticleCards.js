@@ -9,13 +9,17 @@ const Article = ({ current_id }) => {
 
   useEffect(() => {
     axios.get('https://czarogrod-backend-strapi.herokuapp.com/posts').then((data) => {
+      data.data = data.data.reverse();
+
       for (const article of data.data) {
         if (article.id === current_id) {
           const articleIndex = data.data.indexOf(article);
           data.data.splice(articleIndex, 1);
         }
       }
+
       if (data.data.length > 5) data.data.splice(0, 5);
+
       setArticles(data.data);
     });
   }, []);
