@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 
 import Comments from '../../components/Article/Comments/Comments';
+import ArticleCards from '../../components/Article/ArticleCards/ArticleCards';
 import { StyledContainer } from './ArticleStyles';
 
 const Article = ({ article }) => {
@@ -51,7 +52,8 @@ const Article = ({ article }) => {
         <h1 className='title'>{loadTitle()}</h1>
         <div className='txt'>{loadConent()}</div>
 
-        {article ? <Comments article={article} /> : null}
+        <Comments article={article} />
+        <ArticleCards current_id={article.id} />
       </StyledContainer>
     </>
   );
