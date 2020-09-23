@@ -10,8 +10,8 @@ const News = () => {
 
   useEffect(() => {
     axios
-      .get('https://czarogrod-backend-strapi.herokuapp.com/posts?_limit=2')
-      .then((data) => setArticles(data.data));
+      .get('https://czarogrod-backend-strapi.herokuapp.com/posts')
+      .then((data) => setArticles(data.data.reverse().slice(0, 2)));
   }, []);
   return (
     <StyledContainer>
@@ -20,7 +20,7 @@ const News = () => {
         <div className='posts'>
           {articles.length === 0
             ? 'Ładowanie...'
-            : articles.reverse().map((post) => {
+            : articles.map((post) => {
                 return (
                   <Post
                     image={post.image.url}
