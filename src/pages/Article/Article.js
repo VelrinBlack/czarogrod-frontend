@@ -52,8 +52,8 @@ const Article = ({ article }) => {
         <h1 className='title'>{loadTitle()}</h1>
         <div className='txt'>{loadConent()}</div>
 
-        <Comments article={article} />
         <ArticleCards current_id={article.id} />
+        <Comments article={article} />
       </StyledContainer>
     </>
   );
