@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Link from 'next/link';
-import axios from 'axios';
 
 import { StyledContainer } from './NewsStyles';
 import Post from '../../Blog/Article/Article';
+import dataContext from '../../../Context';
 
 const News = () => {
-  const [articles, setArticles] = useState([]);
+  let articles = useContext(dataContext).articles;
 
-  useEffect(() => {
-    axios
-      .get('https://czarogrod-backend-strapi.herokuapp.com/posts')
-      .then((data) => setArticles(data.data.reverse().slice(0, 2)));
-  }, []);
+  if (articles) {
+    articles = articles.reverse();
+    articles = [articles[0], articles[1]];
+  }
+
   return (
     <StyledContainer>
       <>
         <h1 className='heading'>Najnowsze wpisy</h1>
         <div className='posts'>
-          {articles.length === 0
+          {!articles
             ? 'Ładowanie...'
             : articles.map((post) => {
                 return (
