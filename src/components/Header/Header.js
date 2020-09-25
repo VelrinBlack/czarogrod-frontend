@@ -7,8 +7,10 @@ import Navbar from './Navbar/Navbar';
 
 const Header = () => (
   <StyledContainer>
-    <TopBar />
-    <Navbar />
+    <div className='wrapper'>
+      <TopBar />
+      <Navbar />
+    </div>
   </StyledContainer>
 );
 
