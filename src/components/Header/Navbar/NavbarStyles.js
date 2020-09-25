@@ -38,6 +38,7 @@ export const MobileNavigation = styled.nav`
     background-color: transparent;
     border: none;
 
+    z-index: 3;
     cursor: pointer;
     transition: all 0.3s;
 
@@ -135,6 +136,7 @@ export const MobileNavigation = styled.nav`
 
     list-style: none;
 
+    /* z-index: 2; */
     transition: all 0.3s 0.1s ease-in-out;
 
     &.active {
