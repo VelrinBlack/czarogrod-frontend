@@ -9,7 +9,7 @@ export const StyledContainer = styled.div`
     color: #000;
     text-decoration: none;
 
-    cursor: pointer;
+    cursor: ${(props) => (props.clicked ? 'wait' : 'pointer')};
 
     @media (max-width: 1024px) {
       flex-direction: column;

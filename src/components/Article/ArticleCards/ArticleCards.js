@@ -30,9 +30,9 @@ const Article = ({ current_id }) => {
         <div className='cards-wrapper'>
           {articles.map((article) => (
             <Link href={`https://czarogrod.pl/blog/${article.id}`}>
-              <div className='card' id={article.id}>
+              <div className='card'>
                 <h2>{article.title}</h2>
-                <img src={article.image.url} alt='' />
+                <img src={article.image.url} alt='zdjęcie główne' />
               </div>
             </Link>
           ))}
