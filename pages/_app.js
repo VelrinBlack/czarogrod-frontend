@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 
+import ReactGA from 'react-ga';
+
 import './styles.css';
 
 import {
@@ -33,6 +35,11 @@ const App = ({ Component, pageProps }) => {
 
     wrapper();
   }, []);
+
+  useEffect(() => {
+    ReactGA.initialize('UA-172534345-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  });
   return (
     <>
       <Head>
