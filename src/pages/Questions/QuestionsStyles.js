@@ -15,6 +15,10 @@ export const StyledContainer = styled.div`
     font-size: 50px;
   }
 
+  .loading {
+    align-self: start;
+  }
+
   @media (max-width: 1280px) {
     width: 70%;
   }

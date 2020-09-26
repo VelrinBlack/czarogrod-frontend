@@ -1,21 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState, useContext } from 'react';
 
 import { StyledContainer } from './BlogStyles';
 import Post from '../../components/Blog/Article/Article';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
+import dataContext from '../../Context';
 
 const Blog = () => {
   const [articles, setArticles] = useState([]);
+  const data = useContext(dataContext);
+
   useEffect(() => {
-    axios.get('https://czarogrod-backend-strapi.herokuapp.com/posts').then((data) => {
-      setArticles(data.data);
+    if (data.articles) {
+      setArticles(data.articles);
       window.scroll({
         top: 0,
         behavior: 'smooth',
       });
-    });
-  }, []);
+    }
+  });
 
   return (
     <>
