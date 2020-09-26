@@ -31,16 +31,13 @@ export const StyledContainer = styled.div`
   }
 
   .see-more {
-    position: relative;
-    left: 50%;
-
     width: 200px;
     height: 50px;
 
     display: block;
 
     padding: 10px 20px;
-    margin-top: 50px;
+    margin: 50px 0 0 50%;
 
     text-align: center;
     font-size: 16px;

@@ -10,6 +10,7 @@ const Slider = () => {
   const settings = {
     className: 'carousel',
     dots: true,
+    arrows: false,
     infinite: true,
     speed: 400,
     autoplay: true,
