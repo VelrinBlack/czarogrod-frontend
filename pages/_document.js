@@ -4,20 +4,12 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang={this.props.lang || 'en'}>
-        <Head>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <Head></Head>
 
-  gtag('config', 'UA-172534345-1');`,
-            }}
-          />
-        </Head>
         <body>
           <Main />
           <NextScript />
+          <script src='https://skrypt-cookies.pl/id/315514c2a9f58a07.js'></script>
         </body>
       </Html>
     );

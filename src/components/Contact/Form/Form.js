@@ -174,19 +174,17 @@ const Form = () => {
                 className='rodo-checkbox'
               />
               <span>
-                (wymagane) Wyrażam zgodę na przetwarzanie moich danych osobowych
-                zgodnie z ustawą o ochronie danych osobowych w związku z
-                wysłaniem zapytania przez formularz kontaktowy. Podanie danych
-                jest niezbędne do przetworzenia zapytania. Zostałem
-                poinformowany o prawie dostępu do swoich danych, możliwości ich
-                edytowania oraz żądania zaprzestania ich przetwarzania.
-                Administratorem danych osobowych jest właściciel serwisu
-                CzarOgród.pl.
+                (wymagane) Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z
+                ustawą o ochronie danych osobowych w związku z wysłaniem zapytania przez
+                formularz kontaktowy. Podanie danych jest niezbędne do przetworzenia
+                zapytania. Zostałem poinformowany o prawie dostępu do swoich danych,
+                możliwości ich edytowania oraz żądania zaprzestania ich przetwarzania.
+                Administratorem danych osobowych jest właściciel serwisu CzarOgród.pl.
               </span>
               <br />
               <br />
               <span>Zapoznaj się z naszą </span>
-              <Link className='polityka' href='/polityka_prywatności'>
+              <Link className='polityka' href='/polityka_prywatnosci'>
                 Polityką prywatności
               </Link>
             </label>

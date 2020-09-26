@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import Form from '../../components/Contakt/Form/Form';
+import Form from '../../components/Contact/Form/Form';
 
 const Contact = () => {
   useEffect(() => {

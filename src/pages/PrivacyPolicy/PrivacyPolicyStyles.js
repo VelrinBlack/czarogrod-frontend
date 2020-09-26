@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledContent = styled.div`
   width: 70vw;
-  margin: 350px auto;
+  margin: 100px auto;
   font-size: 16px;
 
   @media (max-width: 1440px) {
