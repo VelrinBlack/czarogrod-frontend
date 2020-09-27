@@ -1,10 +1,12 @@
 import React from 'react';
 import Router from 'next/router';
 import PropTypes from 'prop-types';
+import useForceUpdate from 'use-force-update';
 
 import { StyledContainer } from './TabStyles';
 
 const Tab = (props) => {
+  const forceUpdate = useForceUpdate();
   let classes = ['link'];
 
   try {
@@ -18,9 +20,11 @@ const Tab = (props) => {
   return (
     <StyledContainer>
       {props.path === '/omnie' ? (
-        <div
+        <a
           className={classes.join(' ')}
-          onClick={() => {
+          href={'/omnie'}
+          onClick={(e) => {
+            e.preventDefault();
             Router.push('/omnie');
             window.scroll({
               top: 700,
@@ -29,11 +33,13 @@ const Tab = (props) => {
           }}
         >
           {props.name}
-        </div>
+        </a>
       ) : (
-        <div
+        <a
           className={classes.join(' ')}
-          onClick={() => {
+          href={props.path}
+          onClick={(e) => {
+            e.preventDefault();
             Router.push(props.path);
             window.scroll({
               top: 0,
@@ -42,7 +48,7 @@ const Tab = (props) => {
           }}
         >
           {props.name}
-        </div>
+        </a>
       )}
     </StyledContainer>
   );

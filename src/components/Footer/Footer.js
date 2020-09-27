@@ -3,12 +3,13 @@ import React from 'react';
 import Link from 'next/link';
 
 import { StyledContainer } from './FooterStyles';
+import { useRouter } from 'next/router';
 
 const Footer = () => {
+  const Router = useRouter();
   return (
     <StyledContainer>
       <div className='container'>
-
         <div className='box-container'>
           <div className='logo-box box'>
             <img src='/images/other/logo.png' alt='logo' className='logo' />
@@ -16,34 +17,45 @@ const Footer = () => {
         </div>
         <div className='box-container'>
           <div className='menu-box box'>
-            <Link href='/home'>
+            <a href='/'>
               <div className='link'>HOME</div>
-            </Link>
-            <Link href='/oferta'>
+            </a>
+            <a href='/oferta'>
               <div className='link'>OFERTA</div>
-            </Link>
-            <Link href='/portfolio'>
+            </a>
+            <a href='/portfolio'>
               <div className='link'>PORTFOLIO</div>
-            </Link>
-            <Link href='/pytania'>
+            </a>
+            <a href='/pytania'>
               <div className='link'>PYTANIA</div>
-            </Link>
-            <Link href='/blog'>
+            </a>
+            <a href='/blog'>
               <div className='link'>BLOG</div>
-            </Link>
-            <Link href='/omnie'>
-              <div className='link'>O MNIE</div>
-            </Link>
-            <Link href='/kontakt'>
+            </a>
+            <a
+              className='link'
+              href={'/omnie'}
+              onClick={(e) => {
+                e.preventDefault();
+                Router.push('/omnie');
+                window.scroll({
+                  top: 700,
+                  behavior: 'smooth',
+                });
+              }}
+            >
+              O MNIE
+            </a>
+            <a href='/kontakt'>
               <div className='link'>KONTAKT</div>
-            </Link>
+            </a>
           </div>
         </div>
         <div className='box-container'>
           <div className='contact-box box'>
             <p className='text'>
-              Skontaktuj się ze mną używając poniższych danych lub wypełnij
-              formularz w zakładce KONTAKT, a ja odezwę się do Ciebie.
+              Skontaktuj się ze mną używając poniższych danych lub wypełnij formularz w
+              zakładce KONTAKT, a ja odezwę się do Ciebie.
             </p>
             <div className='contact-data'>
               <p className='phone-number'>

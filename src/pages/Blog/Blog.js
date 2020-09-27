@@ -23,21 +23,23 @@ const Blog = () => {
     <>
       <StyledContainer>
         <div className='posts-container'>
-          {articles.reverse().map((article) => {
-            const image = article.image.url;
-            const title = article.title;
-            const content = article.content;
+          {articles.length
+            ? articles.reverse().map((article) => {
+                const image = article.image.url;
+                const title = article.title;
+                const content = article.content;
 
-            return (
-              <Post
-                image={image}
-                title={title}
-                content={content}
-                id={article.id}
-                key={article.id}
-              />
-            );
-          })}
+                return (
+                  <Post
+                    image={image}
+                    title={title}
+                    content={content}
+                    id={article.id}
+                    key={article.id}
+                  />
+                );
+              })
+            : 'Ładowanie...'}
         </div>
       </StyledContainer>
 

@@ -10,7 +10,6 @@ const Questions = () => {
   const data = useContext(dataContext);
   useEffect(() => {
     if (data.questions) setQuestions(data.questions);
-    console.log(data.questions);
   });
 
   return (

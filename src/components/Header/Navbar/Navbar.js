@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import useForceUpdate from 'use-force-update';
+import { useWindowWidth } from '@react-hook/window-size';
 
 import { MobileNavigation, DesktopNavigation } from './NavbarStyles';
 
@@ -13,21 +14,16 @@ import logo from '../../../../public/images/other/logo.png';
 import subtitle from '../../../../public/images/other/subtitle.png';
 
 const Navbar = () => {
-  const [width, setWidth] = useState(null);
   const [hamburgerActive, setHamburgerActive] = useState(false);
   const [minimalize, setMinimalize] = useState(false);
+  const width = useWindowWidth();
 
   const forceUpdate = useForceUpdate();
 
   const router = useRouter();
 
   useEffect(() => {
-    setWidth(window.innerWidth);
-
-    window.addEventListener('resize', () => setWidth(window.innerWidth));
-
     if (width > 1024) window.addEventListener('scroll', checkPosition);
-
     return () => window.removeEventListener('scroll', checkPosition);
   });
 

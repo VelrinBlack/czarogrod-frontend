@@ -89,7 +89,7 @@ export const StyledContainer = styled.div`
 
             color: #000;
             font-size: 18px;
-            text-decoration: none;
+            text-decoration: underline;
           }
         }
 
