@@ -33,9 +33,20 @@ const News = () => {
               })}
         </div>
 
-        <Link href='/blog'>
-          <div className='see-more'>Zobacz więcej</div>
-        </Link>
+        <a
+          className='see-more'
+          href={`/blog`}
+          onClick={(e) => {
+            e.preventDefault();
+            router.push(`/blog`);
+            window.scroll({
+              top: 0,
+              behavior: 'smooth',
+            });
+          }}
+        >
+          Zobacz więcej
+        </a>
       </>
     </StyledContainer>
   );
