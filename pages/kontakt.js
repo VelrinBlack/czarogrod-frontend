@@ -13,20 +13,22 @@ const Header = dynamic(
   { ssr: false },
 );
 
-const Kontakt = () => (
-  <>
-    <Head>
-      <meta property='og:image' content='https://czarogrod.pl/images/other/logo.png' />
-      <meta
-        property='og:image:secure_url'
-        content='https://czarogrod.pl/images/other/logo.png'
-      />
-      <title>Czarogród | Kontakt</title>
-    </Head>
-    <Header />
-    <Contact />
-    <Footer />
-  </>
-);
+const Kontakt = () => {
+  return (
+    <>
+      <Head>
+        <meta property='og:image' content='https://czarogrod.pl/images/other/logo.png' />
+        <meta
+          property='og:image:secure_url'
+          content='https://czarogrod.pl/images/other/logo.png'
+        />
+        <title>Czarogród | Kontakt</title>
+      </Head>
+      <Header />
+      <Contact />
+      <Footer />
+    </>
+  );
+};
 
 export default Kontakt;

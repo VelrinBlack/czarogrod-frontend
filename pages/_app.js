@@ -18,6 +18,11 @@ const App = ({ Component, pageProps }) => {
   const [contextValue, setContextValue] = useState({});
 
   useEffect(() => {
+    window.onpopstate = function (e) {
+      if (e.state === 'Home') window.location.reload();
+      window.scroll({ top: 0, behavior: 'smooth' });
+    };
+
     const wrapper = async () => {
       let data = {};
 
@@ -40,6 +45,7 @@ const App = ({ Component, pageProps }) => {
     ReactGA.initialize('UA-172534345-1');
     ReactGA.pageview(window.location.pathname + window.location.search);
   });
+
   return (
     <>
       <Head>
