@@ -1,12 +1,10 @@
 import React from 'react';
 import Router from 'next/router';
 import PropTypes from 'prop-types';
-import useForceUpdate from 'use-force-update';
 
 import { StyledContainer } from './TabStyles';
 
 const Tab = (props) => {
-  const forceUpdate = useForceUpdate();
   let classes = ['link'];
 
   try {

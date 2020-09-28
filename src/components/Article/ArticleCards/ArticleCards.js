@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Link from 'next/link';
+import router from 'next/router';
 
 import { StyledContainer } from './ArticleCardsStyles';
 
@@ -29,12 +29,21 @@ const Article = ({ current_id }) => {
       <StyledContainer>
         <div className='cards-wrapper'>
           {articles.map((article) => (
-            <Link href={`https://czarogrod.pl/blog/${article.id}`}>
-              <div className='card'>
-                <h2>{article.title}</h2>
-                <img src={article.image.url} alt='zdjęcie główne' />
-              </div>
-            </Link>
+            <a
+              className='card'
+              href={`/blog/${article.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                router.push(`/blog/${article.id}`);
+                window.scroll({
+                  top: 0,
+                  behavior: 'smooth',
+                });
+              }}
+            >
+              <h2>{article.title}</h2>
+              <img src={article.image.url} alt='zdjęcie główne' />
+            </a>
           ))}
         </div>
       </StyledContainer>

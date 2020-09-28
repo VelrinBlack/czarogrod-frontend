@@ -40,12 +40,21 @@ const Navbar = () => {
   if (width <= 1024) {
     return (
       <MobileNavigation>
-        <Link href='/'>
-          <div className='logo-link'>
-            <img src={logo} alt='logo' className='logo-img' />
-            <img src={subtitle} alt='subtitle' className='subtitle-img' />
-          </div>
-        </Link>
+        <a
+          className='logo-link'
+          href={'/'}
+          onClick={(e) => {
+            e.preventDefault();
+            router.push('/');
+            window.scroll({
+              top: 0,
+              behavior: 'smooth',
+            });
+          }}
+        >
+          <img src={logo} alt='logo' className='logo-img' />
+          <img src={subtitle} alt='subtitle' className='subtitle-img' />
+        </a>
 
         <button
           onClick={
@@ -80,12 +89,21 @@ const Navbar = () => {
   return (
     <DesktopNavigation className={minimalize ? 'minimalized' : ''}>
       <div className='container'>
-        <Link href='/'>
-          <div className='logo-link'>
-            <img src={logo} alt='logo' className='logo-img' />
-            <img src={subtitle} alt='subtitle' className='subtitle-img' />
-          </div>
-        </Link>
+        <a
+          className='logo-link'
+          href={'/'}
+          onClick={(e) => {
+            e.preventDefault();
+            router.push('/');
+            window.scroll({
+              top: 0,
+              behavior: 'smooth',
+            });
+          }}
+        >
+          <img src={logo} alt='logo' className='logo-img' />
+          <img src={subtitle} alt='subtitle' className='subtitle-img' />
+        </a>
         <ul className='navigation' onClick={() => forceUpdate()}>
           <Tab path='/' name='HOME' exact location={window.location.href} />
           <Tab path='/oferta' name='OFERTA' location={window.location.href} />
