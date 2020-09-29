@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-
-import { useRouter } from 'next/router';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Slider from '../../components/Home/Slider/Slider';
@@ -9,31 +7,6 @@ import News from '../../components/Home/News/News';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
 
 const Home = () => {
-  const router = useRouter();
-
-  if (process.browser) {
-    useEffect(() => {
-      if (router.pathname === '/omnie') {
-        window.scroll({
-          top: 701,
-          behavior: 'smooth',
-        });
-      }
-
-      document.addEventListener('scroll', setURL);
-
-      return () => document.removeEventListener('scroll', setURL);
-    });
-
-    const setURL = () => {
-      if (window.pageYOffset >= 650 && window.pageYOffset < 1800) {
-        window.history.pushState('O mnie', 'O mnie', '/omnie');
-      } else {
-        window.history.pushState('Home', 'Home', '/');
-      }
-    };
-  }
-
   return (
     <>
       <Slider />

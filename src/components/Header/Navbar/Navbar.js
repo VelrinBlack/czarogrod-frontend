@@ -13,6 +13,8 @@ import logo from '../../../../public/images/other/logo.png';
 import subtitle from '../../../../public/images/other/subtitle.png';
 
 const Navbar = () => {
+  const [aboutActive, setAboutActive] = useState(false);
+  const [homeActive, setHomeActive] = useState(false);
   const [hamburgerActive, setHamburgerActive] = useState(false);
   const [minimalize, setMinimalize] = useState(false);
   const width = useWindowWidth();
@@ -22,7 +24,7 @@ const Navbar = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (width > 1024) window.addEventListener('scroll', checkPosition);
+    window.addEventListener('scroll', checkPosition);
     return () => window.removeEventListener('scroll', checkPosition);
   });
 
@@ -33,6 +35,18 @@ const Navbar = () => {
     } else {
       setMinimalize(false);
       forceUpdate();
+    }
+
+    if (
+      window.pageYOffset >= 650 &&
+      window.pageYOffset < 1600 &&
+      router.pathname === '/'
+    ) {
+      setAboutActive(true);
+      setHomeActive(false);
+    } else {
+      setAboutActive(false);
+      if (router.pathname === '/') setHomeActive(true);
     }
   };
 
@@ -72,12 +86,17 @@ const Navbar = () => {
 
         <nav onClick={() => setHamburgerActive(false)}>
           <ul className={hamburgerActive ? 'navigation active' : 'navigation'}>
-            <Tab path='/' name='HOME' location={router.pathname} />
+            <Tab path='/' name='HOME' location={router.pathname} home={homeActive} />
             <Tab path='/oferta' name='OFERTA' location={router.pathname} />
             <Tab path='/portfolio' name='PORTFOLIO' location={router.pathname} />
             <Tab path='/pytania' name='PYTANIA' location={router.pathname} />
             <Tab path='/blog' name='BLOG' location={router.pathname} />
-            <Tab path='/omnie' name='O MNIE' location={router.pathname} />
+            <Tab
+              path='/omnie'
+              name='O MNIE'
+              location={router.pathname}
+              about={aboutActive}
+            />
             <Tab path='/kontakt' name='KONTAKT' location={router.pathname} />
           </ul>
         </nav>
@@ -104,12 +123,23 @@ const Navbar = () => {
           <img src={subtitle} alt='subtitle' className='subtitle-img' />
         </a>
         <ul className='navigation' onClick={() => forceUpdate()}>
-          <Tab path='/' name='HOME' exact location={window.location.href} />
+          <Tab
+            path='/'
+            name='HOME'
+            exact
+            location={window.location.href}
+            home={homeActive}
+          />
           <Tab path='/oferta' name='OFERTA' location={window.location.href} />
           <Tab path='/portfolio' name='PORTFOLIO' location={window.location.href} />
           <Tab path='/pytania' name='PYTANIA' location={window.location.href} />
           <Tab path='/blog' name='BLOG' location={window.location.href} />
-          <Tab path='/omnie' name='O MNIE' location={window.location.href} />
+          <Tab
+            path='/omnie'
+            name='O MNIE'
+            location={window.location.href}
+            about={aboutActive}
+          />
           <Tab path='/kontakt' name='KONTAKT' location={window.location.href} />
         </ul>
       </div>

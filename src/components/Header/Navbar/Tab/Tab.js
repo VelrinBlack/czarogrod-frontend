@@ -8,7 +8,18 @@ const Tab = (props) => {
   let classes = ['link'];
 
   try {
-    if (props.location.replace('https://czarogrod.pl', '') === props.path) {
+    if (
+      props.location.replace('http://localhost:3000', '') === props.path &&
+      props.path !== '/'
+    ) {
+      classes.push('active');
+    }
+
+    if (props.path === '/omnie' && props.about) {
+      classes.push('active');
+    }
+
+    if (props.path === '/' && props.home) {
       classes.push('active');
     }
   } catch (error) {
@@ -20,10 +31,10 @@ const Tab = (props) => {
       {props.path === '/omnie' ? (
         <a
           className={classes.join(' ')}
-          href={'/omnie'}
+          href={'/#omnie'}
           onClick={(e) => {
             e.preventDefault();
-            Router.push('/omnie');
+            Router.push('/');
             window.scroll({
               top: 700,
               behavior: 'smooth',

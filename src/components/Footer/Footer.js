@@ -34,10 +34,10 @@ const Footer = () => {
             </a>
             <a
               className='link'
-              href={'/omnie'}
+              href={'/#omnie'}
               onClick={(e) => {
                 e.preventDefault();
-                Router.push('/omnie');
+                Router.push('/');
                 window.scroll({
                   top: 700,
                   behavior: 'smooth',
