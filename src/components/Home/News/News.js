@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { StyledContainer } from './NewsStyles';
 import Post from '../../Blog/Article/Article';
 import dataContext from '../../../Context';
 
 const News = () => {
+  const router = useRouter();
   let articles = useContext(dataContext).articles;
 
   if (articles) {
