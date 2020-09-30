@@ -6,7 +6,7 @@ export const StyledContainer = styled.div`
   .carousel {
     .slide {
       position: relative;
-      
+
       width: 100%;
       height: 500px;
 
@@ -37,6 +37,7 @@ export const StyledContainer = styled.div`
 
         padding: 20px;
         background: rgba(0, 0, 0, 0.2);
+        color: #fff;
 
         text-align: center;
         font-size: 50px;
