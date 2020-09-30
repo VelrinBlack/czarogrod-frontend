@@ -18,11 +18,6 @@ const App = ({ Component, pageProps }) => {
   const [contextValue, setContextValue] = useState({});
 
   useEffect(() => {
-    window.onpopstate = function (e) {
-      if (e.state === 'Home') window.location.reload();
-      window.scroll({ top: 0, behavior: 'smooth' });
-    };
-
     const wrapper = async () => {
       let data = {};
 
