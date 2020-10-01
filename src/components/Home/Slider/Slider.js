@@ -48,20 +48,7 @@ const Slider = () => {
 
       <StyledContainer>
         <Carousel {...settings}>
-          <div
-            className='slide slide1'
-            onClick={
-              isMobile
-                ? () => {
-                    Router.push('/oferta');
-                    window.scroll({
-                      top: 0,
-                      behavior: 'smooth',
-                    });
-                  }
-                : null
-            }
-          >
+          <a href={'/oferta'} className='slide slide1'>
             <h1 className='title'>Zobacz jak projektujemy</h1>
 
             <a
@@ -78,22 +65,9 @@ const Slider = () => {
             >
               OFERTA
             </a>
-          </div>
+          </a>
 
-          <div
-            className='slide slide2'
-            onClick={
-              isMobile
-                ? () => {
-                    Router.push('/portfolio');
-                    window.scroll({
-                      top: 0,
-                      behavior: 'smooth',
-                    });
-                  }
-                : null
-            }
-          >
+          <a className='slide slide2' href={'/portfolio'}>
             <h1 className='title'>Każde miejsce można zaczarować</h1>
 
             <a
@@ -110,22 +84,9 @@ const Slider = () => {
             >
               PORTFOLIO
             </a>
-          </div>
+          </a>
 
-          <div
-            className='slide slide3'
-            onClick={
-              isMobile
-                ? () => {
-                    Router.push('/pytania');
-                    window.scroll({
-                      top: 0,
-                      behavior: 'smooth',
-                    });
-                  }
-                : null
-            }
-          >
+          <a className='slide slide3' href={'/pytania'}>
             <h1 className='title'>
               Masz wątpliwości? <br /> Zobacz o co pytają klienci
             </h1>
@@ -143,22 +104,9 @@ const Slider = () => {
             >
               PYTANIA
             </a>
-          </div>
+          </a>
 
-          <div
-            className='slide slide4'
-            onClick={
-              isMobile
-                ? () => {
-                    Router.push('/kontakt');
-                    window.scroll({
-                      top: 0,
-                      behavior: 'smooth',
-                    });
-                  }
-                : null
-            }
-          >
+          <a className='slide slide4' href={'/kontakt'}>
             <h1 className='title'>Zadzwoń lub napisz – służę pomocą</h1>
             <a
               className={'btn btn4'}
@@ -174,7 +122,7 @@ const Slider = () => {
             >
               KONTAKT
             </a>
-          </div>
+          </a>
         </Carousel>
       </StyledContainer>
     </>

@@ -6,6 +6,8 @@ export const MobileNavigation = styled.nav`
 
   width: 100%;
 
+  background-color: #fff;
+
   .logo-link {
     display: flex;
     flex-direction: column;
