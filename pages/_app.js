@@ -21,16 +21,19 @@ const App = ({ Component, pageProps }) => {
     const wrapper = async () => {
       let data = {};
 
-      const fetchData = () => {
-        return Promise.all([
-          fetchArticles().then((res) => (data.articles = res.data)),
-          fetchOffer().then((res) => (data.offer = res.data)),
-          fetchPortfolio().then((res) => (data.portfolio = res.data)),
-          fetchQuestions().then((res) => (data.questions = res.data)),
-        ]);
-      };
-      await fetchData();
-      setContextValue(data);
+      Promise.all([
+        fetchArticles(),
+        fetchOffer(),
+        fetchPortfolio(),
+        fetchQuestions(),
+      ]).then(([articles, offer, portfolio, questions]) => {
+        setContextValue({
+          articles: articles.data,
+          offer: offer.data,
+          portfolio: portfolio.data,
+          questions: questions.data,
+        });
+      });
     };
 
     wrapper();
