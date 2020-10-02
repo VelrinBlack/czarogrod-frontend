@@ -10,8 +10,7 @@ const News = () => {
   let articles = useContext(dataContext).articles;
 
   if (articles) {
-    articles = articles.reverse();
-    articles = [articles[0], articles[1]];
+    articles = [articles.reverse()[0], articles.reverse()[1]];
   }
 
   return (
