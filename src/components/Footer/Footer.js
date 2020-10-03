@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Link from 'next/link';
-
 import { StyledContainer } from './FooterStyles';
 import { useRouter } from 'next/router';
 
@@ -12,7 +10,12 @@ const Footer = () => {
       <div className='container'>
         <div className='box-container'>
           <div className='logo-box box'>
-            <img src='/images/other/logo.png' alt='logo' className='logo' />
+            <img
+              src='/images/other/logo.png'
+              alt='logo'
+              className='logo'
+              loading='lazy'
+            />
           </div>
         </div>
         <div className='box-container'>

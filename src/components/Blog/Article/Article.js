@@ -22,7 +22,7 @@ const Article = (props) => {
           setClicked(true);
         }}
       >
-        <img src={props.image} alt='Zdjęcie artykułu' className='image' />
+        <img src={props.image} alt='Zdjęcie artykułu' className='image' loading='lazy' />
         <div className='text-content-wrapper'>
           <h3 className='title'>{props.title}</h3>
           <p className='text'>{loadArticlePreviewText(props.content)}</p>
