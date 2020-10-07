@@ -9,7 +9,9 @@ import { StyledContainer } from './ArticleStyles';
 const Article = ({ article }) => {
   const loadImage = () => {
     try {
-      return <img className='main-image' src={article.image.url} alt='Article' />;
+      return (
+        <img className='main-image' src={article.image.url} alt='Article' />
+      );
     } catch (error) {
       return 'Ładowanie...';
     }

@@ -28,9 +28,9 @@ const Portfolio = () => {
 
                 return (
                   <Card
-                    src={card.Image.url}
-                    alt={card.Image.name}
-                    text={card.Description}
+                    src={card.image.url}
+                    alt={card.image.name}
+                    text={card.description}
                     key={card.id}
                   />
                 );
