@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node server.js",
+    "dev": "next",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "postbuild": "next-on-netlify"
   },
   "dependencies": {
     "@babel/core": "^7.11.6",
@@ -13,6 +13,7 @@
     "axios": "^0.19.2",
     "disqus-react": "^1.0.9",
     "next": "9.5.3",
+    "next-on-netlify": "^2.5.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-ga": "^3.1.2",
