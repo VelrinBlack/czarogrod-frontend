@@ -3,21 +3,13 @@ import ReactMarkdown from 'react-markdown';
 
 import { StyledContainer } from './OfferStyles';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
-import dataContext from '../../Context';
 
-const Offer = () => {
-  const [offer, setOffer] = useState(null);
-  const data = useContext(dataContext);
-
-  useEffect(() => {
-    if (data.offer) setOffer(data.offer.content);
-  });
-
+const Offer = ({ data }) => {
   return (
     <>
       <StyledContainer>
         <h1>Oferta</h1>
-        {offer !== null ? <ReactMarkdown source={offer} /> : 'Ładowanie...'}
+        <ReactMarkdown source={data.content} />
       </StyledContainer>
 
       <SingleSlide

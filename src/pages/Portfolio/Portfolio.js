@@ -3,39 +3,29 @@ import React, { useEffect, useState, useContext } from 'react';
 import { StyledContainer } from './PortfolioStyles';
 import Card from '../../components/Portfolio/Card/Card';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
-import dataContext from '../../Context';
-
-const Portfolio = () => {
-  const [cards, setCards] = useState([]);
-  const data = useContext(dataContext);
-
-  useEffect(() => {
-    if (data.portfolio) setCards(data.portfolio);
-  });
+const Portfolio = ({ data }) => {
   return (
     <>
       <StyledContainer>
         <h1>Portfolio</h1>
         <div className='cardsContainer'>
-          {cards.length > 0
-            ? cards.map((card) => {
-                if (card === 'loading')
-                  return (
-                    <p className='loading' key='loading'>
-                      Ładowanie...
-                    </p>
-                  );
+          {data.map((card) => {
+            if (card === 'loading')
+              return (
+                <p className='loading' key='loading'>
+                  Ładowanie...
+                </p>
+              );
 
-                return (
-                  <Card
-                    src={card.image.url}
-                    alt={card.image.name}
-                    text={card.description}
-                    key={card.id}
-                  />
-                );
-              })
-            : 'Ładowanie...'}
+            return (
+              <Card
+                src={card.image.url}
+                alt={card.image.name}
+                text={card.description}
+                key={card.id}
+              />
+            );
+          })}
         </div>
       </StyledContainer>
 

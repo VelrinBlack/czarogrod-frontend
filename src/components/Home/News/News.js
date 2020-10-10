@@ -1,36 +1,27 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React from 'react';
 
 import { StyledContainer } from './NewsStyles';
 import Post from '../../Blog/Article/Article';
-import dataContext from '../../../Context';
 
-const News = () => {
-  const router = useRouter();
-  let articles = useContext(dataContext).articles;
-
-  if (articles) {
-    articles = [articles.reverse()[0], articles.reverse()[1]];
-  }
+const News = ({ data }) => {
+  data = [data[data.length - 1], data[data.length - 2]];
 
   return (
     <StyledContainer>
       <>
         <h1 className='heading'>Najnowsze wpisy</h1>
         <div className='posts'>
-          {!articles
-            ? 'Ładowanie...'
-            : articles.map((post) => {
-                return (
-                  <Post
-                    image={post.image.url}
-                    title={post.title}
-                    content={post.content}
-                    key={post.id}
-                    id={post.id}
-                  />
-                );
-              })}
+          {data.map((post) => {
+            return (
+              <Post
+                image={post.image.url}
+                title={post.title}
+                content={post.content}
+                key={post.id}
+                id={post.id}
+              />
+            );
+          })}
         </div>
 
         <a

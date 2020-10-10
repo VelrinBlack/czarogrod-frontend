@@ -6,12 +6,12 @@ import About from '../../components/Home/About/About';
 import News from '../../components/Home/News/News';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
 
-const Home = () => {
+const Home = ({ data }) => {
   return (
     <>
       <Slider />
       <About />
-      <News />
+      <News data={data} />
       <SingleSlide
         image='/images/slider/4.jpg'
         location='/oferta'

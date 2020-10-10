@@ -13,10 +13,13 @@ const Header = dynamic(
   { ssr: false },
 );
 
-const Index = () => (
+const Index = ({ data }) => (
   <>
     <Head>
-      <meta property='og:image' content='https://czarogrod.pl/images/other/logo.png' />
+      <meta
+        property='og:image'
+        content='https://czarogrod.pl/images/other/logo.png'
+      />
       <meta
         property='og:image:secure_url'
         content='https://czarogrod.pl/images/other/logo.png'
@@ -24,9 +27,17 @@ const Index = () => (
       <title>Czarogród | Blog</title>
     </Head>
     <Header />
-    <Blog />
+    <Blog data={data} />
     <Footer />
   </>
 );
+
+Index.getInitialProps = async () => {
+  const data = await fetch(
+    'https://czarogrod-backend-strapi.herokuapp.com/posts',
+  ).then((res) => res.json());
+
+  return { data };
+};
 
 export default Index;

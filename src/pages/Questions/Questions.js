@@ -3,43 +3,32 @@ import React, { useEffect, useState, useContext } from 'react';
 import { StyledContainer } from './QuestionsStyles';
 import Question from '../../components/Questions/Question/Question';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
-import dataContext from '../../Context';
 
-const Questions = () => {
-  const [questions, setQuestions] = useState([]);
-  const data = useContext(dataContext);
-  useEffect(() => {
-    if (data.questions) setQuestions(data.questions);
-  });
-
+const Questions = ({ data }) => {
   return (
     <>
       <StyledContainer>
         <h1>Pytania</h1>
-        {!questions.length ? (
-          <p className='loading'>Ładowanie...</p>
-        ) : (
-          questions.map((question) => {
-            if (questions[questions.length - 1] === question) {
-              return (
-                <Question
-                  question={question.question}
-                  anwser={question.anwser}
-                  key={question.id}
-                />
-              );
-            }
-
+        {data.map((question) => {
+          if (data[data.length - 1] === question) {
             return (
               <Question
                 question={question.question}
                 anwser={question.anwser}
-                leaf
                 key={question.id}
               />
             );
-          })
-        )}
+          }
+
+          return (
+            <Question
+              question={question.question}
+              anwser={question.anwser}
+              leaf
+              key={question.id}
+            />
+          );
+        })}
       </StyledContainer>
 
       <SingleSlide

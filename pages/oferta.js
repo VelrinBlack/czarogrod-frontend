@@ -13,10 +13,13 @@ const Header = dynamic(
   { ssr: false },
 );
 
-const Oferta = () => (
+const Oferta = ({ data }) => (
   <>
     <Head>
-      <meta property='og:image' content='https://czarogrod.pl/images/other/logo.png' />
+      <meta
+        property='og:image'
+        content='https://czarogrod.pl/images/other/logo.png'
+      />
       <meta
         property='og:image:secure_url'
         content='https://czarogrod.pl/images/other/logo.png'
@@ -24,9 +27,16 @@ const Oferta = () => (
       <title>Czarogród | Oferta</title>
     </Head>
     <Header />
-    <Offer />
+    <Offer data={data} />
     <Footer />
   </>
 );
+
+Oferta.getInitialProps = async (ctx) => {
+  const data = await fetch(
+    'https://czarogrod-backend-strapi.herokuapp.com/offer',
+  ).then((res) => res.json());
+  return { data };
+};
 
 export default Oferta;

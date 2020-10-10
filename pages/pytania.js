@@ -13,10 +13,13 @@ const Header = dynamic(
   { ssr: false },
 );
 
-const Pytania = () => (
+const Pytania = ({ data }) => (
   <>
     <Head>
-      <meta property='og:image' content='https://czarogrod.pl/images/other/logo.png' />
+      <meta
+        property='og:image'
+        content='https://czarogrod.pl/images/other/logo.png'
+      />
       <meta
         property='og:image:secure_url'
         content='https://czarogrod.pl/images/other/logo.png'
@@ -24,9 +27,17 @@ const Pytania = () => (
       <title>Czarogród | Pytania</title>
     </Head>
     <Header />
-    <Questions />
+    <Questions data={data} />
     <Footer />
   </>
 );
+
+Pytania.getInitialProps = async () => {
+  const data = await fetch(
+    'https://czarogrod-backend-strapi.herokuapp.com/questions',
+  ).then((res) => res.json());
+
+  return { data };
+};
 
 export default Pytania;

@@ -13,10 +13,13 @@ const Header = dynamic(
   { ssr: false },
 );
 
-const PortfolioPage = () => (
+const PortfolioPage = ({ data }) => (
   <>
     <Head>
-      <meta property='og:image' content='https://czarogrod.pl/images/other/logo.png' />
+      <meta
+        property='og:image'
+        content='https://czarogrod.pl/images/other/logo.png'
+      />
       <meta
         property='og:image:secure_url'
         content='https://czarogrod.pl/images/other/logo.png'
@@ -24,9 +27,17 @@ const PortfolioPage = () => (
       <title>Czarogród | Portfolio</title>
     </Head>
     <Header />
-    <Portfolio />
+    <Portfolio data={data} />
     <Footer />
   </>
 );
+
+PortfolioPage.getInitialProps = async () => {
+  const data = await fetch(
+    'https://czarogrod-backend-strapi.herokuapp.com/portfolio-cards',
+  ).then((res) => res.json());
+
+  return { data };
+};
 
 export default PortfolioPage;
