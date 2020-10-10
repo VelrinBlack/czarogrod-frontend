@@ -14,31 +14,7 @@ import {
 
 import dataContext from '../src/Context';
 
-const App = ({ Component, pageProps }) => {
-  const [contextValue, setContextValue] = useState({});
-
-  useEffect(() => {
-    const wrapper = async () => {
-      let data = {};
-
-      Promise.all([
-        fetchArticles(),
-        fetchOffer(),
-        fetchPortfolio(),
-        fetchQuestions(),
-      ]).then(([articles, offer, portfolio, questions]) => {
-        setContextValue({
-          articles: articles.data,
-          offer: offer.data,
-          portfolio: portfolio.data,
-          questions: questions.data,
-        });
-      });
-    };
-
-    wrapper();
-  }, []);
-
+const App = (props) => {
   useEffect(() => {
     ReactGA.initialize('UA-172534345-1');
     ReactGA.pageview(window.location.pathname + window.location.search);
@@ -49,11 +25,42 @@ const App = ({ Component, pageProps }) => {
       <Head>
         <link rel='icon' href='https://czarogrod.pl/images/other/logo.png' />
       </Head>
-      <dataContext.Provider value={contextValue}>
-        <Component {...pageProps} />
+      <dataContext.Provider
+        value={{
+          articles: props.posts,
+          offer: props.offer,
+          portfolio: props.portfolio_cards,
+          questions: props.questions,
+        }}
+      >
+        <props.Component {...props.pageProps} />
       </dataContext.Provider>
     </>
   );
+};
+
+App.getInitialProps = async (ctx) => {
+  const data = await Promise.all([
+    fetch('https://czarogrod-backend-strapi.herokuapp.com/posts').then((res) =>
+      res.json(),
+    ),
+    fetch('https://czarogrod-backend-strapi.herokuapp.com/offer').then((res) =>
+      res.json(),
+    ),
+    fetch(
+      'https://czarogrod-backend-strapi.herokuapp.com/portfolio-cards',
+    ).then((res) => res.json()),
+    fetch(
+      'https://czarogrod-backend-strapi.herokuapp.com/questions',
+    ).then((res) => res.json()),
+  ]);
+
+  return {
+    posts: data[0],
+    offer: data[1],
+    portfolio_cards: data[2],
+    questions: data[3],
+  };
 };
 
 export default App;
