@@ -17,6 +17,7 @@ const App = ({ Component, pageProps }) => {
         <link rel='icon' href='https://czarogrod.pl/images/other/logo.png' />
       </Head>
       <Component {...pageProps} />
+      <script src='https://skrypt-cookies.pl/id/315514c2a9f58a07.js'></script>
     </>
   );
 };
