@@ -13,15 +13,17 @@ const News = ({ data }) => {
         <div className='posts'>
           {data.length
             ? data.map((post) => {
-                return (
-                  <Post
-                    image={post.image.url}
-                    title={post.title}
-                    content={post.content}
-                    key={post.id}
-                    id={post.id}
-                  />
-                );
+                if (post) {
+                  return (
+                    <Post
+                      image={post.image.url}
+                      title={post.title}
+                      content={post.content}
+                      key={post.id}
+                      id={post.id}
+                    />
+                  );
+                }
               })
             : null}
         </div>
