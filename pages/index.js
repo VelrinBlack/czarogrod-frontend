@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 
 import Home from '../src/pages/Home/Home';
@@ -13,30 +13,33 @@ const Header = dynamic(
   { ssr: false },
 );
 
-const Index = ({ data }) => (
-  <>
-    <Head>
-      <meta
-        property='og:image'
-        content='https://czarogrod.pl/images/other/logo.png'
-      />
-      <meta
-        property='og:image:secure_url'
-        content='https://czarogrod.pl/images/other/logo.png'
-      />
-      <title>Czarogród</title>
-    </Head>
-    <Header />
-    <Home data={data} />
-    <Footer />
-  </>
-);
+const Index = () => {
+  const [data, setData] = useState([]);
 
-export async function getServerSideProps() {
-  const data = await fetch(
-    'https://czarogrod-backend-strapi.herokuapp.com/posts',
-  ).then((res) => res.json());
-  return { props: { data } };
-}
+  useEffect(() => {
+    fetch('https://czarogrod-backend-strapi.herokuapp.com/posts').then((res) =>
+      res.json().then((data) => setData(data)),
+    );
+  }, []);
+
+  return (
+    <>
+      <Head>
+        <meta
+          property='og:image'
+          content='https://czarogrod.pl/images/other/logo.png'
+        />
+        <meta
+          property='og:image:secure_url'
+          content='https://czarogrod.pl/images/other/logo.png'
+        />
+        <title>Czarogród</title>
+      </Head>
+      <Header />
+      <Home data={data} />
+      <Footer />
+    </>
+  );
+};
 
 export default Index;

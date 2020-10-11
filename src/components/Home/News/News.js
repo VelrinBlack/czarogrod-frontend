@@ -4,24 +4,26 @@ import { StyledContainer } from './NewsStyles';
 import Post from '../../Blog/Article/Article';
 
 const News = ({ data }) => {
-  data = [data[data.length - 1], data[data.length - 2]];
+  if (data) data = [data[data.length - 1], data[data.length - 2]];
 
   return (
     <StyledContainer>
       <>
         <h1 className='heading'>Najnowsze wpisy</h1>
         <div className='posts'>
-          {data.map((post) => {
-            return (
-              <Post
-                image={post.image.url}
-                title={post.title}
-                content={post.content}
-                key={post.id}
-                id={post.id}
-              />
-            );
-          })}
+          {data.length
+            ? data.map((post) => {
+                return (
+                  <Post
+                    image={post.image.url}
+                    title={post.title}
+                    content={post.content}
+                    key={post.id}
+                    id={post.id}
+                  />
+                );
+              })
+            : null}
         </div>
 
         <a
