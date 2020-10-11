@@ -32,11 +32,11 @@ const Index = ({ data }) => (
   </>
 );
 
-Index.getInitialProps = async () => {
+export async function getServerSideProps() {
   const data = await fetch(
     'https://czarogrod-backend-strapi.herokuapp.com/posts',
   ).then((res) => res.json());
-  return { data };
-};
+  return { props: { data } };
+}
 
 export default Index;

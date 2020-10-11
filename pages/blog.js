@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 
 import Blog from '../src/pages/Blog/Blog';
@@ -13,7 +13,7 @@ const Header = dynamic(
   { ssr: false },
 );
 
-const Index = ({ data }) => (
+const BlogPage = ({ data }) => (
   <>
     <Head>
       <meta
@@ -32,12 +32,11 @@ const Index = ({ data }) => (
   </>
 );
 
-Index.getInitialProps = async () => {
+BlogPage.getInitialProps = async () => {
   const data = await fetch(
     'https://czarogrod-backend-strapi.herokuapp.com/posts',
   ).then((res) => res.json());
-
   return { data };
 };
 
-export default Index;
+export default BlogPage;
