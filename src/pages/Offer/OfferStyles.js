@@ -31,4 +31,9 @@ export const StyledContainer = styled.div`
       font-size: 20px;
     }
   }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
 `;
