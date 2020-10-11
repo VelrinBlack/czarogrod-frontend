@@ -2,6 +2,7 @@ import React from 'react';
 
 import { StyledContainer } from './NewsStyles';
 import Post from '../../Blog/Article/Article';
+import router from 'next/router';
 
 const News = ({ data }) => {
   if (data) data = [data[data.length - 1], data[data.length - 2]];
