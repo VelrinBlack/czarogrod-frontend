@@ -5,6 +5,14 @@ import Home from '../src/pages/Home/Home';
 import Footer from '../src/components/Footer/Footer';
 
 import dynamic from 'next/dynamic';
+import axios from 'axios';
+
+const isServer = () => typeof window === 'undefined';
+const getPosts = () => {
+  return axios
+    .get('http://czarogrod-backend-strapi.herokuapp.com/posts')
+    .then((response) => response.data);
+};
 
 const Header = dynamic(
   () => {
@@ -14,6 +22,13 @@ const Header = dynamic(
 );
 
 const Index = ({ data }) => {
+  const [posts, setPosts] = useState(data);
+
+  useEffect(() => {
+    if (data === null) {
+      getPosts().then(setPosts);
+    }
+  }, []);
   return (
     <>
       <Head>
@@ -28,22 +43,22 @@ const Index = ({ data }) => {
         <title>Czarogród</title>
       </Head>
       <Header />
-      <Home data={data} />
+      <Home data={posts} />
       <Footer />
     </>
   );
 };
 
-export async function getServerSideProps(context) {
-  const data = await fetch(
-    'http://czarogrod-backend-strapi.herokuapp.com/posts',
-  ).then((res) => res.json());
-
-  return {
-    props: {
-      data,
-    },
-  };
-}
+Index.getInitialProps = async () => {
+  if (isServer()) {
+    return {
+      data: await getPosts(),
+    };
+  } else {
+    return {
+      data: null,
+    };
+  }
+};
 
 export default Index;
