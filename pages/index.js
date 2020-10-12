@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
+import useSWR from 'swr';
 
 import Home from '../src/pages/Home/Home';
 import Footer from '../src/components/Footer/Footer';
 
-import dynamic from 'next/dynamic';
-import axios from 'axios';
-
-const isServer = () => typeof window === 'undefined';
-const getPosts = () => {
-  return axios
-    .get('http://czarogrod-backend-strapi.herokuapp.com/posts')
-    .then((response) => response.data);
+const fetcher = async (url) => {
+  const res = await fetch(url);
+  const json = await res.json();
+  return json;
 };
 
 const Header = dynamic(
@@ -21,14 +19,12 @@ const Header = dynamic(
   { ssr: false },
 );
 
-const Index = ({ data }) => {
-  const [posts, setPosts] = useState(data);
+const Index = () => {
+  const { data, error } = useSWR(
+    'https://czarogrod-backend-strapi.herokuapp.com/posts',
+    fetcher,
+  );
 
-  useEffect(() => {
-    if (data === null) {
-      getPosts().then(setPosts);
-    }
-  }, []);
   return (
     <>
       <Head>
@@ -43,22 +39,10 @@ const Index = ({ data }) => {
         <title>Czarogród</title>
       </Head>
       <Header />
-      <Home data={posts} />
+      <Home data={data} />
       <Footer />
     </>
   );
-};
-
-Index.getInitialProps = async () => {
-  if (isServer()) {
-    return {
-      data: await getPosts(),
-    };
-  } else {
-    return {
-      data: null,
-    };
-  }
 };
 
 export default Index;

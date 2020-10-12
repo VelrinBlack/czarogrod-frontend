@@ -12,8 +12,9 @@ const News = ({ data }) => {
       <>
         <h1 className='heading'>Najnowsze wpisy</h1>
         <div className='posts'>
-          {data.length
-            ? data.map((post) => {
+          {!data
+            ? 'Ładowanie...'
+            : data.map((post) => {
                 if (post) {
                   return (
                     <Post
@@ -25,8 +26,7 @@ const News = ({ data }) => {
                     />
                   );
                 }
-              })
-            : null}
+              })}
         </div>
 
         <a
