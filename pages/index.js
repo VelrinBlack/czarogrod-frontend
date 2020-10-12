@@ -13,15 +13,7 @@ const Header = dynamic(
   { ssr: false },
 );
 
-const Index = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch('https://czarogrod-backend-strapi.herokuapp.com/posts').then((res) =>
-      res.json().then((data) => setData(data)),
-    );
-  }, []);
-
+const Index = ({ data }) => {
   return (
     <>
       <Head>
@@ -41,5 +33,17 @@ const Index = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context) {
+  const data = await fetch(
+    'http://czarogrod-backend-strapi.herokuapp.com/posts',
+  ).then((res) => res.json());
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
 
 export default Index;
