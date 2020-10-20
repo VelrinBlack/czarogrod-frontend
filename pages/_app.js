@@ -8,7 +8,6 @@ import './styles.css';
 const App = ({ Component, pageProps }) => {
   useEffect(() => {
     ReactGA.initialize('UA-172534345-1');
-    #gitignore;
     ReactGA.pageview(window.location.pathname + window.location.search);
   });
 
