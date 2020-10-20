@@ -9,7 +9,7 @@ const Tab = (props) => {
 
   try {
     if (
-      props.location.replace('http://localhost:3000', '') === props.path &&
+      props.location.replace('https://czarogrod.pl', '') === props.path &&
       props.path !== '/'
     ) {
       classes.push('active');
