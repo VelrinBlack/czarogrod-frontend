@@ -53,6 +53,9 @@ export const StyledContainer = styled.div`
       @media (max-width: 1920px) {
         font-size: 16px;
       }
+      @media (max-width: 1280px) {
+        font-size: 15px;
+      }
     }
 
     img {
