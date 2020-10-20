@@ -35,7 +35,7 @@ const Blog = ({ data }) => {
 
       <SingleSlide
         text='Potrzebujesz pomocy? Zadzwoń lub napisz'
-        location='/portfolio'
+        location='/kontakt'
         image='/images/slider/3.jpg'
       />
     </>
