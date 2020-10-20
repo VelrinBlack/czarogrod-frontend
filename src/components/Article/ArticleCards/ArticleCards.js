@@ -4,27 +4,21 @@ import router from 'next/router';
 
 import { StyledContainer } from './ArticleCardsStyles';
 
-const Article = ({ current_id }) => {
+const Article = ({ currentPost }) => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     axios
       .get('https://czarogrod-backend-strapi.herokuapp.com/posts')
-      .then((data) => {
-        data.data = data.data.reverse();
+      .then((res) => {
+        res.data = res.data.filter((article) => article.id !== currentPost.id);
+        res.data = res.data.reverse();
 
-        for (const article of data.data) {
-          if (article.id === current_id) {
-            const articleIndex = data.data.indexOf(article);
-            data.data.splice(articleIndex, 1);
-          }
-        }
+        if (res.data.length > 5) res.data.splice(0, 5);
 
-        if (data.data.length > 5) data.data.splice(0, 5);
-
-        setArticles(data.data);
+        setArticles(res.data);
       });
-  }, []);
+  }, [currentPost]);
 
   return (
     <>
