@@ -32,7 +32,7 @@ const Portfolio = ({ data }) => {
       <SingleSlide
         text='Masz pytania? Tutaj znajdziesz odpowiedź'
         location='/pytania'
-        image='/images/slider/1.jpg'
+        image='/images/slider/3.jpg'
       />
 
       <SingleSlide

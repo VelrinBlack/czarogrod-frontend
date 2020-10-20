@@ -34,13 +34,13 @@ const Questions = ({ data }) => {
       <SingleSlide
         text='Sprawdź przykładowe projekty'
         location='/portfolio'
-        image='/images/slider/3.jpg'
+        image='/images/slider/2.jpg'
       />
 
       <SingleSlide
         text='Masz więcej pytań? Zadzwoń lub napisz'
         location='/kontakt'
-        image='/images/slider/2.jpg'
+        image='/images/slider/4.jpg'
       />
     </>
   );

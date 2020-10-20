@@ -21,7 +21,7 @@ const Offer = ({ data }) => {
       <SingleSlide
         text='Sprawdź moje ostatnie projekty'
         location='/portfolio'
-        image={'/images/slider/4.jpg'}
+        image={'/images/slider/2.jpg'}
       />
     </>
   );
