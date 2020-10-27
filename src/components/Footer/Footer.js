@@ -57,8 +57,8 @@ const Footer = () => {
         <div className='box-container'>
           <div className='contact-box box'>
             <p className='text'>
-              Skontaktuj się ze mną używając poniższych danych lub wypełnij formularz w
-              zakładce KONTAKT, a ja odezwę się do Ciebie.
+              Skontaktuj się ze mną używając poniższych danych lub wypełnij
+              formularz w zakładce KONTAKT, a ja odezwę się do Ciebie.
             </p>
             <div className='contact-data'>
               <p className='phone-number'>
@@ -69,7 +69,7 @@ const Footer = () => {
               <p className='email-address'>
                 adres e-mail:
                 <br />
-                <a href='mailhref:kontakt@czarogród.pl'>kontakt@czarogród.pl</a>
+                <a href='mailto:kontakt@czarogród.pl'>kontakt@czarogród.pl</a>
               </p>
             </div>
             <div className='social-media'>
