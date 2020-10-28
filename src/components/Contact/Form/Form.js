@@ -88,7 +88,7 @@ const Form = () => {
       rodoError === ''
     ) {
       axios
-        .post('https://czarogrod-backend-mail.vercel.app/sendmail', {
+        .post('https://czarogrod-backend-mail.herokuapp.com/sendmail', {
           name,
           email,
           phoneNumber,
