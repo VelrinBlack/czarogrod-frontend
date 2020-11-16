@@ -9,21 +9,22 @@ const Blog = ({ data }) => {
     <>
       <StyledContainer>
         <div className='posts-container'>
-          {data.reverse().map((article) => {
-            const image = article.image.url;
-            const title = article.title;
-            const content = article.content;
+          {data &&
+            data.reverse().map((article) => {
+              const image = article.image.url;
+              const title = article.title;
+              const content = article.content;
 
-            return (
-              <Post
-                image={image}
-                title={title}
-                content={content}
-                id={article.id}
-                key={article.id}
-              />
-            );
-          })}
+              return (
+                <Post
+                  image={image}
+                  title={title}
+                  content={content}
+                  id={article.id}
+                  key={article.id}
+                />
+              );
+            })}
         </div>
       </StyledContainer>
 
