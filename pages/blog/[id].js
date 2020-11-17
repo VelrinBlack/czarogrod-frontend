@@ -27,17 +27,13 @@ const Post = ({ article }) => (
   </>
 );
 
-export async function getServerSideProps(context) {
-  const res = await fetch(
-    `https://czarogrod-backend-strapi.herokuapp.com/posts/${context.params.id}`,
-  );
+Post.getInitialProps = async function (ctx) {
+  const res = await fetch(`https://czarogrod-backend-strapi.herokuapp.com/posts/${ctx.query.id}`);
   const article = await res.json();
 
   return {
-    props: {
-      article,
-    },
+    article,
   };
-}
+};
 
 export default Post;
