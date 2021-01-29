@@ -12,32 +12,31 @@ const About = () => {
           <p> Dzień dobry. Witaj w Czarogrodzie. Razem odmienimy Twój ogród!</p>
 
           <p>
-            Nazywam się Agnieszka Lizończyk i z chęcią zaczaruję każdy zielony zakątek,
-            nawet ten najmniejszy.
+            Nazywam się Agnieszka Lizończyk i z chęcią zaczaruję każdy zielony zakątek, nawet ten
+            najmniejszy.
           </p>
 
           <p>
             {' '}
-            Ostatnie kilkanaście lat przepracowałam w korporacji, nieobce są mi pojęcia
-            analizy finansowej, czy przygotowywania budżetu. Excel i Power Point nie mają
-            przede mną żadnych tajemnic.
+            Ostatnie kilkanaście lat przepracowałam w korporacji, nieobce są mi pojęcia analizy
+            finansowej, czy przygotowywania budżetu. Excel i Power Point nie mają przede mną żadnych
+            tajemnic.
           </p>
 
           <p>
-            Jednak od lat moją największa pasją są ogrody i dziś mogę się szczycić tytułem
-            architekta krajobrazu. W każdy projekt wkładam swoje serce i zapał, zawsze
-            dbam o to, by koncepcja była indywidualnie dopasowana do potrzeb odbiorcy.
+            Jednak od lat moją największą pasją są ogrody i dziś mogę się szczycić tytułem
+            architekta krajobrazu. W każdy projekt wkładam swoje serce i zapał, zawsze dbam o to, by
+            koncepcja była indywidualnie dopasowana do potrzeb odbiorcy.
           </p>
 
           <p>
-            Zapraszam do współpracy, razem możemy wyczarować Twój idealny ogród, balkon
-            lub taras.
+            Zapraszam do współpracy, razem możemy wyczarować Twój idealny ogród, balkon lub taras.
           </p>
 
           <p>
-            Działam na terenie województwa małopolskiego i śląskiego, jednak w przypadku
-            mniejszych projektów z innych części Polski, z chęcią podejmę się współpracy z
-            Tobą w sposób zdalny.
+            Działam na terenie województwa małopolskiego i śląskiego, jednak w przypadku mniejszych
+            projektów z innych części Polski, z chęcią podejmę się współpracy z Tobą w sposób
+            zdalny.
           </p>
         </div>
         <div className='image-container'>
