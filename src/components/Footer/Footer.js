@@ -10,12 +10,7 @@ const Footer = () => {
       <div className='container'>
         <div className='box-container'>
           <div className='logo-box box'>
-            <img
-              src='/images/other/logo.png'
-              alt='logo'
-              className='logo'
-              loading='lazy'
-            />
+            <img src='/images/other/logo.png' alt='logo' className='logo' loading='lazy' />
           </div>
         </div>
         <div className='box-container'>
@@ -57,8 +52,8 @@ const Footer = () => {
         <div className='box-container'>
           <div className='contact-box box'>
             <p className='text'>
-              Skontaktuj się ze mną używając poniższych danych lub wypełnij
-              formularz w zakładce KONTAKT, a ja odezwę się do Ciebie.
+              Skontaktuj się ze mną używając poniższych danych lub wypełnij formularz w zakładce
+              KONTAKT, a ja odezwę się do Ciebie.
             </p>
             <div className='contact-data'>
               <p className='phone-number'>
@@ -79,11 +74,7 @@ const Footer = () => {
                 rel='noopener noreferrer'
                 className='link'
               >
-                <img
-                  src='/images/social_media/facebook.svg'
-                  alt='facebook logo'
-                  className='logo'
-                />
+                <img src='/images/social_media/facebook.svg' alt='facebook logo' className='logo' />
               </a>
               <a
                 href='https://www.instagram.com/czarogrod.pl/?hl=pl'
@@ -101,7 +92,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <p className='copyright'>© 2020 – Bartosz Wleciał</p>
+      <p className='copyright'>© 2020-2021 – Bartosz Wleciał</p>
     </StyledContainer>
   );
 };
