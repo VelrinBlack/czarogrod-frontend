@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledContainer = styled.div`
   width: 50%;
@@ -8,7 +8,7 @@ export const StyledContainer = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  margin: 0 auto;
+  margin: 0 auto 120px auto;
 
   h1 {
     margin-bottom: 100px;
@@ -23,6 +23,7 @@ export const StyledContainer = styled.div`
     width: 70%;
   }
   @media (max-width: 1024px) {
+    margin: 0 auto 80px auto;
     width: 80%;
   }
   @media (max-width: 768px) {
