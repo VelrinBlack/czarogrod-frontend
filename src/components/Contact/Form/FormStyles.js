@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledContainer = styled.div`
   width: 100%;
@@ -7,7 +7,11 @@ export const StyledContainer = styled.div`
   display: flex;
   justify-content: space-around;
 
-  padding-bottom: 1800px;
+  margin-bottom: 200px;
+
+  @media (max-width: 1024px) {
+    margin-bottom: 300px;
+  }
 
   img {
     width: 35%;
@@ -35,7 +39,7 @@ export const StyledContainer = styled.div`
       width: 80%;
     }
     @media (max-width: 1024px) {
-      margin-top: 100px;
+      margin-top: 60px;
     }
     @media (max-width: 500px) {
       height: 1000px;
