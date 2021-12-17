@@ -6,8 +6,11 @@ const Address = () => (
       <h2>CzarOgród.pl</h2>
       <p className="name">Agnieszka Lizończyk</p>
 
-      <p>Bolesława Prusa 25a</p>
+      <p>ul. Prusa 25a</p>
       <p>32-566 Alwernia</p>
+
+      <p className="phoneNumber">+48 784 880 484</p>
+      <p>kontakt@czarogród.pl</p>
     </section>
     <section className="map">
       <iframe

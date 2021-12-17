@@ -33,7 +33,11 @@ const StyledContainer = styled.div`
     }
 
     .name {
-      margin-bottom: 40px;
+      margin-top: 25px;
+    }
+
+    .phoneNumber {
+      margin-top: 25px;
     }
   }
 
