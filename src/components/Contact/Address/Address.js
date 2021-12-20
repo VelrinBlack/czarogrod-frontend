@@ -9,8 +9,10 @@ const Address = () => (
       <p>ul. Prusa 25a</p>
       <p>32-566 Alwernia</p>
 
-      <p className="phoneNumber">+48 784 880 484</p>
-      <p>kontakt@czarogrod.pl</p>
+      <a className="phoneNumber" href="tel:+48784880484">
+        +48 784 880 484
+      </a>
+      <a href="mailto:kontakt@czarogrod.pl">kontakt@czarogrod.pl</a>
     </section>
     <section className="map">
       <iframe

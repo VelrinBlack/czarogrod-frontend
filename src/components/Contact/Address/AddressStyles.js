@@ -24,12 +24,17 @@ const StyledContainer = styled.div`
     }
 
     h2,
-    p {
+    p,
+    a {
       margin: 0;
     }
 
     h2 {
       font-size: 35px;
+    }
+
+    a {
+      display: block;
     }
 
     .name {
