@@ -69,7 +69,7 @@ const Footer = () => {
               <p className="email-address">
                 adres e-mail:
                 <br />
-                <a href="mailto:kontakt@czarogród.pl">kontakt@czarogród.pl</a>
+                <a href="mailto:kontakt@czarogrod.pl">kontakt@czarogrod.pl</a>
               </p>
             </div>
             <div className="social-media">
