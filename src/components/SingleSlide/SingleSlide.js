@@ -1,23 +1,11 @@
-import React from 'react';
-import router from 'next/router';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import { StyledContainer } from './SingleSlideStyles';
+import { StyledContainer } from "./SingleSlideStyles";
 
 const SingleSlide = ({ text, location, image }) => (
   <StyledContainer image={image}>
-    <a
-      className='slide'
-      href={location}
-      onClick={(e) => {
-        e.preventDefault();
-        router.push(location);
-        window.scroll({
-          top: 0,
-          behavior: 'smooth',
-        });
-      }}
-    >
+    <a className="slide" href={location}>
       <h2>{text}</h2>
     </a>
   </StyledContainer>
