@@ -1,6 +1,20 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledContainer = styled.div`
+  position: relative;
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    z-index: -1;
+  }
+
   .slide {
     width: 100%;
 
@@ -9,10 +23,6 @@ export const StyledContainer = styled.div`
     justify-content: center;
 
     margin: 50px 0;
-
-    background-image: url(${(props) => props.image});
-    background-position: center;
-    background-size: cover;
 
     text-decoration: none;
     overflow: hidden;
