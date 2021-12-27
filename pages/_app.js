@@ -6,8 +6,13 @@ import './styles.css';
 const App = ({ Component, pageProps }) => (
   <>
     <Head>
+      {/* Website icon */}
       <link rel='icon' href='https://czarogrod.pl/images/other/logo.png' />
 
+      {/* Cookies popup */}
+      <script src='https://skrypt-cookies.pl/id/315514c2a9f58a07.js'></script>
+
+      {/* Slider styles */}
       <link
         rel='stylesheet'
         type='text/css'
@@ -20,7 +25,13 @@ const App = ({ Component, pageProps }) => (
         href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
       />
 
-      {/* Global site tag (gtag.js) - Google Analytics */}
+      {/* Website description */}
+      <meta
+        name='description'
+        content='Projektowanie ogrodów województwo małopolskie, śląskie. Architektura krajobrazu, projekt ogrodu, projekt tarasu. Nowoczesne ogrody Kraków, ogrody Katowice.'
+      ></meta>
+
+      {/* Google Analytics tag */}
       <script
         async
         src='https://www.googletagmanager.com/gtag/js?id=G-ZW0DS1LNZZ'
@@ -28,21 +39,17 @@ const App = ({ Component, pageProps }) => (
       <script
         dangerouslySetInnerHTML={{
           __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-ZW0DS1LNZZ');
-        `,
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'G-ZW0DS1LNZZ');
+          `,
         }}
       />
-      <meta
-        name='description'
-        content='Projektowanie ogrodów województwo małopolskie, śląskie. Architektura krajobrazu, projekt ogrodu, projekt tarasu. Nowoczesne ogrody Kraków, ogrody Katowice.'
-      ></meta>
     </Head>
+
     <Component {...pageProps} />
-    <script src='https://skrypt-cookies.pl/id/315514c2a9f58a07.js'></script>
   </>
 );
 
