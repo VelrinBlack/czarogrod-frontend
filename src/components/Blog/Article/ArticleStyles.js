@@ -15,13 +15,18 @@ export const StyledContainer = styled.div`
       flex-direction: column;
     }
 
-    .image {
-      width: 300px;
+    .image-wrapper {
+      position: relative;
+
+      min-width: 300px;
       height: 250px;
-      object-fit: cover;
+
+      img {
+        object-fit: cover;
+      }
 
       @media (max-width: 1024px) {
-        width: 100%;
+        min-width: 100%;
         height: 250px;
       }
     }
