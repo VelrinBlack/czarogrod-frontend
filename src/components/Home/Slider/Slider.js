@@ -31,101 +31,85 @@ const Slider = () => {
   };
 
   return (
-    <>
-      <Head>
-        <link
-          rel='stylesheet'
-          type='text/css'
-          charSet='UTF-8'
-          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css'
-        />
-        <link
-          rel='stylesheet'
-          type='text/css'
-          href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css'
-        />
-      </Head>
+    <StyledContainer>
+      <Carousel {...settings}>
+        <a href={'/oferta'} className='slide slide1'>
+          <h1 className='title'>Zobacz jak projektujemy</h1>
 
-      <StyledContainer>
-        <Carousel {...settings}>
-          <a href={'/oferta'} className='slide slide1'>
-            <h1 className='title'>Zobacz jak projektujemy</h1>
-
-            <a
-              className={'btn btn1'}
-              href={'/oferta'}
-              onClick={(e) => {
-                e.preventDefault();
-                Router.push('/oferta');
-                window.scroll({
-                  top: 0,
-                  behavior: 'smooth',
-                });
-              }}
-            >
-              OFERTA
-            </a>
+          <a
+            className={'btn btn1'}
+            href={'/oferta'}
+            onClick={(e) => {
+              e.preventDefault();
+              Router.push('/oferta');
+              window.scroll({
+                top: 0,
+                behavior: 'smooth',
+              });
+            }}
+          >
+            OFERTA
           </a>
+        </a>
 
-          <a className='slide slide2' href={'/portfolio'}>
-            <h1 className='title'>Każde miejsce można zaczarować</h1>
+        <a className='slide slide2' href={'/portfolio'}>
+          <h1 className='title'>Każde miejsce można zaczarować</h1>
 
-            <a
-              className={'btn btn2'}
-              href={'/portfolio'}
-              onClick={(e) => {
-                e.preventDefault();
-                Router.push('/portfolio');
-                window.scroll({
-                  top: 0,
-                  behavior: 'smooth',
-                });
-              }}
-            >
-              PORTFOLIO
-            </a>
+          <a
+            className={'btn btn2'}
+            href={'/portfolio'}
+            onClick={(e) => {
+              e.preventDefault();
+              Router.push('/portfolio');
+              window.scroll({
+                top: 0,
+                behavior: 'smooth',
+              });
+            }}
+          >
+            PORTFOLIO
           </a>
+        </a>
 
-          <a className='slide slide3' href={'/pytania'}>
-            <h1 className='title'>
-              Masz wątpliwości? <br /> Zobacz o co pytają klienci
-            </h1>
-            <a
-              className={'btn btn3'}
-              href={'/pytania'}
-              onClick={(e) => {
-                e.preventDefault();
-                Router.push('/pytania');
-                window.scroll({
-                  top: 0,
-                  behavior: 'smooth',
-                });
-              }}
-            >
-              PYTANIA
-            </a>
+        <a className='slide slide3' href={'/pytania'}>
+          <h1 className='title'>
+            Masz wątpliwości? <br /> Zobacz o co pytają klienci
+          </h1>
+          <a
+            className={'btn btn3'}
+            href={'/pytania'}
+            onClick={(e) => {
+              e.preventDefault();
+              Router.push('/pytania');
+              window.scroll({
+                top: 0,
+                behavior: 'smooth',
+              });
+            }}
+          >
+            PYTANIA
           </a>
+        </a>
 
-          <a className='slide slide4' href={'/kontakt'}>
-            <h1 className='title'>Zadzwoń lub napisz – służę pomocą</h1>
-            <a
-              className={'btn btn4'}
-              href={'/kontakt'}
-              onClick={(e) => {
-                e.preventDefault();
-                Router.push('/kontakt');
-                window.scroll({
-                  top: 0,
-                  behavior: 'smooth',
-                });
-              }}
-            >
-              KONTAKT
-            </a>
+        <a className='slide slide4' href={'/kontakt'}>
+          <h1 className='title'>Zadzwoń lub napisz – służę pomocą</h1>
+          <a
+            className={'btn btn4'}
+            href={'/kontakt'}
+            onClick={(e) => {
+              e.preventDefault();
+              Router.push('/kontakt');
+              window.scroll({
+                top: 0,
+                behavior: 'smooth',
+              });
+            }}
+          >
+            KONTAKT
           </a>
-        </Carousel>
-      </StyledContainer>
-    </>
+        </a>
+      </Carousel>
+    </StyledContainer>
   );
 };
 
