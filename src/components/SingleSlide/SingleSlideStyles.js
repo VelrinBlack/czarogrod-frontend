@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
   position: relative;
@@ -16,6 +16,8 @@ export const StyledContainer = styled.div`
   }
 
   .slide {
+    position: relative;
+
     width: 100%;
 
     display: flex;
