@@ -7,7 +7,7 @@ const App = ({ Component, pageProps }) => (
   <>
     <Head>
       {/* Website icon */}
-      <link rel='icon' href='https://czarogrod.pl/images/other/logo.png' />
+      <link rel='icon' href='https://czarogrod.pl/images/other/logo.webp' />
 
       {/* Cookies popup */}
       <script src='https://skrypt-cookies.pl/id/315514c2a9f58a07.js'></script>
