@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
   width: 100%;
-  height: 1400px;
+  height: 1300px;
 
   display: flex;
   justify-content: space-around;
@@ -62,7 +62,7 @@ export const StyledContainer = styled.div`
 
       label {
         display: block;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
 
         text-align: center;
       }
@@ -74,13 +74,13 @@ export const StyledContainer = styled.div`
         width: 100%;
 
         margin: 0;
-        padding: 0 20px;
+        padding: 0 15px;
 
         background-color: #fff;
         border-radius: 3px;
         border: 2px solid #f2f2f2;
 
-        font-size: 19px;
+        font-size: 16px;
 
         @media (max-width: 500px) {
           font-size: 13px;
@@ -93,7 +93,7 @@ export const StyledContainer = styled.div`
       }
 
       input {
-        height: 70px;
+        height: 60px;
 
         @media (max-width: 500px) {
           height: 60px;
@@ -112,12 +112,18 @@ export const StyledContainer = styled.div`
       }
 
       .rodo {
-        margin-top: 50px;
-        font-size: 14px;
+        line-height: 20px;
+
+        span,
+        a {
+          font-size: 14px;
+        }
 
         @media (max-width: 500px) {
-          height: 350px;
-          span {
+          line-height: 15px;
+
+          span,
+          a {
             font-size: 11px;
           }
         }
@@ -126,7 +132,7 @@ export const StyledContainer = styled.div`
           width: 14px;
           height: 14px;
 
-          margin-right: 20px;
+          margin-right: 10px;
         }
 
         &:hover {
@@ -151,7 +157,6 @@ export const StyledContainer = styled.div`
       width: 100%;
       height: 60px;
 
-      margin-top: 60px;
       padding: 0;
 
       background-color: #399ca1;
@@ -166,10 +171,6 @@ export const StyledContainer = styled.div`
 
       cursor: pointer;
       transition: all 0.2s;
-
-      @media (max-width: 500px) {
-        margin-top: 0;
-      }
 
       &:hover {
         transform: scale(0.97);
