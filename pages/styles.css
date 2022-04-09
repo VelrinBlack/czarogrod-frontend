@@ -17,3 +17,32 @@ a,
   cursor: pointer;
   color: #000;
 }
+
+#cookie #cinfo,
+#cookie a {
+  font-size: 15px;
+}
+
+@media (max-width: 1024px) {
+  #cookie #cinfo,
+  #cookie a {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 786px) {
+  #cookie {
+    padding: 15px !important;
+  }
+
+  #cookie #cinfo,
+  #cookie a {
+    font-size: 11px;
+  }
+
+  #cookie #hcks {
+    width: 100px !important;
+    padding: 15px !important;
+    font-size: 14px;
+  }
+}
