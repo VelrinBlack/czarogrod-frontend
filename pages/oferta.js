@@ -2,16 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 
 import Offer from '../src/pages/Offer/Offer';
+import Header from '../src/components/Header/Header';
 import Footer from '../src/components/Footer/Footer';
-
-import dynamic from 'next/dynamic';
-
-const Header = dynamic(
-  () => {
-    return import('../src/components/Header/Header');
-  },
-  { ssr: false },
-);
 
 const Oferta = ({ data }) => (
   <>
@@ -34,7 +26,7 @@ const Oferta = ({ data }) => (
 
 Oferta.getInitialProps = async (ctx) => {
   const data = await fetch(
-    'https://czarogrod-backend-strapi.herokuapp.com/offer',
+    'https://czarogrod-backend-strapi.herokuapp.com/offer'
   ).then((res) => res.json());
   return { data };
 };

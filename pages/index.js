@@ -1,9 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
 import useSWR from 'swr';
 
 import Home from '../src/pages/Home/Home';
+import Header from '../src/components/Header/Header';
 import Footer from '../src/components/Footer/Footer';
 
 const fetcher = async (url) => {
@@ -12,17 +12,10 @@ const fetcher = async (url) => {
   return json;
 };
 
-const Header = dynamic(
-  () => {
-    return import('../src/components/Header/Header');
-  },
-  { ssr: false },
-);
-
 const Index = () => {
   const { data, error } = useSWR(
     'https://czarogrod-backend-strapi.herokuapp.com/posts',
-    fetcher,
+    fetcher
   );
 
   return (

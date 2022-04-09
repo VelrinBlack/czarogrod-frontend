@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import useForceUpdate from 'use-force-update';
-import { useWindowWidth } from '@react-hook/window-size';
 
 import { MobileNavigation, DesktopNavigation } from './NavbarStyles';
 
@@ -14,16 +13,22 @@ const Navbar = () => {
   const [homeActive, setHomeActive] = useState(false);
   const [hamburgerActive, setHamburgerActive] = useState(false);
   const [minimalize, setMinimalize] = useState(false);
-  const width = useWindowWidth();
+  const [width, setWidth] = useState(0);
 
   const forceUpdate = useForceUpdate();
 
   const router = useRouter();
 
   useEffect(() => {
+    setWidth(window.innerWidth);
+    window.addEventListener('resize', () => setWidth(window.innerWidth));
     window.addEventListener('scroll', checkPosition);
-    return () => window.removeEventListener('scroll', checkPosition);
-  });
+
+    return () => {
+      window.removeEventListener('resize', () => setWidth(window.innerWidth));
+      window.removeEventListener('scroll', checkPosition);
+    };
+  }, []);
 
   const checkPosition = () => {
     if (window.pageYOffset > 300) {

@@ -2,16 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 
 import Portfolio from '../src/pages/Portfolio/Portfolio';
+import Header from '../src/components/Header/Header';
 import Footer from '../src/components/Footer/Footer';
-
-import dynamic from 'next/dynamic';
-
-const Header = dynamic(
-  () => {
-    return import('../src/components/Header/Header');
-  },
-  { ssr: false },
-);
 
 const PortfolioPage = ({ data }) => (
   <>
@@ -34,7 +26,7 @@ const PortfolioPage = ({ data }) => (
 
 PortfolioPage.getInitialProps = async () => {
   const data = await fetch(
-    'https://czarogrod-backend-strapi.herokuapp.com/portfolio-cards',
+    'https://czarogrod-backend-strapi.herokuapp.com/portfolio-cards'
   ).then((res) => res.json());
 
   return { data };

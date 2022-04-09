@@ -2,16 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 
 import Article from '../../src/pages/Article/Article';
+import Header from '../../src/components/Header/Header';
 import Footer from '../../src/components/Footer/Footer';
-
-import dynamic from 'next/dynamic';
-
-const Header = dynamic(
-  () => {
-    return import('../../src/components/Header/Header');
-  },
-  { ssr: false },
-);
 
 const Post = ({ article }) => (
   <>
@@ -28,7 +20,9 @@ const Post = ({ article }) => (
 );
 
 Post.getInitialProps = async function (ctx) {
-  const res = await fetch(`https://czarogrod-backend-strapi.herokuapp.com/posts/${ctx.query.id}`);
+  const res = await fetch(
+    `https://czarogrod-backend-strapi.herokuapp.com/posts/${ctx.query.id}`
+  );
   const article = await res.json();
 
   return {

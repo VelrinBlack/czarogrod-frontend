@@ -2,16 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 
 import Questions from '../src/pages/Questions/Questions';
+import Header from '../src/components/Header/Header';
 import Footer from '../src/components/Footer/Footer';
-
-import dynamic from 'next/dynamic';
-
-const Header = dynamic(
-  () => {
-    return import('../src/components/Header/Header');
-  },
-  { ssr: false },
-);
 
 const Pytania = ({ data }) => (
   <>
@@ -34,7 +26,7 @@ const Pytania = ({ data }) => (
 
 Pytania.getInitialProps = async () => {
   const data = await fetch(
-    'https://czarogrod-backend-strapi.herokuapp.com/questions',
+    'https://czarogrod-backend-strapi.herokuapp.com/questions'
   ).then((res) => res.json());
 
   return { data };
