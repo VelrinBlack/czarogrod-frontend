@@ -9,9 +9,6 @@ import { MobileNavigation, DesktopNavigation } from './NavbarStyles';
 
 import Tab from './Tab/Tab';
 
-import logo from '../../../../public/images/other/logo.png';
-import subtitle from '../../../../public/images/other/subtitle.png';
-
 const Navbar = () => {
   const [aboutActive, setAboutActive] = useState(false);
   const [homeActive, setHomeActive] = useState(false);
@@ -65,8 +62,12 @@ const Navbar = () => {
             });
           }}
         >
-          <img src={logo} alt='logo' className='logo-img' />
-          <img src={subtitle} alt='subtitle' className='subtitle-img' />
+          <img src='/images/other/logo.webp' alt='logo' className='logo-img' />
+          <img
+            src='/images/other/subtitle.webp'
+            alt='subtitle'
+            className='subtitle-img'
+          />
         </a>
 
         <button
@@ -76,7 +77,9 @@ const Navbar = () => {
               : () => setHamburgerActive(true)
           }
           className={
-            hamburgerActive ? 'hamburger-btn hamburger-btn-active' : 'hamburger-btn'
+            hamburgerActive
+              ? 'hamburger-btn hamburger-btn-active'
+              : 'hamburger-btn'
           }
         >
           <div>
@@ -86,9 +89,18 @@ const Navbar = () => {
 
         <nav onClick={() => setHamburgerActive(false)}>
           <ul className={hamburgerActive ? 'navigation active' : 'navigation'}>
-            <Tab path='/' name='HOME' location={router.pathname} home={homeActive} />
+            <Tab
+              path='/'
+              name='HOME'
+              location={router.pathname}
+              home={homeActive}
+            />
             <Tab path='/oferta' name='OFERTA' location={router.pathname} />
-            <Tab path='/portfolio' name='PORTFOLIO' location={router.pathname} />
+            <Tab
+              path='/portfolio'
+              name='PORTFOLIO'
+              location={router.pathname}
+            />
             <Tab path='/pytania' name='PYTANIA' location={router.pathname} />
             <Tab path='/blog' name='BLOG' location={router.pathname} />
             <Tab
@@ -119,8 +131,12 @@ const Navbar = () => {
             });
           }}
         >
-          <img src={logo} alt='logo' className='logo-img' />
-          <img src={subtitle} alt='subtitle' className='subtitle-img' />
+          <img src='/images/other/logo.webp' alt='logo' className='logo-img' />
+          <img
+            src='/images/other/subtitle.webp'
+            alt='subtitle'
+            className='subtitle-img'
+          />
         </a>
         <ul className='navigation' onClick={() => forceUpdate()}>
           <Tab
@@ -131,7 +147,11 @@ const Navbar = () => {
             home={homeActive}
           />
           <Tab path='/oferta' name='OFERTA' location={window.location.href} />
-          <Tab path='/portfolio' name='PORTFOLIO' location={window.location.href} />
+          <Tab
+            path='/portfolio'
+            name='PORTFOLIO'
+            location={window.location.href}
+          />
           <Tab path='/pytania' name='PYTANIA' location={window.location.href} />
           <Tab path='/blog' name='BLOG' location={window.location.href} />
           <Tab

@@ -5,7 +5,6 @@ import Image from 'next/image';
 import axios from 'axios';
 
 import { StyledContainer } from './FormStyles';
-import contactImg from '../../../../public/images/other/contact-img.jpg';
 
 import {
   handleNameError,
@@ -121,7 +120,7 @@ const Form = () => {
       <StyledContainer>
         <div className='image-container'>
           <Image
-            src='/images/other/contact-img.jpg'
+            src='/images/other/contact-img.webp'
             alt='słonecznik'
             layout='fill'
           />

@@ -118,27 +118,27 @@ export const StyledContainer = styled.div`
     }
 
     .slide1 {
-      background-image: url('/images/slider/1.jpg');
+      background-image: url('/images/slider/1.webp');
       @media (max-width: 1024px) {
-        background-image: url('/images/slider/1-mobile.jpg');
+        background-image: url('/images/slider/1-mobile.webp');
       }
     }
     .slide2 {
-      background-image: url('/images/slider/2.jpg');
+      background-image: url('/images/slider/2.webp');
       @media (max-width: 1024px) {
-        background-image: url('/images/slider/2-mobile.jpg');
+        background-image: url('/images/slider/2-mobile.webp');
       }
     }
     .slide3 {
-      background-image: url('/images/slider/3.jpg');
+      background-image: url('/images/slider/3.webp');
       @media (max-width: 1024px) {
-        background-image: url('/images/slider/3-mobile.jpg');
+        background-image: url('/images/slider/3-mobile.webp');
       }
     }
     .slide4 {
-      background-image: url('/images/slider/4.jpg');
+      background-image: url('/images/slider/4.webp');
       @media (max-width: 1024px) {
-        background-image: url('/images/slider/4-mobile.jpg');
+        background-image: url('/images/slider/4-mobile.webp');
       }
     }
   }
