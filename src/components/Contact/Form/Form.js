@@ -1,9 +1,11 @@
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import axios from 'axios';
 
 import { StyledContainer } from './FormStyles';
+import contactImg from '../../../../public/images/other/contact-img.jpg';
 
 import {
   handleNameError,
@@ -117,7 +119,13 @@ const Form = () => {
   return (
     <>
       <StyledContainer>
-        <img src='/images/other/contakt-img.jpg' alt='słonecznik' />
+        <div className='image-container'>
+          <Image
+            src='/images/other/contact-img.jpg'
+            alt='słonecznik'
+            layout='fill'
+          />
+        </div>
 
         <form onSubmit={(e) => handleSubmit(e)}>
           <h1>Kontakt</h1>

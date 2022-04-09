@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
   width: 100%;
@@ -13,14 +13,17 @@ export const StyledContainer = styled.div`
     margin-bottom: 300px;
   }
 
-  img {
+  .image-container {
+    position: relative;
     width: 35%;
     height: 1000px;
 
     margin-top: 100px;
 
-    object-fit: cover;
-    object-position: center;
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
 
     @media (max-width: 1280px) {
       display: none;
