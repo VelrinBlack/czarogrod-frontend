@@ -13,12 +13,12 @@ const Home = ({ data }) => {
       <About />
       <News data={data} />
       <SingleSlide
-        image='/images/slider/1.jpg'
+        image='/images/slider/1.webp'
         location='/oferta'
         text='Zobacz szczegóły oferty'
       />
       <SingleSlide
-        image='/images/slider/3.jpg'
+        image='/images/slider/3.webp'
         location='/pytania'
         text='Sprawdź, o co pytają klienci'
       />

@@ -10,11 +10,11 @@ const Pytania = ({ data }) => (
     <Head>
       <meta
         property='og:image'
-        content='https://czarogrod.pl/images/other/logo.png'
+        content='https://czarogrod.pl/images/other/logo.webp'
       />
       <meta
         property='og:image:secure_url'
-        content='https://czarogrod.pl/images/other/logo.png'
+        content='https://czarogrod.pl/images/other/logo.webp'
       />
       <title>Czarogród | Pytania</title>
     </Head>

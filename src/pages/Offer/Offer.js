@@ -15,13 +15,13 @@ const Offer = ({ data }) => {
       <SingleSlide
         text='Masz wątpliwości? Zobacz o co pytają klienci'
         location='/pytania'
-        image={'/images/slider/3.jpg'}
+        image={'/images/slider/3.webp'}
       />
 
       <SingleSlide
         text='Sprawdź moje ostatnie projekty'
         location='/portfolio'
-        image={'/images/slider/2.jpg'}
+        image={'/images/slider/2.webp'}
       />
     </>
   );

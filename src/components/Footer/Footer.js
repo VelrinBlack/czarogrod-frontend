@@ -11,7 +11,7 @@ const Footer = () => {
         <div className='box-container'>
           <div className='logo-box box'>
             <img
-              src='/images/other/logo.png'
+              src='/images/other/logo.webp'
               alt='logo'
               className='logo'
               loading='lazy'

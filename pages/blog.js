@@ -14,16 +14,17 @@ const BlogPage = () => {
     ).then((res) => res.json());
     setData(data);
   }, []);
+
   return (
     <>
       <Head>
         <meta
           property='og:image'
-          content='https://czarogrod.pl/images/other/logo.png'
+          content='https://czarogrod.pl/images/other/logo.webp'
         />
         <meta
           property='og:image:secure_url'
-          content='https://czarogrod.pl/images/other/logo.png'
+          content='https://czarogrod.pl/images/other/logo.webp'
         />
         <title>Czarogród | Blog</title>
       </Head>

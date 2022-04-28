@@ -31,13 +31,13 @@ const Blog = ({ data }) => {
       <SingleSlide
         text='Chcesz zlecić wykonanie projektu? Sprawdź szczegóły oferty'
         location='/oferta'
-        image='/images/slider/1.jpg'
+        image='/images/slider/1.webp'
       />
 
       <SingleSlide
         text='Potrzebujesz pomocy? Zadzwoń lub napisz'
         location='/kontakt'
-        image='/images/slider/4.jpg'
+        image='/images/slider/4.webp'
       />
     </>
   );
