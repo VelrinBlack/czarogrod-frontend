@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
   width: 100%;
-  height: 1000px;
+  height: 800px;
 
   display: flex;
   justify-content: center;
@@ -12,17 +12,21 @@ export const StyledContainer = styled.div`
   background-color: #f2f2f2;
 
   @media (max-width: 1024px) {
-    height: 1400px;
+    height: 1300px;
   }
   @media (max-width: 599px) {
-    height: 1700px;
+    height: 1400px;
   }
 
   .container {
-    width: 80%;
+    width: 70%;
 
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 1400px) {
+      width: 80%;
+    }
 
     @media (max-width: 1024px) {
       flex-direction: column;
@@ -55,18 +59,20 @@ export const StyledContainer = styled.div`
       }
 
       h2 {
+        margin-top: 0;
         margin-bottom: 10px;
         font-size: 50px;
       }
 
       p {
+        margin: 10px 0;
         font-size: 16px;
         line-height: 25px;
       }
     }
 
     .image-container {
-      width: 500px;
+      width: 450px;
 
       display: flex;
       align-items: center;
@@ -81,7 +87,7 @@ export const StyledContainer = styled.div`
 
       img {
         width: 100%;
-        height: 700px;
+        height: 600px;
 
         z-index: 1;
         box-shadow: 25px 25px 0 0 #399ca1;
@@ -89,11 +95,12 @@ export const StyledContainer = styled.div`
         object-fit: cover;
 
         @media (max-width: 1024px) {
-          height: 500px;
+          height: 600px;
           margin-top: 50px;
           box-shadow: 20px 20px 0 0 #399ca1;
         }
-        @media (max-width: 599px) {
+        @media (max-width: 400px) {
+          height: 500px;
           margin-top: 0;
           box-shadow: 15px 15px 0 0 #399ca1;
         }
