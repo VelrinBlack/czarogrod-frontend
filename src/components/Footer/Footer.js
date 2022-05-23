@@ -10,12 +10,7 @@ const Footer = () => {
       <div className='container'>
         <div className='box-container'>
           <div className='logo-box box'>
-            <img
-              src='/images/other/logo.webp'
-              alt='logo'
-              className='logo'
-              loading='lazy'
-            />
+            <img src='/images/other/logo.webp' alt='logo' className='logo' loading='lazy' />
           </div>
         </div>
         <div className='box-container'>
@@ -57,14 +52,24 @@ const Footer = () => {
         <div className='box-container'>
           <div className='contact-box box'>
             <p className='text'>
-              Skontaktuj się ze mną używając poniższych danych lub wypełnij
-              formularz w zakładce KONTAKT, a ja odezwę się do Ciebie.
+              Skontaktuj się ze mną używając poniższych danych lub wypełnij formularz w zakładce
+              KONTAKT, a ja odezwę się do Ciebie.
             </p>
             <div className='contact-data'>
               <p className='phone-number'>
                 nr telefonu:
                 <br />
-                <a href='tel:+48784880484'>+48 784 880 484</a>
+                <a
+                  href='tel:+48784880484'
+                  onClick={() =>
+                    gtag('event', 'telefon', {
+                      'event_category': 'kontakt',
+                      'event_label': '+48784880484 ',
+                    })
+                  }
+                >
+                  +48 784 880 484
+                </a>
               </p>
               <p className='email-address'>
                 adres e-mail:
@@ -79,11 +84,7 @@ const Footer = () => {
                 rel='noopener noreferrer'
                 className='link'
               >
-                <img
-                  src='/images/social_media/facebook.svg'
-                  alt='facebook logo'
-                  className='logo'
-                />
+                <img src='/images/social_media/facebook.svg' alt='facebook logo' className='logo' />
               </a>
               <a
                 href='https://www.instagram.com/czarogrod.pl/?hl=pl'

@@ -32,10 +32,8 @@ const App = ({ Component, pageProps }) => (
       ></meta>
 
       {/* Google Analytics tag */}
-      <script
-        async
-        src='https://www.googletagmanager.com/gtag/js?id=G-ZW0DS1LNZZ'
-      ></script>
+      <script async src='https://www.googletagmanager.com/gtag/js?id=G-ZW0DS1LNZZ'></script>
+      <script async src='https://www.googletagmanager.com/gtag/js?id=UA-228917940-1'></script>
       <script
         dangerouslySetInnerHTML={{
           __html: `
@@ -44,6 +42,8 @@ const App = ({ Component, pageProps }) => (
           gtag('js', new Date());
           
           gtag('config', 'G-ZW0DS1LNZZ');
+          gtag('config', 'AW-10903521023');
+          gtag('config', 'UA-228917940-1');
           `,
         }}
       />

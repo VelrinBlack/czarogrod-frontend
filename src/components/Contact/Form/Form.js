@@ -58,7 +58,7 @@ const Form = () => {
     setRodoError(handleRodoError(target.checked));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e, url) => {
     e.preventDefault();
 
     if (!email) {
@@ -113,17 +113,24 @@ const Form = () => {
     } else {
       setSend('');
     }
+
+    var callback = function () {
+      if (typeof url != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+      'send_to': 'AW-10903521023/cgD3CJyHmL4DEP-Nms8o',
+      'event_callback': callback,
+    });
+    return false;
   };
 
   return (
     <>
       <StyledContainer>
         <div className='image-container'>
-          <Image
-            src='/images/other/contact-img.webp'
-            alt='słonecznik'
-            layout='fill'
-          />
+          <Image src='/images/other/contact-img.webp' alt='słonecznik' layout='fill' />
         </div>
 
         <form onSubmit={(e) => handleSubmit(e)}>
@@ -181,14 +188,12 @@ const Form = () => {
                 className='rodo-checkbox'
               />
               <span>
-                (wymagane) Wyrażam zgodę na przetwarzanie moich danych osobowych
-                zgodnie z ustawą o ochronie danych osobowych w związku z
-                wysłaniem zapytania przez formularz kontaktowy. Podanie danych
-                jest niezbędne do przetworzenia zapytania. Zostałem
-                poinformowany o prawie dostępu do swoich danych, możliwości ich
-                edytowania oraz żądania zaprzestania ich przetwarzania.
-                Administratorem danych osobowych jest właściciel serwisu
-                CzarOgród.pl.
+                (wymagane) Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z ustawą o
+                ochronie danych osobowych w związku z wysłaniem zapytania przez formularz
+                kontaktowy. Podanie danych jest niezbędne do przetworzenia zapytania. Zostałem
+                poinformowany o prawie dostępu do swoich danych, możliwości ich edytowania oraz
+                żądania zaprzestania ich przetwarzania. Administratorem danych osobowych jest
+                właściciel serwisu CzarOgród.pl.
               </span>
               <br />
               <br />
