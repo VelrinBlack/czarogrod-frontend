@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Slider from '../../components/Home/Slider/Slider';
 import About from '../../components/Home/About/About';
+import Offer from '../../components/Home/Offer/Offer';
 import News from '../../components/Home/News/News';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
 
@@ -11,6 +12,7 @@ const Home = ({ data }) => {
     <>
       <Slider />
       <About />
+      <Offer />
       <News data={data} />
       <SingleSlide
         image='/images/slider/1.webp'

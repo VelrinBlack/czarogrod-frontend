@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledContainer = styled.div`
+const StyledWrapper = styled.div`
   width: 100%;
   height: 800px;
 
@@ -8,8 +8,6 @@ export const StyledContainer = styled.div`
   justify-content: center;
 
   margin: 70px auto 0 auto;
-
-  background-color: #f2f2f2;
 
   @media (max-width: 1024px) {
     height: 1300px;
@@ -58,16 +56,44 @@ export const StyledContainer = styled.div`
         text-align: start;
       }
 
-      h2 {
-        margin-top: 0;
-        margin-bottom: 10px;
-        font-size: 50px;
-      }
-
       p {
         margin: 10px 0;
         font-size: 16px;
         line-height: 25px;
+      }
+
+      .see-more {
+        width: 250px;
+        height: 50px;
+
+        display: block;
+
+        padding: 10px 20px;
+        margin: 50px 0 0 50%;
+
+        text-align: center;
+        font-size: 16px;
+        font-weight: 700;
+        color: #399ca1;
+        text-decoration: none;
+        letter-spacing: 1.5px;
+
+        background-color: #fff;
+        border: 3px solid #399ca1;
+        border-radius: 4px;
+
+        transform: translateX(-50%);
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 0;
+
+        &:hover {
+          box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        &:focus {
+          outline: none;
+        }
       }
     }
 
@@ -96,10 +122,12 @@ export const StyledContainer = styled.div`
 
         @media (max-width: 1024px) {
           height: 600px;
-          margin-top: 50px;
+          margin-bottom: 50px;
           box-shadow: 20px 20px 0 0 #399ca1;
         }
       }
     }
   }
 `;
+
+export default StyledWrapper;
