@@ -17,14 +17,14 @@ const Home = ({ data: { posts, portfolioCards } }) => {
       <Portfolio data={portfolioCards} />
       <News data={posts} />
       <SingleSlide
-        image='/images/slider/1.webp'
-        location='/oferta'
-        text='Zobacz szczegóły oferty'
-      />
-      <SingleSlide
         image='/images/slider/3.webp'
         location='/pytania'
         text='Sprawdź, o co pytają klienci'
+      />
+      <SingleSlide
+        image='/images/slider/4.webp'
+        location='/kontakt'
+        text='Masz więcej pytań? Zadzwoń lub napisz'
       />
     </>
   );
