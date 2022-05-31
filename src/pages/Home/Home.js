@@ -4,16 +4,18 @@ import PropTypes from 'prop-types';
 import Slider from '../../components/Home/Slider/Slider';
 import About from '../../components/Home/About/About';
 import Offer from '../../components/Home/Offer/Offer';
+import Portfolio from '../../components/Home/Portfolio/Portfolio';
 import News from '../../components/Home/News/News';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
 
-const Home = ({ data }) => {
+const Home = ({ data: { posts, portfolioCards } }) => {
   return (
     <>
       <Slider />
       <About />
       <Offer />
-      <News data={data} />
+      <Portfolio data={portfolioCards} />
+      <News data={posts} />
       <SingleSlide
         image='/images/slider/1.webp'
         location='/oferta'

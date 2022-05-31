@@ -10,8 +10,9 @@ const Offer = () => (
       <div className='text-container'>
         <p>
           Moje portfolio obejmuje przekrój rozmaitych projektów: od niewielkich miejskich tarasów,
-          przez podmiejskie ogrody, aż do wiejskich kilkudziesięcioarowych siedlisk.{' '}
+          przez podmiejskie ogrody, aż do wiejskich kilkudziesięcioarowych siedlisk.
         </p>
+
         <p>
           <ul>
             <li>Mały balkon pośrodku miejskiej dżungli? Witaj nowa oazo relaksu!</li>
@@ -22,10 +23,12 @@ const Offer = () => (
             <li>Nieforemna działka z dużym spadkiem? Projety specjalne to moja specjalność!</li>
           </ul>
         </p>
+
         <p>
           Współpracjuję ze sprawdzoną firmą wykonawczą, która szybko i sprawnie zrealizuje każdy mój
           projekt od A do Z.
         </p>
+
         <a
           className='see-more'
           href={`/oferta`}

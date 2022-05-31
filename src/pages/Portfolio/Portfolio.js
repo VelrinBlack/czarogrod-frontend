@@ -3,6 +3,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { StyledContainer } from './PortfolioStyles';
 import Card from '../../components/Portfolio/Card/Card';
 import SingleSlide from '../../components/SingleSlide/SingleSlide';
+
 const Portfolio = ({ data }) => {
   return (
     <>
@@ -11,8 +12,7 @@ const Portfolio = ({ data }) => {
 
         <h2>Poniżej możesz zobaczyć niektóre z moich projektów.</h2>
         <h2 className='margin'>
-          Jeśli jesteś zainteresowany, zadzwoń lub napisz i zamów indywidualną
-          wycenę.
+          Jeśli jesteś zainteresowany, zadzwoń lub napisz i zamów indywidualną wycenę.
         </h2>
 
         <div className='cardsContainer'>

@@ -13,18 +13,20 @@ const fetcher = async (url) => {
 };
 
 const Index = () => {
-  const { data, error } = useSWR(
+  const { data: posts, error: postsError } = useSWR(
     'https://czarogrod-backend-strapi.herokuapp.com/posts',
-    fetcher
+    fetcher,
+  );
+
+  const { data: portfolioCards, error: portfolioCardsError } = useSWR(
+    'https://czarogrod-backend-strapi.herokuapp.com/portfolio-cards',
+    fetcher,
   );
 
   return (
     <>
       <Head>
-        <meta
-          property='og:image'
-          content='https://czarogrod.pl/images/other/logo.webp'
-        />
+        <meta property='og:image' content='https://czarogrod.pl/images/other/logo.webp' />
         <meta
           property='og:image:secure_url'
           content='https://czarogrod.pl/images/other/logo.webp'
@@ -32,7 +34,7 @@ const Index = () => {
         <title>Czarogród</title>
       </Head>
       <Header />
-      <Home data={data} />
+      <Home data={{ posts, portfolioCards }} />
       <Footer />
     </>
   );
