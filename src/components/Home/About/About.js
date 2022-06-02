@@ -8,7 +8,6 @@ const About = () => {
       <a name='omnie'></a>
       <div className='container'>
         <div className='text-container'>
-          <h2>O mnie</h2>
           <p>Dzień dobry. Witaj w Czarogrodzie.</p>
 
           <p>

@@ -58,12 +58,6 @@ export const StyledContainer = styled.div`
         text-align: start;
       }
 
-      h2 {
-        margin-top: 0;
-        margin-bottom: 10px;
-        font-size: 50px;
-      }
-
       p {
         margin: 10px 0;
         font-size: 16px;
