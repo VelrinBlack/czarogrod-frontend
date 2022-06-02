@@ -15,7 +15,6 @@ const Home = ({ data: { posts, portfolioCards } }) => {
       <About />
       <Offer />
       <Portfolio data={portfolioCards} />
-      <News data={posts} />
       <SingleSlide
         image='/images/slider/3.webp'
         location='/pytania'
