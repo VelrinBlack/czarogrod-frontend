@@ -6,6 +6,10 @@ export const StyledContainer = styled.div`
     height: 400px;
 
     object-fit: cover;
+
+    @media (max-width: 768px) {
+      height: 200px;
+    }
   }
 
   p {
