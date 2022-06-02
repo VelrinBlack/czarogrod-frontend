@@ -7,10 +7,8 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
 
-  margin: 70px auto 0 auto;
-
   @media (max-width: 1024px) {
-    height: 1300px;
+    height: 1230px;
   }
   @media (max-width: 599px) {
     height: 1400px;

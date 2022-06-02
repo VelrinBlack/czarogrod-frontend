@@ -23,10 +23,6 @@ const StyledWrapper = styled.div`
       width: 80%;
     }
 
-    @media (max-width: 1024px) {
-      margin: 90px auto;
-    }
-
     @media (max-width: 768px) {
       width: 90%;
     }
