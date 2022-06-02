@@ -6,7 +6,10 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
 
-  margin: 70px auto 0 auto;
+  padding-top: 50px;
+  margin: 70px auto 100px auto;
+
+  background-color: #f2f2f2;
 
   .container {
     width: 70%;
@@ -85,7 +88,7 @@ const StyledWrapper = styled.div`
       text-decoration: none;
       letter-spacing: 1.5px;
 
-      background-color: #fff;
+      background-color: transparent;
       border: 3px solid #399ca1;
       border-radius: 4px;
 
