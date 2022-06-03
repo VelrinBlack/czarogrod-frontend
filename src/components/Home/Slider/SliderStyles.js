@@ -8,7 +8,7 @@ export const StyledContainer = styled.div`
       position: relative;
 
       width: 100%;
-      height: 400px;
+      height: 300px;
 
       display: flex;
       flex-direction: column;
@@ -23,12 +23,12 @@ export const StyledContainer = styled.div`
 
       @media (max-width: 1024px) {
         margin-top: 20px;
-        height: 250px;
+        height: 200px;
       }
 
       .title {
         position: absolute;
-        top: 40%;
+        top: 25%;
         transform: translateY(-50%);
 
         width: 100vw;
@@ -54,7 +54,7 @@ export const StyledContainer = styled.div`
       }
       .btn {
         position: absolute;
-        top: 315px;
+        top: 230px;
         left: 50%;
         transform: translateX(-50%);
 
