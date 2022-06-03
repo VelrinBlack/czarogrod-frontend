@@ -16,6 +16,7 @@ const StyledWrapper = styled.div`
 
   .container {
     width: 70%;
+    max-width: 1200px;
 
     display: flex;
     justify-content: space-between;
