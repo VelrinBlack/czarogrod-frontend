@@ -45,6 +45,9 @@ export const StyledContainer = styled.div`
         letter-spacing: 2px;
 
         @media (max-width: 1024px) {
+          top: 50%;
+          transform: translateY(-50%);
+          margin: 0;
           font-size: 30px;
         }
 
@@ -82,8 +85,7 @@ export const StyledContainer = styled.div`
         z-index: 0;
 
         @media (max-width: 1024px) {
-          width: 140px;
-          height: 45px;
+          display: none;
         }
 
         &::before {
