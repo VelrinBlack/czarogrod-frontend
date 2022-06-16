@@ -135,7 +135,8 @@ export const StyledContainer = styled.div`
             }
 
             .link {
-              width: 30%;
+              width: 25%;
+              max-width: 100px;
 
               display: flex;
               justify-content: center;
@@ -144,7 +145,7 @@ export const StyledContainer = styled.div`
               border-radius: 10px;
 
               .logo {
-                width: 20%;
+                width: 18px;
 
                 @media (max-width: 1440px) {
                   width: 25%;

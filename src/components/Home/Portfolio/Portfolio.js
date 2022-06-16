@@ -15,7 +15,7 @@ const Portfolio = ({ data }) => (
         </p>
         <p>
           <ul>
-            <li>dokładnie dopasowany do Twoich potrzeb, unikalny i niepowtarzalny - jak Ty</li>
+            <li>dokładnie dopasowany do Twoich potrzeb, unikalny i niepowtarzalny - jak Ty,</li>
             <li>
               gotowy do realizacji: zarówno systemem gospodarczym, jak i przez każdą firmę
               wykonawczą,
@@ -31,29 +31,31 @@ const Portfolio = ({ data }) => (
           </ul>
         </p>
         <p>
-          Poniżej możesz zobaczyć niektóre z moich projektów. Zapraszam Cię do kontaktu, z chęcią
+          Tutaj możesz zobaczyć niektóre z moich projektów. Zapraszam Cię do kontaktu, z chęcią
           porozmawiam o Twoich oczekiwaniach.
         </p>
       </div>
 
-      <div className='images-container'>
-        {data && data.slice(0, 6).map(({ image }) => <img src={image.url} key={image._id} />)}
-      </div>
+      <div className='images-section-container'>
+        <div className='images-container'>
+          {data && data.slice(0, 6).map(({ image }) => <img src={image.url} key={image._id} />)}
+        </div>
 
-      <a
-        className='see-more'
-        href={`/portfolio`}
-        onClick={(e) => {
-          e.preventDefault();
-          router.push(`/portfolio`);
-          window.scroll({
-            top: 0,
-            behavior: 'smooth',
-          });
-        }}
-      >
-        Zobacz jak może wyglądać Twój przyszły ogród
-      </a>
+        <a
+          className='see-more'
+          href={`/portfolio`}
+          onClick={(e) => {
+            e.preventDefault();
+            router.push(`/portfolio`);
+            window.scroll({
+              top: 0,
+              behavior: 'smooth',
+            });
+          }}
+        >
+          Zobacz jak może wyglądać Twój przyszły ogród
+        </a>
+      </div>
     </div>
   </StyledWrapper>
 );

@@ -103,8 +103,8 @@ export const StyledContainer = styled.div`
 
       .facebook-logo,
       .instagram-logo {
-        width: 15px;
-        height: 15px;
+        width: 18px;
+        height: 18px;
 
         display: flex;
         align-items: center;
