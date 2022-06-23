@@ -68,27 +68,42 @@ const StyledWrapper = styled.div`
         margin-top: 40px;
 
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         grid-column-gap: 20px;
         grid-row-gap: 20px;
-
-        @media (max-width: 1024px) {
-          grid-template-columns: 1fr 1fr;
-        }
 
         @media (max-width: 768px) {
           grid-template-columns: 1fr;
           grid-column-gap: 0px;
         }
 
-        img {
+        .image {
+          position: relative;
           width: 100%;
           height: 200px;
 
-          object-fit: cover;
-
           @media (max-width: 1920px) {
             height: 150px;
+          }
+
+          img {
+            position: absolute;
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            object-fit: cover;
+            z-index: 2;
+          }
+
+          div {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+
+            background-color: #399ca1;
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+
+            z-index: 1;
           }
         }
       }
