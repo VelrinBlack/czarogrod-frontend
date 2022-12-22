@@ -10,7 +10,7 @@ const BlogPage = () => {
 
   useEffect(async () => {
     const data = await fetch(
-      'https://czarogrod-backend-strapi.herokuapp.com/posts'
+      'https://czarogrod-backend-strapi-2.herokuapp.com/posts'
     ).then((res) => res.json());
     setData(data);
   }, []);

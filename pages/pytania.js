@@ -26,7 +26,7 @@ const Pytania = ({ data }) => (
 
 Pytania.getInitialProps = async () => {
   const data = await fetch(
-    'https://czarogrod-backend-strapi.herokuapp.com/questions'
+    'https://czarogrod-backend-strapi-2.herokuapp.com/questions'
   ).then((res) => res.json());
 
   return { data };

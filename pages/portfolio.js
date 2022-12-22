@@ -26,7 +26,7 @@ const PortfolioPage = ({ data }) => (
 
 PortfolioPage.getInitialProps = async () => {
   const data = await fetch(
-    'https://czarogrod-backend-strapi.herokuapp.com/portfolio-cards'
+    'https://czarogrod-backend-strapi-2.herokuapp.com/portfolio-cards'
   ).then((res) => res.json());
 
   return { data };

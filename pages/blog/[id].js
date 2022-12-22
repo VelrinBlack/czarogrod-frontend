@@ -21,7 +21,7 @@ const Post = ({ article }) => (
 
 Post.getInitialProps = async function (ctx) {
   const res = await fetch(
-    `https://czarogrod-backend-strapi.herokuapp.com/posts/${ctx.query.id}`
+    `https://czarogrod-backend-strapi-2.herokuapp.com/posts/${ctx.query.id}`
   );
   const article = await res.json();
 

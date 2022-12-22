@@ -26,7 +26,7 @@ const Oferta = ({ data }) => (
 
 Oferta.getInitialProps = async (ctx) => {
   const data = await fetch(
-    'https://czarogrod-backend-strapi.herokuapp.com/offer'
+    'https://czarogrod-backend-strapi-2.herokuapp.com/offer'
   ).then((res) => res.json());
   return { data };
 };
