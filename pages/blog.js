@@ -10,7 +10,7 @@ const BlogPage = () => {
 
   useEffect(async () => {
     const data = await fetch(
-      'https://czarogrod-backend-strapi-2.herokuapp.com/posts'
+      'https://czarogrod-backend-strapi-2.herokuapp.com/posts?_sort=createdAt',
     ).then((res) => res.json());
     setData(data);
   }, []);
@@ -18,10 +18,7 @@ const BlogPage = () => {
   return (
     <>
       <Head>
-        <meta
-          property='og:image'
-          content='https://czarogrod.pl/images/other/logo.webp'
-        />
+        <meta property='og:image' content='https://czarogrod.pl/images/other/logo.webp' />
         <meta
           property='og:image:secure_url'
           content='https://czarogrod.pl/images/other/logo.webp'

@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "export NODE_OPTIONS=--openssl-legacy-provider; next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider; next start"
   },
   "dependencies": {
     "@babel/core": "^7.11.6",
